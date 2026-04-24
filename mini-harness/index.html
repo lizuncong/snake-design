@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini Claude Design — Agent Harness Demo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Menlo', 'Consolas', monospace; background: #1a1a1a; color: #e0e0e0; display: flex; height: 100vh; }
+    #log { flex: 1; overflow-y: auto; padding: 16px; font-size: 13px; line-height: 1.6; white-space: pre-wrap; word-break: break-all; }
+    .user { color: #8bb4f9; }
+    .assistant { color: #d4a6e0; }
+    .tool-call { color: #7ec699; }
+    .tool-result { color: #e6c07b; }
+    .system { color: #888; }
+    .done { color: #58a6ff; border-top: 1px solid #333; margin-top: 8px; padding-top: 8px; }
+    .error { color: #f56c6c; }
+    #input-area { display: flex; border-top: 1px solid #333; padding: 12px; background: #222; }
+    #input { flex: 1; background: #333; border: 1px solid #555; color: #e0e0e0; padding: 8px 12px; font-family: inherit; font-size: 13px; border-radius: 4px; outline: none; }
+    #input:focus { border-color: #8bb4f9; }
+    #send { background: #8bb4f9; color: #1a1a1a; border: none; padding: 8px 20px; font-family: inherit; font-size: 13px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-left: 8px; }
+    #send:hover { background: #a0c4ff; }
+    #send:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* API Key 弹窗 */
+    #api-key-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 100; justify-content: center; align-items: center; }
+    #api-key-overlay.active { display: flex; }
+    #api-key-dialog { background: #2a2a2a; border: 1px solid #555; border-radius: 8px; padding: 24px; width: 480px; max-width: 90vw; }
+    #api-key-dialog h2 { font-size: 16px; margin-bottom: 12px; color: #e0e0e0; }
+    #api-key-dialog p { font-size: 12px; color: #888; margin-bottom: 12px; line-height: 1.5; }
+    #api-key-input { width: 100%; background: #333; border: 1px solid #555; color: #e0e0e0; padding: 8px 12px; font-family: inherit; font-size: 13px; border-radius: 4px; outline: none; }
+    #api-key-input:focus { border-color: #8bb4f9; }
+    .dialog-buttons { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+    .dialog-buttons button { padding: 6px 16px; border-radius: 4px; border: none; cursor: pointer; font-family: inherit; font-size: 13px; }
+    .btn-primary { background: #8bb4f9; color: #1a1a1a; font-weight: bold; }
+    .btn-primary:hover { background: #a0c4ff; }
+    .btn-secondary { background: #444; color: #e0e0e0; }
+    .btn-secondary:hover { background: #555; }
+
+    /* 状态栏 */
+    #status-bar { display: flex; justify-content: space-between; align-items: center; padding: 4px 12px; background: #222; border-top: 1px solid #333; font-size: 11px; color: #666; }
+    #status-bar a { color: #8bb4f9; cursor: pointer; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div id="log"></div>
+  <div id="input-area">
+    <input id="input" placeholder="输入消息，如：帮我创建一个按钮组件" value="帮我创建一个按钮组件" />
+    <button id="send">发送</button>
+  </div>
+  <div id="status-bar">
+    <span id="model-info">glm-4-flash</span>
+    <span><a id="change-key-link">更换 API Key</a></span>
+  </div>
+
+  <!-- API Key 弹窗 -->
+  <div id="api-key-overlay">
+    <div id="api-key-dialog">
+      <h2>设置智谱 AI API Key</h2>
+      <p>请输入你的智谱 AI API Key。前往 <a href="https://open.bigmodel.cn" target="_blank" style="color: #8bb4f9;">open.bigmodel.cn</a> 注册并获取。Key 将保存在浏览器本地存储中。</p>
+      <input id="api-key-input" type="password" placeholder="请输入 API Key..." />
+      <div class="dialog-buttons">
+        <button class="btn-secondary" id="api-key-cancel">取消</button>
+        <button class="btn-primary" id="api-key-confirm">确认</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { runAgent } from './agent.js';
+    import { getApiKey, setApiKey, hasApiKey } from './llm.js';
+
+    const logEl = document.getElementById('log');
+    const inputEl = document.getElementById('input');
+    const sendEl = document.getElementById('send');
+    const overlay = document.getElementById('api-key-overlay');
+    const apiKeyInput = document.getElementById('api-key-input');
+    const confirmBtn = document.getElementById('api-key-confirm');
+    const cancelBtn = document.getElementById('api-key-cancel');
+    const changeKeyLink = document.getElementById('change-key-link');
+
+    function log(text, cls = '') {
+      const span = document.createElement('span');
+      span.className = cls;
+      span.textContent = text;
+      logEl.appendChild(span);
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    function logLine(text, cls = '') {
+      log(text + '\n', cls);
+    }
+
+    // API Key 弹窗逻辑
+    function showApiKeyDialog() {
+      overlay.classList.add('active');
+      apiKeyInput.value = getApiKey();
+      apiKeyInput.focus();
+    }
+
+    function hideApiKeyDialog() {
+      overlay.classList.remove('active');
+    }
+
+    confirmBtn.addEventListener('click', () => {
+      const key = apiKeyInput.value.trim();
+      if (!key) return;
+      setApiKey(key);
+      hideApiKeyDialog();
+      logLine('API Key 已设置。\n', 'system');
+    });
+
+    cancelBtn.addEventListener('click', hideApiKeyDialog);
+
+    apiKeyInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') confirmBtn.click();
+      if (e.key === 'Escape') hideApiKeyDialog();
+    });
+
+    changeKeyLink.addEventListener('click', showApiKeyDialog);
+
+    // 页面加载时检查 API Key
+    if (!hasApiKey()) {
+      logLine('请先设置智谱 AI API Key 后再使用。\n', 'system');
+      showApiKeyDialog();
+    } else {
+      logLine('API Key 已加载，可以开始使用。\n', 'system');
+    }
+
+    let running = false;
+
+    async function handleSend() {
+      if (running) return;
+
+      if (!hasApiKey()) {
+        showApiKeyDialog();
+        return;
+      }
+
+      const userInput = inputEl.value.trim();
+      if (!userInput) return;
+
+      running = true;
+      sendEl.disabled = true;
+      sendEl.textContent = '思考中...';
+
+      logLine(`\n> ${userInput}\n`, 'user');
+
+      try {
+        const messages = await runAgent(userInput, {
+          onText(text) {
+            logLine(text, 'assistant');
+          },
+          onToolCall(name, input) {
+            logLine(`  ⚡ ${name}(${JSON.stringify(input).slice(0, 80)}${JSON.stringify(input).length > 80 ? '...' : ''})\n`, 'tool-call');
+          },
+          onToolResult(name, result) {
+            const display = result.length > 200 ? result.slice(0, 200) + '...' : result;
+            logLine(`  ✅ ${name} → ${display}\n`, 'tool-result');
+          },
+          onDone(usage) {
+            logLine(`\n  📊 tokens: ${usage.input_tokens + usage.output_tokens} (${usage.input_tokens} in + ${usage.output_tokens} out)`, 'done');
+          },
+          onSnip(before, after) {
+            logLine(`  ✂️ Snip: 裁剪了 ${before - after} 条消息\n`, 'system');
+          },
+        });
+
+        logLine('\n--- Agent 完成 ---\n', 'done');
+      } catch (err) {
+        logLine(`Error: ${err.message}\n`, 'error');
+        if (err.message.includes('API Key')) {
+          showApiKeyDialog();
+        }
+      }
+
+      running = false;
+      sendEl.disabled = false;
+      sendEl.textContent = '发送';
+    }
+
+    sendEl.addEventListener('click', handleSend);
+    inputEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        handleSend();
+      }
+    });
+  </script>
+</body>
+</html>
