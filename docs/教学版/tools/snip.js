@@ -4,6 +4,8 @@
 // 每条 user 消息携带 [id:mNNNN] 标签，snip 根据 from_id/to_id 标记要删除的范围
 // 注册是延迟的：只标记不删除，当 token 超阈值时批量执行
 
+import { setDebugInfo } from './index.js';
+
 let msgIdCounter = 0;
 
 /**
@@ -24,7 +26,7 @@ export function extractMsgId(content) {
 
 // 已注册的 snip 列表
 const registeredSnips = [];
-
+setDebugInfo('registeredSnips', registeredSnips);
 const snipTool = {
   name: 'snip',
   description: `Mark a range of conversation history for deferred removal.
@@ -42,6 +44,7 @@ Snips are a REGISTRATION system, not immediate deletion. Registering is cheap an
     required: ['from_id', 'to_id'],
   },
   async execute({ from_id, to_id, reason }) {
+    console.log('snip tool execute============', from_id, to_id, reason);
     registeredSnips.push({ from_id, to_id, reason });
     return `Snip registered (${registeredSnips.length} queued).`;
   },

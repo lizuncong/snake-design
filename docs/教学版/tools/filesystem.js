@@ -1,8 +1,10 @@
 // tools/filesystem.js — 文件系统工具（write_file, read_file, list_files）
 // 对应 Omelette 的 S4 工具组
+import { setDebugInfo } from './index.js';
 
 // 内存文件系统，模拟项目文件存储
 const fileStore = new Map();
+setDebugInfo('fileStore', fileStore);
 
 export function getFileStore() {
   return fileStore;
@@ -24,6 +26,7 @@ Overwrites if file already exists.`,
       required: ['path', 'content'],
     },
     async execute({ path, content }) {
+      console.log('write_file tool execute============', path, content);
       fileStore.set(path, content);
       return `Written ${path} (${content.length} chars)`;
     },
@@ -42,6 +45,7 @@ If the file doesn't exist, returns an error message.`,
     },
     async execute({ path }) {
       const content = fileStore.get(path);
+      console.log('read_file tool execute============', path, content);
       if (content === undefined) {
         return `Error: file not found: ${path}`;
       }
@@ -58,6 +62,7 @@ If the file doesn't exist, returns an error message.`,
     },
     async execute() {
       const files = [...fileStore.keys()];
+      console.log('list files tool execute============', files);
       if (files.length === 0) {
         return '(empty project)';
       }

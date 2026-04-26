@@ -147,17 +147,10 @@ function estimateTokens(messages, systemPrompt) {
   for (const msg of messages) {
     if (typeof msg.content === 'string') {
       chars += msg.content.length;
-    } else if (Array.isArray(msg.content)) {
-      for (const block of msg.content) {
-        if (block.type === 'text') {
-          chars += block.text.length;
-        } else if (block.type === 'tool_use') {
-          chars += JSON.stringify(block.input).length;
-        } else if (block.type === 'tool_result') {
-          chars += typeof block.content === 'string'
-            ? block.content.length
-            : JSON.stringify(block.content).length;
-        }
+    }
+    if (msg.tool_calls) {
+      for (const tc of msg.tool_calls) {
+        chars += tc.function.arguments.length;
       }
     }
   }
@@ -175,6 +168,7 @@ export async function runAgent(userInput, {
   onDone = () => {},
   onSnip = () => {},
 } = {}, existingMessages = []) {
+  console.log('runAgent userInput======================:', userInput, 'existingMessages：', JSON.parse(JSON.stringify(existingMessages)));
   const messages = existingMessages.length > 0 ? [...existingMessages] : [];
   const { getToolDefinitions } = await import('./tools/index.js');
   const rawTools = getToolDefinitions();

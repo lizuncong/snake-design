@@ -115,7 +115,7 @@ export async function callZhipuStream(messages, tools, systemPrompt, callbacks =
     body.tools = tools;
     body.tool_choice = 'auto';
   }
-
+  console.log('callZhipuStream body======================:', body);
   const resp = await fetch(ZHIPU_API_URL, {
     method: 'POST',
     headers: {
@@ -144,7 +144,6 @@ export async function callZhipuStream(messages, tools, systemPrompt, callbacks =
     tool_calls: [],
     usage: { prompt_tokens: 0, completion_tokens: 0 },
     finish_reason: null,
-    current_tool_index: -1,
   };
 
   while (true) {
@@ -168,6 +167,7 @@ export async function callZhipuStream(messages, tools, systemPrompt, callbacks =
 
       try {
         const chunk = JSON.parse(trimmed.slice(6));
+        console.log('callZhipuStream chunk======================:', chunk);
         const choice = chunk.choices?.[0];
         if (!choice) {
           continue;
@@ -187,7 +187,6 @@ export async function callZhipuStream(messages, tools, systemPrompt, callbacks =
             const idx = tc.index ?? 0;
             if (!accumulated.tool_calls[idx]) {
               accumulated.tool_calls[idx] = { id: '', type: 'function', function: { name: '', arguments: '' } };
-              accumulated.current_tool_index = idx;
             }
             if (tc.id) {
               accumulated.tool_calls[idx].id = tc.id;
@@ -217,10 +216,10 @@ export async function callZhipuStream(messages, tools, systemPrompt, callbacks =
   }
 
   if (callbacks.onDone) {
+    console.log('callZhipuStream accumulated onDone======================:', accumulated);
     callbacks.onDone(accumulated);
   }
-
-  return {
+  const result = {
     choices: [{
       message: {
         role: 'assistant',
@@ -231,4 +230,6 @@ export async function callZhipuStream(messages, tools, systemPrompt, callbacks =
     }],
     usage: accumulated.usage,
   };
+  console.log('callZhipuStream 流式输出最终结果======================:', result);
+  return result;
 }
