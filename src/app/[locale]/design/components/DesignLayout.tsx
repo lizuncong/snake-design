@@ -191,16 +191,6 @@ export function DesignLayout() {
       </div>
 
       <ApiKeyModal isOpen={showApiModal} onClose={() => setShowApiModal(false)} />
-
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-        .design-scrollbar ::-webkit-scrollbar { width: 6px; height: 6px; }
-        .design-scrollbar ::-webkit-scrollbar-track { background: transparent; }
-        .design-scrollbar ::-webkit-scrollbar-thumb { background: #334455; border-radius: 3px; }
-        .design-scrollbar ::-webkit-scrollbar-thumb:hover { background: #445566; }`,
-        }}
-      />
     </div>
   );
 }
