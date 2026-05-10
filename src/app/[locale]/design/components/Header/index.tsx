@@ -9,7 +9,7 @@ export function Header() {
     <header className="flex h-12 items-center justify-between border-b border-[#2a2a4a] bg-[#0f1929] px-4">
       <div className="flex items-center gap-3">
         <h1 className="text-sm font-bold tracking-tight text-[#e0e0e0]">
-          Mini
+          Snake
           {' '}
           <span className="text-[#8bb4f9]">Design</span>
         </h1>

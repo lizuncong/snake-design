@@ -50,6 +50,8 @@ export default antfu(
       'ts/consistent-type-definitions': ['error', 'type'], // Use `type` instead of `interface`
       'react/prefer-destructuring-assignment': 'off', // Vscode doesn't support automatically destructuring, it's a pain to add a new variable
       'node/prefer-global/process': 'off', // Allow using `process.env`
+      'react-hooks/set-state-in-effect': 'off', // Allow setting state in useEffect
+      'react-hooks-extra/no-direct-set-state-in-use-effect': 'off', // Allow setting state in useEffect
     },
   },
 );

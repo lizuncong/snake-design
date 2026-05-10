@@ -1,13 +1,15 @@
 'use client';
 
-import { useState } from 'react';
-import { getApiKey, hasApiKey, setApiKey } from '../../lib/llm';
+import { useEffect, useState } from 'react';
+import { getApiKey, setApiKey } from '../../lib/llm';
 
 export function ApiKeyModal() {
-  const isConnected = hasApiKey();
   const [isOpen, setIsOpen] = useState(false);
-  const [keyInput, setKeyInput] = useState(() => getApiKey());
-
+  const [keyInput, setKeyInput] = useState('');
+  const isConnected = !!keyInput;
+  useEffect(() => {
+    setKeyInput(getApiKey());
+  }, []);
   const handleOpen = () => {
     setKeyInput(getApiKey());
     setIsOpen(true);
