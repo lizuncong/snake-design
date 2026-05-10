@@ -50,7 +50,7 @@ export function PreviewPanel({ activeFile }: PreviewPanelProps) {
   };
 
   return (
-    <section className="flex min-w-[400px] flex-1 flex-col bg-[#0d1117]">
+    <section className="flex  h-full  flex-col bg-[#0d1117]">
       <div className="flex items-center justify-between border-b border-[#2a2a4a] bg-[#0f3460] px-4 py-3">
         <div className="flex items-center gap-2">
           <span className="h-1.75 w-1.75 rounded-full bg-[#7ec699]" />
@@ -60,14 +60,14 @@ export function PreviewPanel({ activeFile }: PreviewPanelProps) {
           <button
             onClick={handleRefresh}
             disabled={!activeFile}
-            className="cursor-pointer rounded border border-solid border-[#334466] bg-[#1a2744] px-2.5 py-1 text-[11px] text-[#8bb4f9] outline-none transition-colors duration-150 hover:bg-[#243355] disabled:cursor-not-allowed disabled:opacity-40"
+            className="cursor-pointer rounded border border-solid border-[#334466] bg-[#1a2744] px-2.5 py-1 text-[11px] text-[#8bb4f9] transition-colors duration-150 outline-none hover:bg-[#243355] disabled:cursor-not-allowed disabled:opacity-40"
           >
             刷新
           </button>
           <button
             onClick={handleNewTab}
             disabled={!activeFile}
-            className="cursor-pointer rounded border border-solid border-[#334466] bg-[#1a2744] px-2.5 py-1 text-[11px] text-[#8bb4f9] outline-none transition-colors duration-150 hover:bg-[#243355] disabled:cursor-not-allowed disabled:opacity-40"
+            className="cursor-pointer rounded border border-solid border-[#334466] bg-[#1a2744] px-2.5 py-1 text-[11px] text-[#8bb4f9] transition-colors duration-150 outline-none hover:bg-[#243355] disabled:cursor-not-allowed disabled:opacity-40"
           >
             新窗口
           </button>

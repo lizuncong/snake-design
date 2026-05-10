@@ -2,12 +2,12 @@
 
 import type { ChatMessage, LlmMessage } from '../lib/types';
 import { useCallback, useRef, useState } from 'react';
+import ResizableLayout from '../../../../components/ResizableLayout';
 import { runAgent } from '../lib/agent';
 import { ChatPanel } from './ChatPanel';
 import { FilePanel } from './FilePanel';
 import { Header } from './Header';
 import { PreviewPanel } from './PreviewPanel';
-import { ResizeHandle } from './ResizeHandle';
 
 let msgIdCounter = 0;
 
@@ -19,8 +19,6 @@ export function DesignLayout() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isRunning, setIsRunning] = useState(false);
   const [activeFile, setActiveFile] = useState<string | null>(null);
-  const [chatWidth, setChatWidth] = useState(420);
-  const [fileWidth, setFileWidth] = useState(260);
   const messagesRef = useRef<ChatMessage[]>([]);
   const conversationRef = useRef<LlmMessage[]>([]);
 
@@ -153,40 +151,27 @@ export function DesignLayout() {
     setActiveFile(path === activeFile ? null : path);
   }, [activeFile]);
 
-  const handleChatResize = useCallback((deltaX: number) => {
-    setChatWidth(w => Math.max(200, w + deltaX));
-  }, []);
-
-  const handleFileResize = useCallback((deltaX: number) => {
-    setFileWidth(w => Math.max(150, w + deltaX));
-  }, []);
-
   return (
     <div className="design-scrollbar flex h-screen flex-col overflow-hidden bg-[#1a1a2e] font-mono text-[#e0e0e0]">
       <Header />
 
-      <div className="flex flex-1 overflow-hidden">
-        <div style={{ width: chatWidth, minWidth: 200 }} className="shrink-0 overflow-hidden">
-          <ChatPanel
-            messages={messages}
-            onSend={handleSend}
-            isRunning={isRunning}
-          />
-        </div>
-
-        <ResizeHandle onResize={handleChatResize} />
-
-        <div style={{ width: fileWidth, minWidth: 150 }} className="shrink-0 overflow-hidden">
-          <FilePanel
-            activeFile={activeFile}
-            onSelectFile={handleSelectFile}
-          />
-        </div>
-
-        <ResizeHandle onResize={handleFileResize} />
-
+      <ResizableLayout
+        defaultSizes={[420, 260, 500]}
+        minSizes={[200, 150, 100]}
+        maxSizes={[600, 400, Infinity]}
+        style={{ flex: 1, overflow: 'hidden' }}
+      >
+        <ChatPanel
+          messages={messages}
+          onSend={handleSend}
+          isRunning={isRunning}
+        />
+        <FilePanel
+          activeFile={activeFile}
+          onSelectFile={handleSelectFile}
+        />
         <PreviewPanel activeFile={activeFile} />
-      </div>
+      </ResizableLayout>
     </div>
   );
 }
