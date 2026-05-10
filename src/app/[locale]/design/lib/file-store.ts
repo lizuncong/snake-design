@@ -1,7 +1,21 @@
 import type { DesignFile } from './types';
 
+type Listener = () => void;
+
 class FileStore {
   private store: Map<string, DesignFile> = new Map();
+  private listeners: Set<Listener> = new Set();
+
+  private notify(): void {
+    this.listeners.forEach(listener => listener());
+  }
+
+  subscribe(listener: Listener): () => void {
+    this.listeners.add(listener);
+    return () => {
+      this.listeners.delete(listener);
+    };
+  }
 
   writeFile(path: string, content: string): string {
     const now = Date.now();
@@ -14,6 +28,7 @@ class FileStore {
       updatedAt: now,
     };
     this.store.set(path, file);
+    this.notify();
     return `Written ${path} (${content.length} chars)`;
   }
 
@@ -38,11 +53,16 @@ class FileStore {
   }
 
   deleteFile(path: string): boolean {
-    return this.store.delete(path);
+    const deleted = this.store.delete(path);
+    if (deleted) {
+      this.notify();
+    }
+    return deleted;
   }
 
   clear(): void {
     this.store.clear();
+    this.notify();
   }
 }
 

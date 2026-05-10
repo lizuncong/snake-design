@@ -1,6 +1,6 @@
 'use client';
 
-import { fileStore } from '../lib/tools';
+import { useFileStore } from '../lib/useFileStore';
 
 type FilePanelProps = {
   activeFile: string | null;
@@ -23,7 +23,7 @@ function getFileIcon(path: string): string {
 }
 
 export function FilePanel({ activeFile, onSelectFile }: FilePanelProps) {
-  const files = fileStore.getAllFiles();
+  const files = useFileStore();
   const sortedFiles = [...files].sort((a, b) => {
     const ah = a.path.endsWith('.html') || a.path.endsWith('.htm');
     const bh = b.path.endsWith('.html') || b.path.endsWith('.htm');

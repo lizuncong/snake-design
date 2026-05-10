@@ -1,20 +1,96 @@
 'use client';
 
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { fileStore } from '../lib/tools';
 
 type PreviewPanelProps = {
   activeFile: string | null;
 };
 
+const blobUrlCache = new Map<string, string>();
+
+function getBlobUrl(path: string): string | null {
+  if (blobUrlCache.has(path)) {
+    return blobUrlCache.get(path) || null;
+  }
+  const file = fileStore.getFile(path);
+  if (!file) {
+    return null;
+  }
+  const ext = path.split('.').pop()?.toLowerCase() || '';
+  const mime: Record<string, string> = {
+    css: 'text/css',
+    js: 'application/javascript',
+    json: 'application/json',
+    svg: 'image/svg+xml',
+    html: 'text/html',
+    htm: 'text/html',
+  };
+  const mimeType = mime[ext] || 'text/plain';
+  const url = URL.createObjectURL(new Blob([file.content], { type: mimeType }));
+  blobUrlCache.set(path, url);
+  return url;
+}
+
+function invalidateBlobUrls(): void {
+  for (const url of blobUrlCache.values()) {
+    URL.revokeObjectURL(url);
+  }
+  blobUrlCache.clear();
+}
+
+function resolveWithBlobUrls(htmlContent: string, basePath: string): string {
+  let resolved = htmlContent;
+  const dir = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+
+  resolved = resolved.replace(
+    /<link\s[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi,
+    (match, href) => {
+      const fullPath = href.startsWith('/') ? href.slice(1) : dir + href;
+      const url = getBlobUrl(fullPath);
+      if (url) {
+        return match.replace(href, url);
+      }
+      return match;
+    },
+  );
+
+  resolved = resolved.replace(
+    /<script\s[^>]*src=["']([^"']+)["'][^>]*><\/script>/gi,
+    (match, src) => {
+      const fullPath = src.startsWith('/') ? src.slice(1) : dir + src;
+      const url = getBlobUrl(fullPath);
+      if (url) {
+        return match.replace(src, url);
+      }
+      return match;
+    },
+  );
+
+  return resolved;
+}
+
 export function PreviewPanel({ activeFile }: PreviewPanelProps) {
   const [refreshKey, setRefreshKey] = useState(0);
   const frameRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    const unsubscribe = fileStore.subscribe(() => {
+      invalidateBlobUrls();
+      setRefreshKey(k => k + 1);
+    });
+
+    return () => {
+      unsubscribe();
+      invalidateBlobUrls();
+    };
+  }, []);
 
   const file = activeFile ? fileStore.getFile(activeFile) : null;
   const isHtmlFile = activeFile && (activeFile.endsWith('.html') || activeFile.endsWith('.htm'));
 
   const handleRefresh = useCallback(() => {
+    invalidateBlobUrls();
     setRefreshKey(k => k + 1);
   }, []);
 
@@ -22,31 +98,26 @@ export function PreviewPanel({ activeFile }: PreviewPanelProps) {
     if (!file?.content) {
       return;
     }
-    const blob = new Blob([file.content], { type: 'text/html' });
+    invalidateBlobUrls();
+    const resolved = isHtmlFile ? resolveWithBlobUrls(file.content, activeFile!) : file.content;
+    const blob = new Blob([resolved], { type: 'text/html' });
     const url = URL.createObjectURL(blob);
     window.open(url, '_blank');
-  }, [file]);
+  }, [file, activeFile, isHtmlFile]);
 
   const getPreviewContent = (): string => {
     if (!file?.content) {
       return '';
     }
     if (isHtmlFile) {
-      return file.content;
+      return resolveWithBlobUrls(file.content, activeFile!);
     }
     const ext = activeFile?.split('.').pop() || '';
-    const langMap: Record<string, string> = {
-      css: 'css',
-      js: 'javascript',
-      json: 'json',
-      md: 'markdown',
-    };
-    const lang = langMap[ext] || 'plaintext';
     const escapedContent = file.content
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
-    return `<!DOCTYPE html><html><head><style>body{font-family:monospace;padding:20px;background:#fafafa;white-space:pre-wrap;word-break:break-all;font-size:13px;color:#333;}</style></head><body><pre class="language-${lang}">${escapedContent}</pre></body></html>`;
+    return `<!DOCTYPE html><html><head><style>body{font-family:monospace;padding:20px;background:#fafafa;white-space:pre-wrap;word-break:break-all;font-size:13px;color:#333;}</style></head><body><pre class="language-${ext}">${escapedContent}</pre></body></html>`;
   };
 
   return (
@@ -81,7 +152,7 @@ export function PreviewPanel({ activeFile }: PreviewPanelProps) {
                 ref={frameRef}
                 key={`${activeFile}-${refreshKey}`}
                 srcDoc={getPreviewContent()}
-                sandbox="allow-scripts allow-same-origin"
+                sandbox="allow-scripts allow-same-origin allow-forms"
                 className="h-full w-full border-none"
                 title={`Preview: ${activeFile}`}
               />
