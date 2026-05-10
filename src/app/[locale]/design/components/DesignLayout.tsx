@@ -3,7 +3,6 @@
 import type { ChatMessage, LlmMessage } from '../lib/types';
 import { useCallback, useRef, useState } from 'react';
 import { runAgent } from '../lib/agent';
-import { ApiKeyModal } from './ApiKeyModal';
 import { ChatPanel } from './ChatPanel';
 import { FilePanel } from './FilePanel';
 import { PreviewPanel } from './PreviewPanel';
@@ -20,7 +19,6 @@ export function DesignLayout() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isRunning, setIsRunning] = useState(false);
   const [activeFile, setActiveFile] = useState<string | null>(null);
-  const [showApiModal, setShowApiModal] = useState(false);
   const [chatWidth, setChatWidth] = useState(420);
   const [fileWidth, setFileWidth] = useState(260);
   const messagesRef = useRef<ChatMessage[]>([]);
@@ -165,7 +163,7 @@ export function DesignLayout() {
 
   return (
     <div className="design-scrollbar flex h-screen flex-col overflow-hidden bg-[#1a1a2e] font-mono text-[#e0e0e0]">
-      <TopBar onApiKeyClick={() => setShowApiModal(true)} />
+      <TopBar />
 
       <div className="flex flex-1 overflow-hidden">
         <div style={{ width: chatWidth, minWidth: 200 }} className="shrink-0 overflow-hidden">
@@ -189,8 +187,6 @@ export function DesignLayout() {
 
         <PreviewPanel activeFile={activeFile} />
       </div>
-
-      <ApiKeyModal isOpen={showApiModal} onClose={() => setShowApiModal(false)} />
     </div>
   );
 }
