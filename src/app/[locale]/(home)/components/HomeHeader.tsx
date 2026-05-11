@@ -28,7 +28,17 @@ export function HomeHeader() {
           ))}
         </select>
       </div>
-      <ApiKeyButton />
+      <div className="flex items-center gap-2">
+        <a
+          href="https://github.com/lizuncong/snake-design"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs text-[#888] transition-colors hover:text-[#e0e0e0]"
+        >
+          GitHub
+        </a>
+        <ApiKeyButton />
+      </div>
     </header>
   );
 }

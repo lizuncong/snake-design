@@ -1,18 +1,16 @@
 import type { Metadata } from 'next';
-import { DesignPageClient } from './DesignPageClient';
+import { Suspense } from 'react';
+import { DesignLayout } from './components/DesignLayout';
 
 export const metadata: Metadata = {
   title: 'Design - Snake Design',
   description: 'AI-powered design tool',
 };
 
-type PageProps = {
-  searchParams: Promise<{ projectId?: string }>;
-};
-
-export default async function DesignPage({ searchParams }: PageProps) {
-  const params = await searchParams;
-  const projectId = params.projectId || '';
-
-  return <DesignPageClient projectId={projectId} />;
+export default function DesignPage() {
+  return (
+    <Suspense fallback={<div className="flex h-screen items-center justify-center bg-[#1a1a2e]"><div className="text-sm text-[#888]">加载中...</div></div>}>
+      <DesignLayout />
+    </Suspense>
+  );
 }
