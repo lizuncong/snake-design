@@ -36,7 +36,6 @@ export function DesignLayout({
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [isRunning, setIsRunning] = useState(false);
   const [activeFile, setActiveFile] = useState<string | null>(initialActiveFile);
-  const messagesRef = useRef<ChatMessage[]>(initialMessages);
   const conversationRef = useRef<LlmMessage[]>([]);
 
   useEffect(() => {
@@ -56,7 +55,6 @@ export function DesignLayout({
 
   const addMessage = useCallback((msg: ChatMessage) => {
     setMessages(prev => [...prev, msg]);
-    messagesRef.current = [...messagesRef.current, msg];
   }, []);
 
   const updateLastStreaming = useCallback((content: string) => {
@@ -102,7 +100,7 @@ export function DesignLayout({
       let currentStreamId = '';
 
       try {
-        await runAgent(input, {
+        conversationRef.current = await runAgent(input, {
           onText(text: string) {
             addMessage({
               id: generateId(),
