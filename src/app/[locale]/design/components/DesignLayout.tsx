@@ -1,7 +1,10 @@
 'use client';
 
-import type { ChatMessage, DesignFile, LlmMessage } from '../lib/types';
+import type { ChatMessage, LlmMessage } from '../lib/types';
+import { useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { getProject, updateProjectState } from '@/libs/db/projects';
+import { useRouter } from '@/libs/i18n/navigation';
 import ResizableLayout from '../../../../components/ResizableLayout';
 import { runAgent } from '../lib/agent';
 import { fileStore } from '../lib/file-store';
@@ -16,42 +19,24 @@ function generateId(): string {
   return `msg-${Date.now()}-${String(++msgIdCounter).padStart(4, '0')}`;
 }
 
-type DesignLayoutProps = {
-  initialMessages?: ChatMessage[];
-  initialFiles?: DesignFile[];
-  initialActiveFile?: string | null;
-  onStateChange?: (
-    messages: ChatMessage[],
-    files: DesignFile[],
-    activeFile: string | null,
-  ) => void;
-};
+export function DesignLayout() {
+  const searchParams = useSearchParams();
+  const projectId = searchParams.get('projectId');
+  const router = useRouter();
 
-export function DesignLayout({
-  initialMessages = [],
-  initialFiles = [],
-  initialActiveFile = null,
-  onStateChange,
-}: DesignLayoutProps) {
-  const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isRunning, setIsRunning] = useState(false);
-  const [activeFile, setActiveFile] = useState<string | null>(initialActiveFile);
+  const [activeFile, setActiveFile] = useState<string | null>(null);
   const conversationRef = useRef<LlmMessage[]>([]);
+  const prevProjectIdRef = useRef<string | null>(null);
+  const currentProjectIdRef = useRef<string | null>(null);
+  const handleSendRef = useRef<(input: string) => Promise<void> | undefined>(undefined);
 
   useEffect(() => {
-    if (initialFiles.length > 0) {
-      fileStore.setFiles(initialFiles);
+    if (!projectId) {
+      router.replace('/');
     }
-  }, [initialFiles]);
-
-  useEffect(() => {
-    if (onStateChange) {
-      const timer = setTimeout(() => {
-        onStateChange(messages, fileStore.getAllFiles(), activeFile);
-      }, 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [messages, activeFile, onStateChange]);
+  }, [projectId, router]);
 
   const addMessage = useCallback((msg: ChatMessage) => {
     setMessages(prev => [...prev, msg]);
@@ -176,6 +161,57 @@ export function DesignLayout({
     },
     [isRunning, addMessage, updateLastStreaming, finalizeStream],
   );
+
+  useEffect(() => {
+    handleSendRef.current = handleSend;
+  });
+
+  useEffect(() => {
+    if (!projectId || projectId === prevProjectIdRef.current) {
+      return;
+    }
+    currentProjectIdRef.current = projectId;
+
+    fileStore.clear();
+    setMessages([]);
+    setActiveFile(null);
+    conversationRef.current = [];
+
+    getProject(projectId).then((project) => {
+      if (!project) {
+        return;
+      }
+
+      const { state, requirement } = project;
+
+      if (state.files.length > 0) {
+        fileStore.setFiles(state.files);
+      }
+
+      if (state.messages.length > 0) {
+        setMessages(state.messages);
+        if (state.activeFile) {
+          setActiveFile(state.activeFile);
+        }
+      } else {
+        handleSendRef.current?.(requirement);
+      }
+    });
+  }, [projectId]);
+
+  useEffect(() => {
+    if (!currentProjectIdRef.current) {
+      return;
+    }
+    const timer = setTimeout(() => {
+      updateProjectState(currentProjectIdRef.current!, {
+        messages,
+        files: fileStore.getAllFiles(),
+        activeFile,
+      });
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [messages, activeFile]);
 
   const handleSelectFile = useCallback((path: string) => {
     setActiveFile(path === activeFile ? null : path);

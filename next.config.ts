@@ -2,7 +2,7 @@ import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: false,
   reactCompiler: true,
   typescript: {
     ignoreBuildErrors: true,
