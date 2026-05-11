@@ -64,6 +64,14 @@ class FileStore {
     this.store.clear();
     this.notify();
   }
+
+  setFiles(files: DesignFile[]): void {
+    this.store.clear();
+    files.forEach((file) => {
+      this.store.set(file.path, file);
+    });
+    this.notify();
+  }
 }
 
 export const fileStore = new FileStore();

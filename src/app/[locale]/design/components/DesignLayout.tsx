@@ -1,9 +1,10 @@
 'use client';
 
-import type { ChatMessage, LlmMessage } from '../lib/types';
-import { useCallback, useRef, useState } from 'react';
+import type { ChatMessage, DesignFile, LlmMessage } from '../lib/types';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import ResizableLayout from '../../../../components/ResizableLayout';
 import { runAgent } from '../lib/agent';
+import { fileStore } from '../lib/file-store';
 import { ChatPanel } from './ChatPanel';
 import { FilePanel } from './FilePanel';
 import { Header } from './Header';
@@ -15,12 +16,43 @@ function generateId(): string {
   return `msg-${Date.now()}-${String(++msgIdCounter).padStart(4, '0')}`;
 }
 
-export function DesignLayout() {
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+type DesignLayoutProps = {
+  initialMessages?: ChatMessage[];
+  initialFiles?: DesignFile[];
+  initialActiveFile?: string | null;
+  onStateChange?: (
+    messages: ChatMessage[],
+    files: DesignFile[],
+    activeFile: string | null,
+  ) => void;
+};
+
+export function DesignLayout({
+  initialMessages = [],
+  initialFiles = [],
+  initialActiveFile = null,
+  onStateChange,
+}: DesignLayoutProps) {
+  const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [isRunning, setIsRunning] = useState(false);
-  const [activeFile, setActiveFile] = useState<string | null>(null);
-  const messagesRef = useRef<ChatMessage[]>([]);
+  const [activeFile, setActiveFile] = useState<string | null>(initialActiveFile);
+  const messagesRef = useRef<ChatMessage[]>(initialMessages);
   const conversationRef = useRef<LlmMessage[]>([]);
+
+  useEffect(() => {
+    if (initialFiles.length > 0) {
+      fileStore.setFiles(initialFiles);
+    }
+  }, [initialFiles]);
+
+  useEffect(() => {
+    if (onStateChange) {
+      const timer = setTimeout(() => {
+        onStateChange(messages, fileStore.getAllFiles(), activeFile);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [messages, activeFile, onStateChange]);
 
   const addMessage = useCallback((msg: ChatMessage) => {
     setMessages(prev => [...prev, msg]);
