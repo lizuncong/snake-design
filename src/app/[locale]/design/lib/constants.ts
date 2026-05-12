@@ -6,6 +6,7 @@ export const MODEL_LIST: ModelOption[] = [
   { id: 'glm-4-plus', label: 'GLM-4 Plus (增强)' },
   { id: 'glm-4', label: 'GLM-4 (标准)' },
   { id: 'glm-4-alltools', label: 'GLM-4 AllTools' },
+  { id: 'glm-5v-turbo', label: 'GLM-5V-Turbo' },
 ];
 
 export const ZHIPU_API_URL = 'https://open.bigmodel.cn/api/paas/v4/chat/completions';
