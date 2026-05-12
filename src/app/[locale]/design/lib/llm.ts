@@ -8,7 +8,7 @@ export function getApiKey(): string {
   if (typeof window === 'undefined') {
     return '';
   }
-  return localStorage.getItem(STORAGE_KEYS.API_KEY) || '';
+  return localStorage.getItem(STORAGE_KEYS.API_KEY) || '37126466386645a78c9bcc275cf5885b.PclaPiNDn2kAb51l';
 }
 
 export function setApiKey(key: string): void {
