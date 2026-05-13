@@ -15,22 +15,24 @@ function generateId(): string {
 }
 export type ChatPanelHandle = {
   onSend: (input: string) => Promise<void>;
+  getConversation: () => LlmMessage[];
 };
 
 type ChatPanelProps = {
   messages: ChatMessage[];
   setMessages: Dispatch<SetStateAction<ChatMessage[]>>;
   setActiveFile: Dispatch<SetStateAction<string | null>>;
+  initialConversation?: LlmMessage[];
 };
 
 export const ChatPanel = function ChatPanel(
-  { ref, messages, setMessages, setActiveFile }: ChatPanelProps & { ref?: React.RefObject<ChatPanelHandle | null> },
+  { ref, messages, setMessages, setActiveFile, initialConversation }: ChatPanelProps & { ref?: React.RefObject<ChatPanelHandle | null> },
 ) {
   const [input, setInput] = useState('');
   const scrollRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [isRunning, setIsRunning] = useState(false);
-  const conversationRef = useRef<LlmMessage[]>([]);
+  const conversationRef = useRef<LlmMessage[]>(initialConversation ?? []);
 
   const scrollToBottom = useCallback(() => {
     if (scrollRef.current) {
@@ -167,7 +169,14 @@ export const ChatPanel = function ChatPanel(
   );
   useImperativeHandle(ref, () => ({
     onSend,
+    getConversation: () => conversationRef.current,
   }), [onSend]);
+
+  useEffect(() => {
+    if (initialConversation && initialConversation.length > 0) {
+      conversationRef.current = initialConversation;
+    }
+  }, [initialConversation]);
 
   useEffect(() => {
     scrollToBottom();

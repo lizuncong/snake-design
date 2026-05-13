@@ -19,6 +19,7 @@ export async function createProject(requirement: string): Promise<Project> {
       messages: [],
       files: [],
       activeFile: null,
+      conversation: [],
     },
   };
   await db.put('projects', project);

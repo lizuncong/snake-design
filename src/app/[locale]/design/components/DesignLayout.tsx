@@ -1,6 +1,6 @@
 'use client';
 
-import type { ChatMessage } from '../lib/types';
+import type { ChatMessage, LlmMessage } from '../lib/types';
 import type { ChatPanelHandle } from './ChatPanel';
 import { useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -20,6 +20,7 @@ export function DesignLayout() {
 
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [activeFile, setActiveFile] = useState<string | null>(null);
+  const [initialConversation, setInitialConversation] = useState<LlmMessage[]>([]);
   const prevProjectIdRef = useRef<string | null>(null);
   const currentProjectIdRef = useRef<string | null>(null);
   const chatPanelRef = useRef<ChatPanelHandle>(null);
@@ -39,6 +40,7 @@ export function DesignLayout() {
     fileStore.clear();
     setMessages([]);
     setActiveFile(null);
+    setInitialConversation([]);
 
     getProject(projectId).then((project) => {
       if (!project) {
@@ -53,6 +55,7 @@ export function DesignLayout() {
 
       if (state.messages.length > 0) {
         setMessages(state.messages);
+        setInitialConversation(state.conversation ?? []);
         if (state.activeFile) {
           setActiveFile(state.activeFile);
         }
@@ -71,6 +74,7 @@ export function DesignLayout() {
         messages,
         files: fileStore.getAllFiles(),
         activeFile,
+        conversation: chatPanelRef.current?.getConversation() ?? [],
       });
     }, 1000);
     return () => clearTimeout(timer);
@@ -95,6 +99,7 @@ export function DesignLayout() {
           messages={messages}
           setMessages={setMessages}
           setActiveFile={setActiveFile}
+          initialConversation={initialConversation}
         />
         <FilePanel
           activeFile={activeFile}
