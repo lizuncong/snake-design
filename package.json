@@ -17,6 +17,7 @@
     "postinstall": "lefthook install || true"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
     "idb": "^8.0.3",
     "jszip": "^3.10.1",
     "next": "16.1.1",
