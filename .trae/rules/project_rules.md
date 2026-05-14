@@ -12,6 +12,44 @@
 
 **示例**：API Key 按钮和弹窗应组合在 `ApiKeyModal` 组件中，而非将按钮放在 `TopBar`、弹窗放在 `DesignLayout`，然后通过大量 props 传递状态和方法。
 
+## 组件文件拆分规范
+
+当单个组件文件超过 150 行或包含多个独立职责时，应按以下规范拆分：
+
+### 目录结构
+
+```
+ComponentName/
+├── types.ts        # 类型定义（Props、State 相关类型）
+├── util.ts         # 纯工具方法与常量（无 React 依赖）
+├── SubComponent.tsx # 可复用的子组件
+└── index.tsx       # 主组件（组合子组件，管理核心状态）
+```
+
+### 拆分原则
+
+1. **types.ts**：集中导出所有类型定义，包括 Props 类型、内部数据类型等
+
+2. **util.ts**：提取纯函数和常量，要求：
+   - 不依赖 React Hooks 或组件上下文
+   - 可独立测试
+   - 包括数据处理、格式化、映射表等逻辑
+
+3. **SubComponent.tsx**：提取独立 UI 子组件，要求：
+   - 自包含其需要的交互状态（如展开/收起、选中态）
+   - 通过 Props 接收数据和回调，不依赖外部闭包变量
+   - 单一职责，一个子组件只负责一块 UI 区域
+
+4. **index.tsx**：主组件只保留：
+   - 核心状态管理（跨子组件共享的状态）
+   - 子组件的组合与布局
+   - 数据获取与副作用（useEffect）
+
+### 示例参考
+
+- `FilePanel/`：TreeNodeItem 独立为子组件，工具方法抽离至 util.ts
+- `PreviewPanel/`：Toolbar 独立为子组件，Blob URL 管理逻辑抽离至 util.ts
+
 ## 样式管理
 
 - 全局样式（如滚动条）统一放在 `src/styles/global.css`，避免在组件中使用 `dangerouslySetInnerHTML` 内联 style 标签。

@@ -1,98 +1,16 @@
 'use client';
 
+import type { DeviceMode, PreviewPanelProps } from './types';
 import Editor from '@monaco-editor/react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { downloadAsZip } from '../../lib/download';
 import { fileStore } from '../../lib/tools';
-
-type PreviewPanelProps = {
-  activeFile: string | null;
-  showPreview: boolean;
-};
-
-const blobUrlCache = new Map<string, string>();
-
-function getBlobUrl(path: string): string | null {
-  if (blobUrlCache.has(path)) {
-    return blobUrlCache.get(path) || null;
-  }
-  const file = fileStore.getFile(path);
-  if (!file) {
-    return null;
-  }
-  const ext = path.split('.').pop()?.toLowerCase() || '';
-  const mime: Record<string, string> = {
-    css: 'text/css',
-    js: 'application/javascript',
-    jsx: 'application/javascript',
-    json: 'application/json',
-    svg: 'image/svg+xml',
-    html: 'text/html',
-    htm: 'text/html',
-  };
-  const mimeType = mime[ext] || 'text/plain';
-  const url = URL.createObjectURL(new Blob([file.content], { type: mimeType }));
-  blobUrlCache.set(path, url);
-  return url;
-}
-
-function invalidateBlobUrls(): void {
-  for (const url of blobUrlCache.values()) {
-    URL.revokeObjectURL(url);
-  }
-  blobUrlCache.clear();
-}
-
-function resolveWithBlobUrls(htmlContent: string, basePath: string): string {
-  let resolved = htmlContent;
-  const dir = basePath.substring(0, basePath.lastIndexOf('/') + 1);
-
-  resolved = resolved.replace(
-    /<link\s[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi,
-    (match, href) => {
-      const fullPath = href.startsWith('/') ? href.slice(1) : dir + href;
-      const url = getBlobUrl(fullPath);
-      if (url) {
-        return match.replace(href, url);
-      }
-      return match;
-    },
-  );
-
-  resolved = resolved.replace(
-    /<script\s[^>]*src=["']([^"']+)["'][^>]*><\/script>/gi,
-    (match, src) => {
-      const fullPath = src.startsWith('/') ? src.slice(1) : dir + src;
-      const url = getBlobUrl(fullPath);
-      if (url) {
-        return match.replace(src, url);
-      }
-      return match;
-    },
-  );
-
-  return resolved;
-}
-
-const LANGUAGE_MAP: Record<string, string> = {
-  html: 'html',
-  htm: 'html',
-  css: 'css',
-  js: 'javascript',
-  jsx: 'javascript',
-  json: 'json',
-  svg: 'xml',
-  md: 'markdown',
-};
-
-function getLanguage(path: string): string {
-  const ext = path.split('.').pop()?.toLowerCase() || '';
-  return LANGUAGE_MAP[ext] || 'plaintext';
-}
+import { Toolbar } from './Toolbar';
+import { getLanguage, invalidateBlobUrls, resolveWithBlobUrls } from './util';
 
 export function PreviewPanel({ activeFile, showPreview }: PreviewPanelProps) {
   const [refreshKey, setRefreshKey] = useState(0);
-  const [deviceMode, setDeviceMode] = useState<'desktop' | 'mobile'>('desktop');
+  const [deviceMode, setDeviceMode] = useState<DeviceMode>('desktop');
   const frameRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
@@ -153,68 +71,13 @@ export function PreviewPanel({ activeFile, showPreview }: PreviewPanelProps) {
 
   return (
     <section className="flex h-full flex-col bg-[#0d1117]">
-      <div className="flex items-center justify-between border-b border-[#2a2a4a] bg-[#0f3460] px-4 py-3">
-        <div className="flex items-center gap-2">
-          <span className="h-1.75 w-1.75 rounded-full bg-[#7ec699]" />
-          <span className="text-[13px] font-semibold text-[#7ec699]">
-            {showPreview ? '效果预览' : '源码'}
-          </span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          {showPreview && (
-            <div className="flex rounded border border-solid border-[#334466] bg-[#1a2744] p-[2px]">
-              <button
-                onClick={() => setDeviceMode('desktop')}
-                className={`cursor-pointer rounded px-2 py-1 text-[11px] transition-colors duration-150 outline-none ${
-                  deviceMode === 'desktop'
-                    ? 'bg-[#243355] text-[#8bb4f9]'
-                    : 'text-[#666] hover:text-[#8bb4f9]'
-                }`}
-                title="PC端预览"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                  <line x1="8" y1="21" x2="16" y2="21" />
-                  <line x1="12" y1="17" x2="12" y2="21" />
-                </svg>
-              </button>
-              <button
-                onClick={() => setDeviceMode('mobile')}
-                className={`cursor-pointer rounded px-2 py-1 text-[11px] transition-colors duration-150 outline-none ${
-                  deviceMode === 'mobile'
-                    ? 'bg-[#243355] text-[#8bb4f9]'
-                    : 'text-[#666] hover:text-[#8bb4f9]'
-                }`}
-                title="移动端预览"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-                  <line x1="12" y1="18" x2="12.01" y2="18" />
-                </svg>
-              </button>
-            </div>
-          )}
-          {showPreview && (
-            <button
-              onClick={handleRefresh}
-              className="cursor-pointer rounded border border-solid border-[#334466] bg-[#1a2744] px-2.5 py-1 text-[11px] text-[#8bb4f9] transition-colors duration-150 outline-none hover:bg-[#243355]"
-            >
-              刷新
-            </button>
-          )}
-          <button
-            onClick={handleDownload}
-            className="cursor-pointer rounded border border-solid border-[#334466] bg-[#1a2744] px-2.5 py-1 text-[11px] text-[#8bb4f9] transition-colors duration-150 outline-none hover:bg-[#243355]"
-            title="下载代码"
-          >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-          </button>
-        </div>
-      </div>
+      <Toolbar
+        showPreview={showPreview}
+        deviceMode={deviceMode}
+        onDeviceChange={setDeviceMode}
+        onRefresh={handleRefresh}
+        onDownload={handleDownload}
+      />
 
       <div className="relative flex-1">
         {showPreview
