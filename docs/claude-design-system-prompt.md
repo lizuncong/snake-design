@@ -92,11 +92,11 @@ Put [data-screen-label] attrs on elements representing slides and high-level scr
 **Slide numbers are 1-indexed.** Use labels like "01 Title", "02 Agenda" — matching the slide counter (`{idx + 1}/{total}`) the user sees. When a user says "slide 5" or "index 5", they mean the 5th slide (label "05"), never array position [4] — humans don't speak 0-indexed. If you 0-index your labels, every slide reference is off by one.
 
 ## React + Babel (for inline JSX)
-When writing React prototypes with inline JSX, you MUST use these exact script tags with pinned versions and integrity hashes. Do not use unpinned versions (e.g. react@18) or omit the integrity attributes.
+When writing React prototypes with inline JSX, you MUST use these exact script tags with pinned versions. Do not use unpinned versions (e.g. react@18).
 ```html
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
 ```
 
 Then, import any helper or component scripts you've written using script tags. Avoid using type="module" on script imports -- it may break things.

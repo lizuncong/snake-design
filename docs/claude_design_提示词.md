@@ -58,23 +58,11 @@
 **幻灯片编号从 1 开始计数。** 使用像 "01 Title", "02 Agenda" 这样的标签——与用户看到的幻灯片计数器 (`{idx + 1}/{total}`) 匹配。当用户说“幻灯片 5”或“索引 5”时，他们指的是第 5 张幻灯片（标签 "05"），绝不是数组位置 [4]——人类不使用从 0 开始的索引。如果你使用从 0 开始的标签，每个幻灯片的引用都会错位。
 
 ## React + Babel (用于内联 JSX)
-在使用内联 JSX 编写 React 原型时，你必须**确切地**使用以下带有固定版本和完整性哈希值的 script 标签。不要使用未固定版本的（例如 `react@18`）或省略 `integrity` 属性。
+在使用内联 JSX 编写 React 原型时，你必须**确切地**使用以下带有固定版本的 script 标签。不要使用未固定版本的（例如 `react@18`）。
 ```html
-<script
-  src="https://unpkg.com/react@18.3.1/umd/react.development.js"
-  integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L"
-  crossorigin="anonymous"
-></script>
-<script
-  src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"
-  integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm"
-  crossorigin="anonymous"
-></script>
-<script
-  src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"
-  integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y"
-  crossorigin="anonymous"
-></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
 ```
 
 然后，使用 script 标签导入你编写的任何辅助脚本或组件脚本。避免在 script 导入上使用 `type="module"`——这可能会导致问题。
