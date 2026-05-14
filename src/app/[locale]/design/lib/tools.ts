@@ -33,13 +33,13 @@ const fsTools = {
   write_file: {
     name: 'write_file',
     description: `Write content to a file in the project. Creates parent directories automatically.
-Supports all file types: HTML pages, CSS stylesheets, JavaScript modules, and any text files.
-For modular projects: write index.html as entry point (referencing external CSS/JS via relative paths), then write styles/*.css and js/*.js separately.
+Supports all file types: HTML pages, JSX React components, and any text files.
+For React projects: write index.html as entry point (with React + Babel CDN scripts), then write components/*.jsx separately.
 Overwrites if file already exists.`,
     input_schema: {
       type: 'object',
       properties: {
-        path: { type: 'string', description: 'File path relative to project root, e.g. "components/Button.html"' },
+        path: { type: 'string', description: 'File path relative to project root, e.g. "components/Button.jsx"' },
         content: { type: 'string', description: 'The file content to write' },
       },
       required: ['path', 'content'],

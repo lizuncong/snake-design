@@ -22,6 +22,7 @@ function getBlobUrl(path: string): string | null {
   const mime: Record<string, string> = {
     css: 'text/css',
     js: 'application/javascript',
+    jsx: 'application/javascript',
     json: 'application/json',
     svg: 'image/svg+xml',
     html: 'text/html',
