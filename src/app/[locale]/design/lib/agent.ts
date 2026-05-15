@@ -1,6 +1,7 @@
 import type { AgentCallbacks, LlmMessage } from './types';
-import { MAX_TOKENS, MAX_TURNS, SYSTEM_PROMPT, TOKEN_PER_CHAR } from './constants';
+import { MAX_TOKENS, MAX_TURNS, TOKEN_PER_CHAR } from './constants';
 import { callZhipuStream } from './llm';
+import { SYSTEM_PROMPT } from './system-prompt';
 import { dispatchTool, executeSnips, getToolDefinitions, tagUserMessage, trimMessages } from './tools';
 
 function estimateTokens(messages: LlmMessage[], systemPrompt: string): number {
