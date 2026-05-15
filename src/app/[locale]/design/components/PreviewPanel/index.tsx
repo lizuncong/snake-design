@@ -26,18 +26,12 @@ export function PreviewPanel({ activeFile }: PreviewPanelProps) {
   }, []);
 
   const isPreview = activeFile === PREVIEW_PREFIX;
-
-  const previewFile = useMemo(() => {
-    void refreshKey;
-    const files = fileStore.getAllFiles();
-
-    const indexFile = files.find((f) => {
-      const name = f.path.split('/').pop()?.toLowerCase();
-      return name === 'index.html' || name === 'index.htm';
-    });
-
-    return indexFile ?? null;
-  }, [refreshKey]);
+  const files = fileStore.getAllFiles();
+  const indexFile = files.find((f) => {
+    const name = f.path.split('/').pop()?.toLowerCase();
+    return name === 'index.html' || name === 'index.htm';
+  });
+  const previewFile = indexFile ?? null;
 
   const previewContent = useMemo(() => {
     void refreshKey;
