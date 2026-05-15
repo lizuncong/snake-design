@@ -18,7 +18,7 @@ export const STORAGE_KEYS = {
 
 export const MAX_TOKENS = 64000;
 export const TOKEN_PER_CHAR = 0.25;
-export const MAX_TURNS = 10;
+export const MAX_TURNS = 100;
 
 export const SYSTEM_PROMPT = `你是一名专家级设计师，以"创意总监"身份与用户协作。你将根据用户需求，产出高保真、专业级的前端设计产物。
 
