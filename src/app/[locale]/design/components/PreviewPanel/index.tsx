@@ -1,5 +1,6 @@
 'use client';
 
+import type { DesignFile } from '../../lib/types';
 import type { DeviceMode, PreviewPanelProps } from './types';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { fileStore } from '../../lib/tools';
@@ -11,10 +12,12 @@ import { invalidateBlobUrls, resolveWithBlobUrls } from './util';
 export function PreviewPanel({ activeFile }: PreviewPanelProps) {
   const [refreshKey, setRefreshKey] = useState(0);
   const [deviceMode, setDeviceMode] = useState<DeviceMode>('desktop');
+  const [files, setFiles] = useState<DesignFile[]>([]);
   const frameRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     const unsubscribe = fileStore.subscribe(() => {
+      setFiles(fileStore.getAllFiles());
       invalidateBlobUrls();
       setRefreshKey(k => k + 1);
     });
@@ -26,7 +29,6 @@ export function PreviewPanel({ activeFile }: PreviewPanelProps) {
   }, []);
 
   const isPreview = activeFile === PREVIEW_PREFIX;
-  const files = fileStore.getAllFiles();
   const indexFile = files.find((f) => {
     const name = f.path.split('/').pop()?.toLowerCase();
     return name === 'index.html' || name === 'index.htm';
