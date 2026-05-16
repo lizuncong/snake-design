@@ -124,21 +124,6 @@ const ButtonStyles = {
     <!-- 🎨 自定义主题配置（Tailwind CSS v4 使用 @theme 语法） -->
     <style type="text/tailwindcss">
       @theme {
-        /* 品牌色阶（橙红色系） */
-        --color-brand-50: #fef3e8;
-        --color-brand-100: #fde3cc;
-        --color-brand-200: #fbc6a4;
-        --color-brand-300: #f8a57a;
-        --color-brand-400: #f5834f;
-        --color-brand-500: #f26225;
-        --color-brand-600: #d14f1c;
-        --color-brand-700: #ab3e16;
-        --color-brand-800: #853010;
-        --color-brand-900: #5e230b;
-
-        /* 强调色（珊瑚红） */
-        --color-accent: #ff6b6b;
-
         /* 自定义字体家族 */
         --font-family-display: 'Poppins', 'system-ui', sans-serif;
         --font-family-body: 'Inter', 'system-ui', sans-serif;
@@ -146,6 +131,21 @@ const ButtonStyles = {
         /* 自定义圆角 */
         --radius-4xl: 2rem;
         --radius-5xl: 3rem;
+      }
+    </style>
+
+    <!-- 🖱️ 全局交互样式：为所有可点击元素默认添加 cursor: pointer -->
+    <style>
+      button,
+      a[href],
+      input[type='button'],
+      input[type='submit'],
+      input[type='reset'],
+      select,
+      textarea,
+      [role='button'],
+      [tabindex]:not([tabindex='-1']) {
+        cursor: pointer;
       }
     </style>
   </head>
@@ -168,14 +168,69 @@ const ButtonStyles = {
 
 | 类别 | CSS 变量名 | 对应 Tailwind 类名 | 用途 |
 |------|-----------|------------------|------|
-| **品牌色** | `--color-brand-{50-900}` | `bg-brand-{50-500}` / `text-brand-{50-900}` | 品牌主色阶（橙红色系） |
-| **强调色** | `--color-accent` | `bg-accent` / `text-accent` | 强调色（珊瑚红） |
 | **标题字体** | `--font-family-display` | `font-display` | Poppins 字体 |
 | **正文字体** | `--font-family-body` | `font-body` | Inter 字体 |
 | **超大圆角** | `--radius-4xl` / `--radius-5xl` | `rounded-4xl` / `rounded-5xl` | 特殊圆角需求 |
 
 > ⚠️ **注意**：v4 不再使用 `tailwind.config = { theme: { extend: {...} } }` 的旧语法！
 > 必须使用 `<style type="text/tailwindcss">` + `@theme {}` 的方式。
+
+### 🎨 主题色选择规范（重要）
+
+**不预设固定品牌色，让 AI 根据设计场景智能选择主题色**。
+
+#### 场景配色参考
+
+| 设计场景 | 推荐主色调 | Tailwind 类名 | 色彩心理 |
+|---------|-----------|--------------|----------|
+| **科技/SaaS** | 蓝色系 | `blue-500` / `blue-600` | 专业、可信赖 |
+| **金融/商务** | 深蓝或靛蓝 | `indigo-600` / `slate-800` | 稳重、权威 |
+| **健康/自然** | 绿色系 | `emerald-500` / `teal-500` | 健康、成长 |
+| **创意/设计** | 紫色或渐变 | `violet-500` / `purple-500` | 创新、艺术 |
+| **美食/生活** | 暖色系（橙/红） | `orange-500` / `rose-500` | 温暖、活力 |
+| **电商/促销** | 红色或橙色 | `red-500` / `orange-500` | 紧迫、热情 |
+
+#### 配色原则
+
+1. **主色选择**：根据场景从 Tailwind 内置颜色中选择（`blue`, `indigo`, `emerald`, `violet`, `rose` 等）
+2. **色彩一致性**：整个页面使用同一主色系统（如主色用 `blue-500`，则 hover 用 `blue-600`）
+3. **层次分明**：
+   - 主色（Primary）：按钮、链接、重要元素
+   - 辅助色（Secondary）：标签、图标、次要元素
+   - 中性色（Neutral）：背景、边框、文字（使用 `gray` / `slate` 系列）
+4. **对比度达标**：文字与背景对比度 ≥ 4.5:1（WCAG AA 标准）
+
+</tailwind_setup>
+
+**在 `<head>` 中添加普通 `<style>` 标签，为所有可点击元素自动设置 `cursor: pointer`**：
+
+```html
+<style>
+  button,
+  a[href],
+  input[type='button'],
+  input[type='submit'],
+  input[type='reset'],
+  select,
+  textarea,
+  [role='button'],
+  [tabindex]:not([tabindex='-1']) {
+    cursor: pointer;
+  }
+</style>
+```
+
+**覆盖的元素类型**：
+| 元素 | 说明 |
+|------|------|
+| `button` | 所有按钮（包括 `<button>` 和自定义按钮组件） |
+| `a[href]` | 所有带链接的锚点标签 |
+| `input[type='button/submit/reset']` | 表单按钮 |
+| `select` / `textarea` | 表单输入控件 |
+| `[role='button']` | 无障碍语义的按钮 |
+| `[tabindex]` | 可聚焦的交互元素 |
+
+> 💡 **优势**：无需在每个组件中重复写 `cursor-pointer` 类名，全局统一管理交互元素的鼠标样式。
 
 </tailwind_setup>
 
@@ -205,13 +260,14 @@ project/
 
 ```jsx
 // components/Button.jsx
-function Button({ children, onClick, variant = 'primary' }) {
+function Button({ children, onClick, variant = 'primary', color = 'blue' }) {
   const baseClasses = 'px-6 py-3 font-medium rounded-lg transition-all duration-200 cursor-pointer';
 
+  // 根据场景动态选择主色（color 参数：blue / indigo / emerald / violet 等）
   const variantClasses = {
-    primary: 'bg-brand-500 text-white hover:bg-brand-600 shadow-sm hover:shadow-md',
+    primary: `bg-${color}-500 text-white hover:bg-${color}-600 shadow-sm hover:shadow-md`,
     secondary: 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50',
-    accent: 'bg-accent text-white hover:opacity-90 shadow-sm',
+    outline: `border-2 border-${color}-500 text-${color}-500 hover:bg-${color}-50`,
   };
 
   return (
@@ -226,6 +282,8 @@ function Button({ children, onClick, variant = 'primary' }) {
 
 Object.assign(window, { Button });
 ```
+
+> 💡 **使用提示**：`color` 参数接受 Tailwind 内置颜色名称（如 `blue`, `indigo`, `emerald`, `violet`, `rose`），根据设计场景选择合适的配色。
 
 ### ✅ 卡片组件（正确示范 - 响应式 Tailwind 类名）
 
@@ -265,14 +323,15 @@ Object.assign(window, { Card });
 
 ```jsx
 // components/Navbar.jsx
-function Navbar({ logo, links }) {
+function Navbar({ logo, links, themeColor = 'indigo' }) {
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <span className="font-display text-brand-600 text-xl font-bold">{logo}</span>
+            {/* 根据场景选择主题色（如 indigo-600 / blue-600 / emerald-600） */}
+            <span className={`font-display text- text-xl font-bold${themeColor}-600`}>{logo}</span>
           </div>
 
           {/* Desktop Links */}
@@ -281,7 +340,7 @@ function Navbar({ logo, links }) {
               <a
                 key={link.name}
                 href={link.href}
-                className="hover:text-brand-600 px-3 py-2 text-sm font-medium text-gray-700 transition-colors"
+                className={`hover:text-${themeColor}-600 px-3 py-2 text-sm font-medium text-gray-700 transition-colors`}
               >
                 {link.name}
               </a>
@@ -290,7 +349,7 @@ function Navbar({ logo, links }) {
 
           {/* Mobile Menu Button */}
           <div className="flex items-center md:hidden">
-            <button className="hover:text-brand-600 p-2 text-gray-700">
+            <button className={`hover:text-${themeColor}-600 p-2 text-gray-700`}>
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
@@ -335,27 +394,47 @@ Object.assign(window, { Navbar });
 | 字重重 | `font-semibold` / `font-bold` | 600-700 |
 | 字间距 | `tracking-tight` / `tracking-normal` | 紧密/正常 |
 
-### 色彩系统（Tailwind 内置 + 自定义品牌色）
+### 色彩系统（Tailwind 内置颜色）
 
-| 用途 | Tailwind 类名 | 色值参考 |
-|------|--------------|----------|
-| **主文本** | `text-gray-900` / `text-gray-800` | #111827 / #1F2937 |
-| **次要文本** | `text-gray-600` / `text-gray-500` | #4B5563 / #6B7280 |
-| **禁用文本** | `text-gray-400` | #9CA3AF |
-| **背景色** | `bg-gray-50` / `bg-white` | #F9FAFB / #FFFFFF |
-| **卡片背景** | `bg-white` | #FFFFFF |
-| **品牌主色** | `bg-brand-500` / `text-brand-500` | #F26225 |
-| **品牌深色** | `bg-brand-600` / `bg-brand-700` | #D14F1C / #AB3E16 |
-| **强调色** | `bg-accent` / `text-accent` | #FF6B6B |
-| **边框色** | `border-gray-200` / `border-gray-300` | #E5E7EB / #D1D5DB |
-| **成功色** | `text-green-600` / `bg-green-50` | #059669 |
-| **警告色** | `text-yellow-600` / `bg-yellow-50` | #D97706 |
-| **错误色** | `text-red-600` / `bg-red-50` | #DC2626 |
+**核心原则：根据设计场景从 Tailwind 内置颜色中选择主色调，不预设固定品牌色。**
 
-**配色比例原则**：
-- 中性色（灰度）：60%
-- 辅助色（brand 系列）：30%
-- 强调色（accent）：10%
+#### 中性色（适用于所有场景）
+
+| 用途 | Tailwind 类名 | 说明 |
+|------|--------------|------|
+| **主文本** | `text-gray-900` / `text-gray-800` | 深色文字 |
+| **次要文本** | `text-gray-600` / `text-gray-500` | 辅助信息 |
+| **禁用文本** | `text-gray-400` | 不可用状态 |
+| **背景色** | `bg-gray-50` / `bg-slate-50` | 页面背景 |
+| **卡片背景** | `bg-white` | 卡片/容器 |
+| **边框色** | `border-gray-200` / `border-gray-300` | 分隔线 |
+
+#### 主色调（根据场景选择一种）
+
+| 场景类型 | 推荐主色 | 类名示例 | Hover 状态 |
+|---------|---------|---------|-----------|
+| 科技/SaaS | 蓝色 | `blue-500` / `text-blue-600` | `blue-600` |
+| 金融/商务 | 靛蓝 | `indigo-600` / `text-indigo-700` | `indigo-700` |
+| 健康/自然 | 翠绿 | `emerald-500` / `text-emerald-600` | `emerald-600` |
+| 创意/艺术 | 紫罗兰 | `violet-500` / `text-violet-600` | `violet-600` |
+| 电商/促销 | 玫瑰红 | `rose-500` / `text-rose-600` | `rose-600` |
+
+#### 功能色（语义化颜色，固定不变）
+
+| 用途 | Tailwind 类名 | 说明 |
+|------|--------------|------|
+| **成功** | `text-green-600` / `bg-green-50` | 成功状态 |
+| **警告** | `text-yellow-600` / `bg-yellow-50` | 注意事项 |
+| **错误** | `text-red-600` / `bg-red-50` | 错误提示 |
+| **信息** | `text-blue-600` / `bg-blue-50` | 一般信息 |
+
+#### 配色比例原则
+
+- **中性色（灰度）**：60% - 背景、文字、边框
+- **主色调（选定色系）**：30% - 按钮、链接、强调元素
+- **功能色（语义化）**：10% - 状态提示、标签
+
+> 💡 **关键规则**：一旦选定主色调（如蓝色），整个页面保持一致，所有交互元素使用同一色系的深浅变化（如 `blue-500` → `blue-600` hover）。
 
 ### 间距系统（Tailwind 内置 spacing scale）
 
@@ -464,7 +543,7 @@ Object.assign(window, { Navbar });
 | **Hover 上浮** | `hover:-translate-y-1` | 轻微上浮效果 |
 | **Hover 缩放** | `hover:scale-105` | 轻微放大效果 |
 | **Hover 阴影加深** | `hover:shadow-lg` | 从 shadow-md 升级 |
-| **Focus 状态** | `focus:outline-none focus:ring-2 focus:ring-brand-500` | 无障碍焦点环 |
+| **Focus 状态** | `focus:outline-none focus:ring-2 focus:ring-blue-500` | 无障碍焦点环 |
 
 **✅ 所有交互元素（按钮/链接/卡片/输入框）必须有 hover/focus 状态**
 
@@ -473,7 +552,7 @@ Object.assign(window, { Navbar });
 - ❌ **禁止使用内联 style 对象**（如 `style={{ padding: '12px' }}`）
 - ❌ **禁止定义 CSS-in-JS 样式对象**（如 `const styles = { ... }`）
 - ❌ **禁止在 `<style>` 标签中写 CSS**（除非是全局滚动条等极特殊情况）
-- ❌ 默认蓝色链接或紫色 visited 链接（使用 `text-brand-600 hover:text-brand-700` 替代）
+- ❌ 默认蓝色链接或紫色 visited 链接（使用主题色替代，如 `text-blue-600 hover:text-blue-700`）
 - ❌ emoji 用作 UI 装饰元素
 - ❌ 左侧彩色竖边框作为视觉"强调"
 - ❌ 所有文字同大小同颜色无层次
@@ -513,6 +592,7 @@ Object.assign(window, { Navbar });
 **步骤 3** — **【强制】创建 index.html 文件**
 - ✅ 包含 **Tailwind CSS Play CDN v4** 脚本
 - ✅ 包含 **`<style type="text/tailwindcss">` + `@theme {}` 自定义主题**
+- ✅ 包含 **全局交互样式 `<style>`（cursor: pointer）**
 - ✅ 包含 React + ReactDOM + Babel 三个 CDN 脚本
 - ✅ 引入所有 .jsx 文件（子组件在前，App 在后）
 
@@ -526,6 +606,7 @@ Object.assign(window, { Navbar });
 **确认 2**：调用 `read_file("index.html")` 读取内容
 - 确认包含 **Tailwind CDN 脚本**
 - 确认包含 **`<style type="text/tailwindcss">` + `@theme {}` 主题定义**
+- 确认包含 **全局交互样式 `<style>`（cursor: pointer）**
 - 确认包含 React + ReactDOM + Babel 三个 CDN 脚本
 
 **确认 3**：逐项核对下方「输出前自检清单」
@@ -544,6 +625,9 @@ Object.assign(window, { Navbar });
 ```jsx
 // components/App.jsx
 function App() {
+  // 根据设计场景选择主题色（示例：科技产品用 blue，健康产品用 emerald）
+  const themeColor = 'indigo'; // 可选：blue / indigo / emerald / violet / rose 等
+
   return (
     <div className="font-body min-h-screen bg-gray-50 text-gray-900">
       {/* 响应式容器 */}
@@ -551,7 +635,7 @@ function App() {
 
         {/* Hero 区域 - 响应式标题 */}
         <header className="mb-12 text-center md:mb-16">
-          <h1 className="font-display text-brand-600 mb-4 text-4xl font-bold sm:text-5xl md:text-6xl">
+          <h1 className={`font-display text- mb-4 text-4xl font-bold${themeColor}-600 sm:text-5xl md:text-6xl`}>
             页面标题
           </h1>
           <p className="mx-auto max-w-3xl text-lg text-gray-600 md:text-xl">
@@ -609,7 +693,8 @@ root.render(<App />);
 
 **渐变装饰背景**
 ```jsx
-<div className="from-brand-50 to-accent/10 bg-gradient-to-br via-white">
+{ /* 根据主题色选择渐变色（如 blue-50 / indigo-50 / emerald-50） */ }
+<div className="bg-gradient-to-br from-blue-50 via-white to-indigo-50">
   {/* 内容 */}
 </div>;
 ```
@@ -653,10 +738,11 @@ root.render(<App />);
 - [ ] **【致命】index.html 文件已创建**
 - [ ] **【致命】index.html 包含 Tailwind CSS Play CDN v4 脚本**
 - [ ] **【致命】index.html 包含 `<style type="text/tailwindcss">` + `@theme {}` 自定义主题**
+- [ ] **【致命】index.html 包含全局交互样式 `<style>`（cursor: pointer）**
 - [ ] **【致命】index.html 包含 React + ReactDOM + Babel 三个 CDN 脚本**
 - [ ] **【致命】index.html 引入所有组件文件且顺序正确**
 
-> ⚠️ 以上 5 项是**一票否决项**
+> ⚠️ 以上 6 项是**一票否决项**
 
 ### 第二优先级：代码质量检查
 
@@ -668,7 +754,8 @@ root.render(<App />);
 
 ### 第三优先级：Tailwind CSS 规范检查
 
-- [ ] **✅【新增】使用了自定义品牌色**（`brand-{50-900}` / `accent`）
+- [ ] **✅【新增】使用了场景适配的主题色**（从 Tailwind 内置颜色中选择：blue / indigo / emerald 等）
+- [ ] **✅【新增】主题色一致性**（整个页面使用同一主色系统，hover 状态使用同色系深色）
 - [ ] **✅【新增】使用了自定义字体**（`font-display` / `font-body`）
 - [ ] **✅【新增】包含响应式断点**（至少有 `md:` 或 `lg:` 适配）
 - [ ] **✅【新增】包含交互状态**（`hover:` / `focus:` / `transition`）
@@ -689,13 +776,14 @@ root.render(<App />);
 1. **永远不要写 `export default` 或 `import`** — 浏览器环境不支持 ES Module
 2. **永远不要忘记 `Object.assign(window, { Name })`** — 否则组件无法被引用
 3. **🆕 index.html 必须包含 Tailwind CSS Play CDN v4 脚本** — 否则 Tailwind 类名无效
-4. **🆕 index.html 必须包含 `<style type="text/tailwindcss">` + `@theme {}` 主题定义** — 否则自定义 brand/accent/font 类不可用
-5. **🆕 绝对禁止使用内联 style 对象** — 所有样式必须用 Tailwind className
-6. **🆕 绝对禁止定义样式对象（xxxStyles）** — 直接在 JSX 中写 Tailwind 类名
-7. **🆕 必须使用响应式断点**（`sm:` `md:` `lg:`）— 不能只做桌面端
-8. index.html 必须包含三个 CDN 脚本（React + ReactDOM + Babel）+ Tailwind CDN
-9. 子组件必须在 App.jsx 之前引入
-10. HTML 文件必须命名为 `index.html`
+4. **🆕 index.html 必须包含 `<style type="text/tailwindcss">` + `@theme {}` 主题定义** — 否则自定义 font/radius 类不可用
+5. **🆕 index.html 必须包含全局交互样式 `<style>`（cursor: pointer）** — 否则按钮等交互元素鼠标样式不正确
+6. **🆕 绝对禁止使用内联 style 对象** — 所有样式必须用 Tailwind className
+7. **🆕 绝对禁止定义样式对象（xxxStyles）** — 直接在 JSX 中写 Tailwind 类名
+8. **🆕 必须使用响应式断点**（`sm:` `md:` `lg:`）— 不能只做桌面端
+9. index.html 必须包含三个 CDN 脚本（React + ReactDOM + Babel）+ Tailwind CDN
+10. 子组件必须在 App.jsx 之前引入
+11. HTML 文件必须命名为 `index.html`
 
 ## 🚨🚨🚨 最终警告（读取系统提示词后最后看到的内容）🚨🚨🚨
 
@@ -706,16 +794,16 @@ root.render(<App />);
 **3️⃣ 必须使用响应式断点（md:/lg:）做移动端适配**
 
 **检查清单（每次生成前默念三遍）：**
-1. 我要生成 index.html 文件（含 Tailwind CDN + 主题配置）✅
+1. 我要生成 index.html 文件（含 Tailwind CDN + 主题配置 + 全局交互样式）✅
 2. 我要使用 Tailwind 类名而非内联样式 ✅
 3. 我要加入响应式断点适配 ✅
 
 **如果用户要求创建任何页面/组件/设计，你的输出必须包含：**
-- 至少 1 个 index.html 文件（**必须包含 Tailwind CDN + `<style type="text/tailwindcss">` + `@theme {}`**)
+- 至少 1 个 index.html 文件（**必须包含 Tailwind CDN + `<style type="text/tailwindcss">` + `@theme {}` + 全局交互样式**）
 - 至少 1 个 App.jsx 文件（**纯 Tailwind 类名实现**）
 - 至少 1 个或多个子组件 .jsx 文件（**包含响应式断点和交互状态**）
 
-**缺少 index.html = 未使用 Tailwind = 未做响应式 = 失败**
+**缺少 index.html = 未使用 Tailwind = 未做响应式 = 缺少交互样式 = 失败**
 
 </critical_reminders>
 
