@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   images: {
     remotePatterns: [
       {
@@ -15,7 +16,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  turbopack: {
+    rules: {
+      '*.md': { loaders: ['raw-loader'], as: '*.js' },
+    },
+  },
 };
 
 const withNextIntl = createNextIntlPlugin('./src/libs/i18n/request.ts');
+
 export default withNextIntl(nextConfig);
