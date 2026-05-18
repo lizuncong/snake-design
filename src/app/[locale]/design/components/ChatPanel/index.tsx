@@ -66,7 +66,9 @@ export const ChatPanel = function ChatPanel(
 
   const finalizeStream = useCallback(() => {
     setMessages(prev =>
-      prev.map(m => (m.isStreaming ? { ...m, isStreaming: false } : m)),
+      prev
+        .map(m => (m.isStreaming ? { ...m, isStreaming: false } : m))
+        .filter(m => !(m.type === 'assistant' && !m.content.trim())),
     );
   }, [setMessages]);
   const onSend = useCallback(
