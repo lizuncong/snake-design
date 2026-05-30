@@ -43,6 +43,7 @@ export function createAgent(config: AgentConfig): AgentInstance {
         tools,
         existingMessages,
         {
+          model: config.model,
           maxTokens: config.maxTokens,
           maxTurns: config.maxTurns,
         },

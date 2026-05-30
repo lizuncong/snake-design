@@ -33,7 +33,7 @@ export async function runAgent(
   systemPrompt: string,
   tools: ToolDefinition[],
   existingMessages: LlmMessage[] = [],
-  options: { maxTokens?: number; maxTurns?: number } = {},
+  options: { maxTokens?: number; maxTurns?: number; model?: string } = {},
 ): Promise<LlmMessage[]> {
   const maxTokens = options.maxTokens || DEFAULT_MAX_TOKENS;
   const maxTurns = options.maxTurns || DEFAULT_MAX_TURNS;
@@ -74,19 +74,39 @@ export async function runAgent(
 
     callbacks.onText(`\n[Turn ${turnCount}] `);
 
-    const apiResp = await llmClient.chatStream(
-      messages as Array<Record<string, unknown>>,
-      openAiTools,
-      systemPrompt,
-      {
-        onTextChunk(chunk: string) {
-          callbacks.onStreamText(chunk);
+    let apiResp;
+    try {
+      apiResp = await llmClient.chatStream(
+        messages as Array<Record<string, unknown>>,
+        openAiTools,
+        systemPrompt,
+        {
+          onTextChunk(chunk: string) {
+            callbacks.onStreamText(chunk);
+          },
+          onReasoningChunk(chunk: string) {
+            callbacks.onReasoningText?.(chunk);
+          },
         },
-        onReasoningChunk(chunk: string) {
-          callbacks.onReasoningText?.(chunk);
+        {
+          model: options.model,
+          maxTokens,
         },
-      },
-    );
+      );
+    } catch (err) {
+      const errorMsg = err instanceof Error ? err.message : String(err);
+      const errorContent = `⚠️ API 调用失败：${errorMsg}\n\n请检查模型配置、API Key 或网络连接后重试。`;
+
+      callbacks.onText(`\n❌ ${errorContent}\n`);
+      callbacks.onDone({ prompt_tokens: 0, completion_tokens: 0 });
+
+      messages.push({
+        role: 'assistant',
+        content: errorContent,
+      });
+
+      return messages;
+    }
 
     const choice = apiResp.choices[0];
     if (!choice) {

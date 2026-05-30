@@ -34,6 +34,7 @@ export default function SettingsPage() {
   const [selectedModel, setSelectedModel] = useState('');
   const [keyVisible, setKeyVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [showCustomInput, setShowCustomInput] = useState(false);
 
   useEffect(() => {
     const currentBaseUrl = getBaseUrl();
@@ -41,6 +42,7 @@ export default function SettingsPage() {
     setSelectedModel(getModel());
     setApiKeyState(getApiKey(currentBaseUrl));
     setMounted(true);
+    setShowCustomInput(!!currentBaseUrl && !BASE_URL_OPTIONS.find(o => o.value === currentBaseUrl));
   }, []);
 
   const handleApiKeyChange = useCallback((value: string) => {
@@ -94,12 +96,14 @@ export default function SettingsPage() {
               <label htmlFor="base-url" className="mb-1.5 block text-xs text-[#888]">Base URL</label>
               <select
                 id="base-url"
-                value={BASE_URL_OPTIONS.find(o => o.value === baseUrl) ? baseUrl : (baseUrl ? 'custom' : '')}
+                value={BASE_URL_OPTIONS.find(o => o.value === baseUrl) ? baseUrl : (showCustomInput ? 'custom' : '')}
                 onChange={(e) => {
                   if (e.target.value === 'custom') {
                     handleBaseUrlChange('');
+                    setShowCustomInput(true);
                   } else {
                     handleBaseUrlChange(e.target.value);
+                    setShowCustomInput(false);
                   }
                 }}
                 className="w-full rounded-md border border-solid border-[#334466] bg-[#1a2744] px-3 py-2 text-xs text-[#e0e0e0] transition-colors outline-none focus:border-[#8bb4f9]"
@@ -111,7 +115,7 @@ export default function SettingsPage() {
                   </option>
                 ))}
               </select>
-              {mounted && (!baseUrl || !BASE_URL_OPTIONS.find(o => o.value === baseUrl)) && (
+              {mounted && showCustomInput && (
                 <input
                   type="text"
                   value={!BASE_URL_OPTIONS.find(o => o.value === baseUrl) ? baseUrl : ''}
