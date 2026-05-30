@@ -26,7 +26,7 @@ export function createAgent(config: AgentConfig): AgentInstance {
   const systemPrompt = config.systemPrompt || SYSTEM_PROMPT;
 
   const runReview = async (): Promise<string> => {
-    const result = await runReviewAgent(llmClient, fileStore);
+    const result = await runReviewAgent(llmClient, fileStore, undefined, config.model);
     return `全面质量审查完成。\n\n修改的文件：\n${result.filesModified.map(f => `- ${f}`).join('\n') || '（无修改）'}\n\n审查报告：\n${result.report}`;
   };
 

@@ -101,6 +101,7 @@ export async function runReviewAgent(
   llmClient: LlmClient,
   fileStore: FileStore,
   onProgress?: (text: string) => void,
+  model?: string,
 ): Promise<{ report: string; filesModified: string[] }> {
   const messages: Array<Record<string, unknown>> = [];
   const filesModified: string[] = [];
@@ -123,6 +124,7 @@ export async function runReviewAgent(
           onProgress?.(chunk);
         },
       },
+      { model },
     );
 
     const choice = apiResp.choices[0];
