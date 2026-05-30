@@ -40,6 +40,18 @@
 | 4 | index.html 引入所有 .jsx | 子组件在前，App.jsx 在后 |
 | 5 | 模块化拆分 | 每个 UI 区块单独一个 .jsx 文件，App.jsx 只做组合（< 80 行） |
 | 6 | 禁止内联 style 对象 | 所有样式用 Tailwind className，禁止 `style={{}}` 和 `const styles = {}` |
+| **7** | **必须使用 React.xxx 访问所有 API** | **禁止直接使用 useState/useEffect 等！必须写 React.useState / React.useEffect。因为 Babel Standalone 不支持 import，React 是 UMD 全局对象，Hooks 必须通过 React 对象访问，否则会报 ReferenceError** |
+
+**示例**：
+```jsx
+// ✅ 正确：React.useState / React.useEffect
+function App() {
+  const [state, setState] = React.useState('');
+  React.useEffect(() => { }, []);
+  return <div>...</div>;
+}
+// ❌ 错误：直接使用 useState 会报 ReferenceError
+```
 
 </tech_stack>
 

@@ -45,14 +45,16 @@ The sub-agent operates in an isolated context and returns structured results.`,
       const subAgentModel = def.model || defaultModel;
       const subAgentTools = allTools.filter(tool => !def.tools || def.tools.includes(tool.name));
 
+      console.warn(`[SubAgent] ${type} start, model=${subAgentModel}, maxTurns=${def.maxTurns ?? 10}`);
+
       const messages = await runAgent(
         prompt,
         {
-          onText: () => {},
+          onText: text => console.warn(`[SubAgent:${type}]`, text),
           onStreamText: () => {},
-          onToolCall: () => {},
-          onToolResult: () => {},
-          onDone: () => {},
+          onToolCall: (name, input) => console.warn(`[SubAgent:${type}] 🔧 ${name}`, input),
+          onToolResult: (name, result) => console.warn(`[SubAgent:${type}] ✅ ${name}`, typeof result === 'string' ? result.slice(0, 100) : result),
+          onDone: usage => console.warn(`[SubAgent:${type}] done, usage=`, usage),
         },
         llmClient,
         def.prompt,
@@ -64,8 +66,12 @@ The sub-agent operates in an isolated context and returns structured results.`,
         },
       );
 
-      const lastAssistantMsg = messages.filter(m => m.role === 'assistant').pop();
+      const allAssistant = messages.filter(m => m.role === 'assistant');
+      const lastAssistantMsg = allAssistant.pop();
       const content = lastAssistantMsg?.content;
+
+      console.warn(`[SubAgent] ${type} result: type=${typeof content}, len=${typeof content === 'string' ? content.length : 'N/A'}, value=`, content);
+      console.warn(`[SubAgent] ${type} assistant msgs=${allAssistant.length + 1}, all roles=`, messages.map(m => m.role));
 
       if (typeof content === 'string') {
         return content;
