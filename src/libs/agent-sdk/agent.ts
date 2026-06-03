@@ -126,7 +126,6 @@ export async function runAgent(
     }
     const msg = choice.message;
     const usage = apiResp.usage || { prompt_tokens: 0, completion_tokens: 0 };
-    const finishReason = choice.finish_reason;
 
     const assistantMsg: LlmMessage = {
       role: 'assistant',
@@ -137,7 +136,7 @@ export async function runAgent(
     }
     messages.push(assistantMsg);
 
-    if (finishReason !== 'tool_calls' || !msg.tool_calls || msg.tool_calls.length === 0) {
+    if (!msg.tool_calls || msg.tool_calls.length === 0) {
       callbacks.onDone(usage);
       return messages;
     }

@@ -11,12 +11,14 @@ export function createLoadSkillTool(skillManager: SkillManager): ToolDefinition 
   return {
     name: 'load_skill',
     description: [
-      'Load the full instructions of a specific skill into context.',
+      '⚠️ MANDATORY: Before ANY design work (planning, coding, reviewing), you MUST call this tool first.',
+      '',
+      'This loads the complete design system (color palettes, typography, components, UX rules).',
+      'Without loading, you will miss critical design tokens and quality gates — your output will be incomplete and low-quality.',
+      '',
+      'Failure to call this tool before producing design output is a critical error.',
       '',
       skillManager.getSkillIndex(),
-      '',
-      'Use this tool when you determine a skill is relevant to the current task.',
-      'After loading, follow the skill\'s guidelines in your response.',
     ].join('\n'),
     input_schema: {
       type: 'object',

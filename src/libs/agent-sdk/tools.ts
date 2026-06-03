@@ -9,7 +9,15 @@ export function createTools(fileStore: FileStore): ToolDefinition[] {
       name: 'write_file',
       description: `Write content to a file in the project. Creates parent directories automatically.
 Supports all file types: HTML pages, JSX React components, and any text files.
-For React projects: write index.html as entry point (with React + Babel CDN scripts), then write components/*.jsx separately.
+
+⚠️ MANDATORY DIRECTORY STRUCTURE - you MUST follow this strictly:
+- Page components (screen-*.jsx) → path must start with "pages/"  (e.g. "pages/screen-home.jsx")
+- UI components (Button, Card, Modal...) → path must start with "components/"  (e.g. "components/Button.jsx")
+- IconLibrary → "components/IconLibrary.jsx"
+- Entry HTML → "index.html" (root only)
+
+For React projects: write index.html as entry point (with React + Babel CDN scripts), then write components/*.jsx and pages/*.jsx separately.
+In index.html, reference files with correct paths: src="./components/Button.jsx" or src="./pages/screen-home.jsx"
 Overwrites if file already exists.`,
       input_schema: {
         type: 'object',

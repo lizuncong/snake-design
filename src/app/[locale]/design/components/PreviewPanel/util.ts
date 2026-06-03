@@ -55,18 +55,28 @@ export const snakeDesignTheme: {
 
 const blobUrlCache = new Map<string, string>();
 
+/** 规范化文件路径：去除 ./ 前缀和多余斜杠 */
+function normalizePath(path: string): string {
+  return path.replace(/^\.\//, '').replace(/^\/+/, '');
+}
+
 export function getBlobUrl(fileStore: FileStore, path: string): string | null {
-  if (blobUrlCache.has(path)) {
-    return blobUrlCache.get(path) || null;
+  const normalized = normalizePath(path);
+  if (blobUrlCache.has(normalized)) {
+    return blobUrlCache.get(normalized) || null;
   }
-  const file = fileStore.getFile(path);
+  // 先尝试精确匹配，再尝试规范化路径
+  let file = fileStore.getFile(path);
+  if (!file) {
+    file = fileStore.getFile(normalized);
+  }
   if (!file) {
     return null;
   }
-  const ext = path.split('.').pop()?.toLowerCase() || '';
+  const ext = normalized.split('.').pop()?.toLowerCase() || '';
   const mimeType = MIME_TYPES[ext] || 'text/plain';
   const url = URL.createObjectURL(new Blob([file.content], { type: mimeType }));
-  blobUrlCache.set(path, url);
+  blobUrlCache.set(normalized, url);
   return url;
 }
 
@@ -84,8 +94,8 @@ export function resolveWithBlobUrls(fileStore: FileStore, htmlContent: string, b
   resolved = resolved.replace(
     /<link\s[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi,
     (match, href) => {
-      const fullPath = href.startsWith('/') ? href.slice(1) : dir + href;
-      const url = getBlobUrl(fileStore, fullPath);
+      const rawPath = href.startsWith('/') ? href.slice(1) : dir + href;
+      const url = getBlobUrl(fileStore, rawPath);
       if (url) {
         return match.replace(href, url);
       }
@@ -96,17 +106,22 @@ export function resolveWithBlobUrls(fileStore: FileStore, htmlContent: string, b
   resolved = resolved.replace(
     /<script\s[^>]*src=["']([^"']+)["'][^>]*><\/script>/gi,
     (match, src) => {
-      const fullPath = src.startsWith('/') ? src.slice(1) : dir + src;
+      const rawPath = src.startsWith('/') ? src.slice(1) : dir + src;
+      const fullPath = normalizePath(rawPath);
       const isBabelScript = match.includes('type="text/babel"') || match.includes('type=\'text/babel\'');
       if (isBabelScript) {
-        const file = fileStore.getFile(fullPath);
+        // 先精确匹配，再尝试规范化路径
+        let file = fileStore.getFile(rawPath);
+        if (!file) {
+          file = fileStore.getFile(fullPath);
+        }
         if (file) {
           const srcAttrMatch = match.match(/src=["'][^"']+["']/) ?? '';
           const restOfTag = match.replace(String(srcAttrMatch), '');
           return `<script type="text/babel"${restOfTag.replace('<script', '').replace('></script>', '')}>${file.content}</script>`;
         }
       }
-      const url = getBlobUrl(fileStore, fullPath);
+      const url = getBlobUrl(fileStore, rawPath);
       if (url) {
         return match.replace(src, url);
       }
