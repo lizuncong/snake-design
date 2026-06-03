@@ -1,14 +1,47 @@
-import type { FileStore } from '@/libs/agent-sdk';
+import type { FileStore, SkillManager } from '@/libs/agent-sdk';
 import Editor from '@monaco-editor/react';
 import { getLanguage, snakeDesignTheme } from './util';
 
 type EditorCompProps = {
   activeFile: string | null;
   fileStore: FileStore;
+  skillManager?: SkillManager;
   refreshKey: number;
 };
-const EditorComp = ({ activeFile, fileStore, refreshKey }: EditorCompProps) => {
-  const file = activeFile ? fileStore.getFile(activeFile) : null;
+
+const SKILL_PREFIX = '.agent/skills/';
+
+function getSkillContent(skillManager: SkillManager, path: string): string | null {
+  const rest = path.slice(SKILL_PREFIX.length);
+  const slashIdx = rest.indexOf('/');
+  if (slashIdx === -1) {
+    return null;
+  }
+
+  const skillName = rest.slice(0, slashIdx);
+  const filePath = rest.slice(slashIdx + 1);
+
+  // SKILL.md → 返回完整原文（含 frontmatter）
+  if (filePath === 'SKILL.md') {
+    const skill = skillManager.getSkill(skillName);
+    return skill?.content ?? null;
+  }
+
+  // 其他文件 → 返回 files 中的内容
+  return skillManager.getSkillFile(skillName, filePath) ?? null;
+}
+
+const EditorComp = ({ activeFile, fileStore, skillManager, refreshKey }: EditorCompProps) => {
+  let file = activeFile ? fileStore.getFile(activeFile) : null;
+
+  // 回退：从 skillManager 读取虚拟 Skill 文件
+  if (!file && activeFile?.startsWith(SKILL_PREFIX) && skillManager) {
+    const content = getSkillContent(skillManager, activeFile);
+    if (content !== null) {
+      file = { path: activeFile, content, size: content.length, createdAt: 0, updatedAt: 0 };
+    }
+  }
+
   const language = activeFile ? getLanguage(activeFile) : 'plaintext';
 
   return (

@@ -1,4 +1,5 @@
 import type { LlmClient } from './llm';
+import type { SkillManager } from './skill-manager';
 import type { AgentCallbacks, LlmMessage, ToolDefinition } from './types';
 import { getMaxOutputTokens } from '@/app/[locale]/design/lib/model-config';
 import { executeSnips, registerSnip, tagUserMessage, trimMessages } from './tools';
@@ -33,11 +34,21 @@ export async function runAgent(
   systemPrompt: string,
   tools: ToolDefinition[],
   existingMessages: LlmMessage[] = [],
-  options: { maxTokens?: number; maxTurns?: number; model?: string } = {},
+  options: { maxTokens?: number; maxTurns?: number; model?: string; skillManager?: SkillManager } = {},
 ): Promise<LlmMessage[]> {
   const model = options.model || 'glm-4.6v-flash';
   const maxTokens = options.maxTokens || getMaxOutputTokens(model);
   const maxTurns = options.maxTurns || DEFAULT_MAX_TURNS;
+
+  // 构建增强 system prompt（Level 1 索引）
+  let enhancedSystemPrompt = systemPrompt;
+  if (options.skillManager) {
+    await options.skillManager.loadAll();
+    const skillIndex = options.skillManager.getSkillIndex();
+    if (skillIndex) {
+      enhancedSystemPrompt = `${systemPrompt.trimEnd()}\n\n${skillIndex}`;
+    }
+  }
 
   const messages: LlmMessage[] = existingMessages.length > 0 ? [...existingMessages] : [];
 
@@ -80,7 +91,7 @@ export async function runAgent(
       apiResp = await llmClient.chatStream(
         messages as Array<Record<string, unknown>>,
         openAiTools,
-        systemPrompt,
+        enhancedSystemPrompt,
         {
           onTextChunk(chunk: string) {
             callbacks.onStreamText(chunk);

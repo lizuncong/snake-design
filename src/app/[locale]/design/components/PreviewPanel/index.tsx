@@ -8,7 +8,7 @@ import EditorComp from './Editor';
 import { Toolbar } from './Toolbar';
 import { invalidateBlobUrls, resolveWithBlobUrls } from './util';
 
-export function PreviewPanel({ activeFile, fileStore }: PreviewPanelProps) {
+export function PreviewPanel({ activeFile, fileStore, skillManager }: PreviewPanelProps) {
   const [refreshKey, setRefreshKey] = useState(0);
   const [deviceMode, setDeviceMode] = useState<DeviceMode>('desktop');
   const [files, setFiles] = useState<DesignFile[]>([]);
@@ -78,7 +78,7 @@ export function PreviewPanel({ activeFile, fileStore }: PreviewPanelProps) {
                     )}
               </div>
             )
-          : <EditorComp activeFile={activeFile} fileStore={fileStore} refreshKey={refreshKey} />}
+          : <EditorComp activeFile={activeFile} fileStore={fileStore} skillManager={skillManager} refreshKey={refreshKey} />}
       </div>
       {activeFile && !isPreview && (
         <div className="truncate border-t border-[#2a2a4e] bg-[#0f1929] px-4 py-1.5 text-[12px] text-[#aaa]">

@@ -54,3 +54,23 @@ export type AgentConfig = {
   maxTurns?: number;
   subAgents?: Record<string, SubAgentDefinition>;
 };
+
+/** 单个 Skill 的定义（解析后的最终形态） */
+export type SkillDefinition = {
+  name: string; // 来自 frontmatter.name
+  description: string; // 来自 frontmatter.description
+  prompt: string; // SKILL.md body 部分（Level 2 内容）
+  content: string; // SKILL.md 完整原文（含 frontmatter，用于预览）
+  source: 'builtin' | 'custom'; // 来源标记
+  files: Record<string, string>; // Level 3 附属文件 (路径 → 内容)
+};
+
+/** 用户自定义 Skill 的存储格式（存入 IndexedDB） */
+export type StoredCustomSkill = {
+  name: string; // 主键（IndexedDB keyPath）
+  description: string;
+  content: string; // 完整 SKILL.md 原文（含 frontmatter）
+  files?: Record<string, string>; // 可选：附属文件路径 → 内容映射
+  createdAt: number; // 创建时间戳
+  updatedAt: number; // 更新时间戳
+};

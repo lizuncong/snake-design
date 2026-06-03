@@ -6,13 +6,17 @@ import { useFileStore } from '../../lib/useFileStore';
 
 import { TreeNodeItem } from './TreeNodeItem';
 import { PREVIEW_PREFIX } from './types';
-import { buildTree } from './util';
+import { buildSkillTree, buildTree } from './util';
 
 export { PREVIEW_PREFIX };
-export function FilePanel({ activeFile, fileStore, onSelectFile }: FilePanelProps) {
+export function FilePanel({ activeFile, fileStore, skillManager, onSelectFile }: FilePanelProps) {
   const files = useFileStore(fileStore);
 
-  const tree = useMemo(() => buildTree(files), [files]);
+  const tree = useMemo(() => {
+    const projectTree = buildTree(files);
+    const skillTree = skillManager ? buildSkillTree(skillManager) : null;
+    return skillTree ? [...skillTree, ...projectTree] : projectTree;
+  }, [files, skillManager]);
 
   return (
     <aside className="flex h-full min-w-[150px] flex-col border-r border-[#2a2a4a] bg-[#16213e]">

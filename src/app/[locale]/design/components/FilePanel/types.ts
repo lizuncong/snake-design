@@ -1,4 +1,4 @@
-import type { FileStore } from '@/libs/agent-sdk';
+import type { FileStore, SkillManager } from '@/libs/agent-sdk';
 
 export const PREVIEW_PREFIX = 'preview:';
 
@@ -12,5 +12,6 @@ export type TreeNode = {
 export type FilePanelProps = {
   activeFile: string | null;
   fileStore: FileStore;
+  skillManager?: SkillManager;
   onSelectFile: (path: string) => void;
 };

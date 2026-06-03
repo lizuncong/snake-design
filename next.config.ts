@@ -19,6 +19,10 @@ const nextConfig: NextConfig = {
   turbopack: {
     rules: {
       '*.md': { loaders: ['raw-loader'], as: '*.js' },
+      'src/libs/agent-sdk/skills/**/*.js': {
+        loaders: ['raw-loader'],
+        as: '*.js',
+      },
     },
   },
 };

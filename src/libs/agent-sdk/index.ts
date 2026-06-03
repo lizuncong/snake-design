@@ -3,12 +3,14 @@ import type { AgentCallbacks, AgentConfig, LlmMessage, ToolDefinition } from './
 import { runAgent } from './agent';
 import { FileStore } from './file-store';
 import { createLlmClient } from './llm';
+import { SkillManager } from './skill-manager';
+import { createLoadSkillTool, createReadSkillFileTool } from './skill-tools';
 import { createSubAgentTool } from './subagent-tool';
 import { createTools } from './tools';
 
 export type { AgentCallbacks, AgentConfig, LlmMessage, ToolDefinition };
-export type { SubAgentDefinition } from './types';
-export { type DesignFile, FileStore };
+export type { SkillDefinition, StoredCustomSkill, SubAgentDefinition } from './types';
+export { type DesignFile, FileStore, SkillManager };
 
 export type AgentInstance = {
   run: (
@@ -17,6 +19,7 @@ export type AgentInstance = {
     existingMessages?: LlmMessage[],
   ) => Promise<LlmMessage[]>;
   fileStore: FileStore;
+  skillManager: SkillManager;
 };
 
 export function createAgent(config: AgentConfig): AgentInstance {
@@ -28,9 +31,11 @@ export function createAgent(config: AgentConfig): AgentInstance {
   const llmClient = createLlmClient(config.apiKey, config.baseUrl);
   const systemPrompt = config.systemPrompt;
 
-  const coreTools = createTools(fileStore);
+  const skillManager = new SkillManager();
+  skillManager.loadAll(); // 初始化时立即加载内置 + 自定义 Skill
 
-  let allTools: ToolDefinition[] = coreTools;
+  const coreTools = createTools(fileStore);
+  let allTools: ToolDefinition[] = [...coreTools];
 
   if (config.subAgents && Object.keys(config.subAgents).length > 0) {
     const subAgentTool = createSubAgentTool(
@@ -40,23 +45,32 @@ export function createAgent(config: AgentConfig): AgentInstance {
       config.subAgents,
       config.model,
     );
-    allTools = [...coreTools, subAgentTool];
+    allTools = [...allTools, subAgentTool];
   }
 
   return {
     fileStore,
+    skillManager,
+
     async run(userInput, callbacks, existingMessages = []) {
+      // 动态创建 Skill 工具（确保 description 包含最新列表）
+      const loadSkillTool = createLoadSkillTool(skillManager);
+      const readSkillFileTool = createReadSkillFileTool(skillManager);
+
+      const toolsWithSkills = [...allTools, loadSkillTool, readSkillFileTool];
+
       return runAgent(
         userInput,
         callbacks,
         llmClient,
         systemPrompt,
-        allTools,
+        toolsWithSkills,
         existingMessages,
         {
           model: config.model,
           maxTokens: config.maxTokens,
           maxTurns: config.maxTurns,
+          skillManager,
         },
       );
     },

@@ -144,9 +144,10 @@ export function DesignLayout() {
         <FilePanel
           activeFile={activeFile}
           fileStore={agent.fileStore}
+          skillManager={agent.skillManager}
           onSelectFile={handleSelectFile}
         />
-        <PreviewPanel activeFile={activeFile} fileStore={agent.fileStore} />
+        <PreviewPanel activeFile={activeFile} fileStore={agent.fileStore} skillManager={agent.skillManager} />
       </ResizableLayout>
     </div>
   );
