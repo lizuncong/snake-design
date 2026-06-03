@@ -169,6 +169,60 @@ done
 
 ---
 
+### 1.3 项目目录结构合规性检查（P0-致命）
+
+> **错误的目录结构会导致预览功能完全失效（404），必须立即修正。**
+
+#### 标准目录结构
+```
+project/
+├── pages/              # 页面级组件（screen-*.jsx）
+│   ├── screen-home.jsx
+│   └── screen-detail.jsx
+├── components/         # UI 组件（Button, Card, Header...）
+│   ├── Button.jsx
+│   ├── Card.jsx
+│   ├── IconLibrary.jsx
+│   └── ...
+├── index.html          # 入口文件
+└── styles.css          # 自定义样式（如有）
+```
+
+#### 检查步骤
+
+**Step 1: 使用 list_files 列出所有文件**
+```
+检查每个文件的路径前缀：
+- screen-*.jsx 文件 → 必须以 "pages/" 开头
+- UI 组件文件 → 必须以 "components/" 开头
+- index.html → 必须在根目录
+```
+
+**Step 2: 检测违规并修复**
+
+常见违规模式及修复方法：
+
+| 违规 | 示例 | 修复 |
+|------|------|------|
+| 页面组件在根目录 | `screen-home.jsx` | → 用 write_file 写入 `pages/screen-home.jsx`，删除原文件 |
+| UI 组件在根目录 | `Button.jsx` | → 用 write_file 写入 `components/Button.jsx`，删除原文件 |
+| 所有文件堆在 .agent 下 | `.agent/skills/.../*.jsx` | → 移动到正确目录 |
+
+**Step 3: 检查 index.html 中的引用路径**
+```
+read_file index.html 后验证每个 <script src="..."> 的路径：
+- 组件引用必须包含 ./components/ 前缀：src="./components/Button.jsx"
+- 页面引用必须包含 ./pages/ 前缀：src="./pages/screen-home.jsx"
+- 如果发现 src="./Button.jsx"（缺少目录前缀）→ 立即用 write_file 修复 index.html
+```
+
+**🛠️ 修正动作:**
+1. 对违规文件使用 write_file 写入正确路径的新版本
+2. 更新 index.html 中所有对应的 src 路径
+3. 再次 list_files 验证修复结果
+
+---
+
 ## 🎨 Phase 2: 视觉设计质量审查（6大维度）
 
 ### 2.1 视觉层次与对比度 (P0)

@@ -30,10 +30,10 @@ function getAgentConfig() {
     subAgents: {
       'visual-reviewer': {
         name: 'visual-reviewer',
-        description: 'Visual design and code quality review expert. Analyzes UI/UX design, component architecture, React best practices, and code readability. Automatically fixes issues found.',
+        description: 'Visual design and code quality review expert. Analyzes UI/UX design, component architecture, React best practices, code readability, and project directory structure. Automatically fixes all issues found including P0 fatal errors.',
         prompt: VISUAL_REVIEWER_PROMPT,
         tools: ['read_file', 'list_files', 'write_file'],
-        maxTurns: 8,
+        maxTurns: 15,
       },
     },
   };

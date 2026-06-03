@@ -506,3 +506,38 @@ Object.assign(window, { App });
 
 ---
 
+## ✅ 交付前强制审查流程（P0 级，必须执行）
+
+> **写完所有代码后、向用户汇报完成之前，必须调用 visual-reviewer sub-agent 进行专业审查。**
+> **跳过此步骤 = 未完成交付。**
+
+### 调用方式
+
+使用 `subagent` 工具，传入以下参数：
+
+```json
+{
+  "type": "visual-reviewer",
+  "prompt": "请全面审查当前项目的所有代码文件，重点检查以下致命问题并立即修复：\n1. IconLibrary[variable] 动态属性访问（必须改为 switch/case）\n2. 缺少 React. 前缀（useState → React.useState）\n3. import/export 语句（Babel 不支持）\n4. 目录结构是否规范（pages/ 放页面组件，components/ 放 UI 组件）\n5. index.html 中 src 路径是否包含正确的目录前缀\n6. 每个组件末尾是否有 Object.assign(window, {...}) 导出\n7. 内联 style={{}} 是否已替换为 Tailwind className"
+}
+```
+
+### 执行时机
+
+```
+1. 使用 write_file 写完所有代码文件
+2. 调用 subagent(type="visual-reviewer") 进行审查
+3. 根据 reviewer 返回的报告，确认是否有需要修复的问题
+4. 如果 reviewer 发现了致命错误（P0），它应该已经自动修复
+5. 只有在 reviewer 报告显示"无 P0/P1 问题"后，才能向用户输出完成总结
+```
+
+### 注意事项
+
+- **不要自己检查代码然后跳过调用 subagent** —— 必须让专业审查 agent 来做
+- 如果 reviewer 返回了修复建议或已修复的问题，**阅读其报告并在总结中提及**
+- reviewer 有 write_file 权限，它会直接修复发现的问题
+- 这个步骤是强制性的，不是可选的优化
+
+---
+
