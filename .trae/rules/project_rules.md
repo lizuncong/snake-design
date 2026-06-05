@@ -53,3 +53,50 @@ ComponentName/
 ## 样式管理
 
 - 全局样式（如滚动条）统一放在 `src/styles/global.css`，避免在组件中使用 `dangerouslySetInnerHTML` 内联 style 标签。
+
+---
+
+## Agent 环境边界（关键！修改设计 prompt 时必须遵守）
+
+本项目存在 **两个完全不同的 Agent 运行环境**，绝对不能混淆：
+
+### 1. IDE 编码 Agent（即"我"）
+
+| 属性 | 说明 |
+|------|------|
+| **运行环境** | Trae IDE 本地终端 |
+| **工具体系** | Read / Write / Edit / Grep / Glob / RunCommand / SearchCodebase |
+| **文件系统** | 本地路径 `/Users/lzc/Documents/学习/snake-design/...` |
+| **技术栈** | TypeScript / React / Next.js（真实项目源码） |
+| **产出物** | .ts / .tsx 源代码文件 |
+
+### 2. 浏览器设计 Agent（main-agent.md 的读者）
+
+| 属性 | 说明 |
+|------|------|
+| **运行环境** | 浏览器内（类似 Claude Artifacts） |
+| **工具体系** | `load_skill` / `write_file`(浏览器虚拟项目) / `subagent` / `read_skill_file` / `ask_user_question` / `show_to_user` |
+| **文件系统** | 浏览器虚拟文件系统（`pages/`, `components/`, `index.html`） |
+| **技术栈** | React 18 + Babel Standalone + Tailwind CSS Play CDN v4（浏览器实时编译） |
+| **产出物** | .jsx + index.html 设计稿 |
+| **Prompt 文件** | `src/app/[locale]/design/prompts/main-agent.md` 和 `visual-reviewer.md` |
+
+### 核心规则
+
+当我在**编辑** `design/prompts/*.md` 文件时：
+- 我是在**给浏览器设计 Agent 写说明书**
+- 必须站在**浏览器 Agent 的视角**思考：它有什么工具、能做什么、看到什么
+- **绝对不能**在 prompt 中出现本地文件路径 `/Users/lzc/...`
+- **必须使用**浏览器 Agent 的工具名称：`load_skill("ui-ux-pro-max")`、`subagent("visual-reviewer")`
+
+### 判断速查表
+
+| 看到 → | 属于 → |
+|--------|---------|
+| `load_skill(...)` | 浏览器 Agent 的工具，不是我的工具 |
+| `subagent("visual-reviewer")` | 浏览器 Agent 调用审查子代理 |
+| `ask_user_question(...)` | 浏览器 Agent 向用户提问 |
+| `write_file` 在 prompt 中 | 指浏览器虚拟项目的写入，非本地 Write 工具 |
+| `/Users/lzc/...` 路径 | **我（本地 Agent）的视角，严禁出现在设计 prompt 中** |
+| `design/prompts/main-agent.md` | 我编辑它 = 我在配置另一个 Agent |
+| `.trae/rules/project_rules.md` | 项目规则，每次对话自动加载给我 |
