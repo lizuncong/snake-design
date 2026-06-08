@@ -1,0 +1,6349 @@
+[
+  {
+    "Bauhaus（包豪斯）": "大胆的几何现代主义，包含圆形、方形和三角形。主色调（红/蓝/黄），边缘鲜明，阴影强烈。功能性与艺术性兼备，带有建构主义的不对称。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 极简主义品牌官网与电商"
+  },
+  {
+    "Bauhaus（包豪斯）": "2. 工具类与高效率 App"
+  },
+  {
+    "Bauhaus（包豪斯）": "3. 数字媒体与在线杂志"
+  },
+  {
+    "Bauhaus（包豪斯）": "<design-system>"
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Style: Bauhaus (Mobile)"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Design Philosophy"
+  },
+  {
+    "Bauhaus（包豪斯）": "The Bauhaus style embodies the revolutionary principle \"form follows function\" while celebrating pure geometric beauty and primary color theory. On mobile",
+    "null": [
+      " this translates to tactile constructivism—the screen is a canvas where elements are physically stacked blocks. The aesthetic creates a high-impact",
+      " poster-like experience in the palm of the hand: bold",
+      " touch-centric",
+      " and unapologetically graphic."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Vibe: Tactile",
+    "null": [
+      " Constructivist",
+      " Geometric",
+      " High-Contrast",
+      " Bold",
+      " Architectural"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Core Concept: The mobile interface is a vertical geometric composition. Scroll views are not just content streams but stacked layers of colored paper and rigid shapes. The limited screen real estate forces a focus on massive typography and distinct color blocking (Red #D02020",
+    "null": [
+      " Blue #1040C0",
+      " Yellow #F0C020). Every tap should feel mechanical and substantial."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Key Characteristics:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Geometric Purity: UI elements are strictly circles (buttons/avatars) or squares (cards/inputs)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Tactile Depth: Hard shadows indicate interactivity; elements look \"pressable.\""
+  },
+  {
+    "Bauhaus（包豪斯）": "● Color Blocking: distinct screen sections use solid primary colors to separate content without whitespace."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Thick Borders: 2px and 3px black borders ensure legibility and distinct separation on small screens."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Vertical Rhythm: Strong vertical stacking with deliberate spacing",
+    "null": [
+      " avoiding clutter."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Constructivist Typography: Headlines are massive (text-4xl to text-5xl) relative to screen width",
+    "null": [
+      " breaking traditional mobile scaling rules."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Thumb-Friendly: Interactive zones are large",
+    "null": [
+      " distinct",
+      " and geometrically defined."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Design Token System (The DNA)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Colors (Single Palette - Light Mode)"
+  },
+  {
+    "Bauhaus（包豪斯）": "The palette remains strictly Bauhaus primaries",
+    "null": [
+      " optimized for high contrast outdoors."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● background: #F0F0F0 (Off-white canvas)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● foreground: #121212 (Stark Black)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● primary-red: #D02020 (Bauhaus Red)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● primary-blue: #1040C0 (Bauhaus Blue)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● primary-yellow: #F0C020 (Bauhaus Yellow)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● border: #121212 (Thick",
+    "null": [
+      " distinct borders)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● muted: #E0E0E0"
+  },
+  {
+    "Bauhaus（包豪斯）": "Typography"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Font Family: 'Outfit' (geometric sans-serif)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Font Import: Outfit:wght@400;500;700;900"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Scaling: Aggressive scaling adapted for vertical viewports."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Display: text-4xl → text-5xl (Massive headers taking up 30-40% of screen width)"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Subheadings: text-xl → text-2xl"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Body: text-base (16px minimum for legibility)"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Button Text: text-lg (Large for readability)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Weights:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Headlines: font-black (900) uppercase",
+    "null": [
+      " tight tracking (tracking-tighter)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Buttons/Nav: font-bold (700) uppercase",
+    "null": [
+      " wide tracking (tracking-wide)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Body: font-medium (500)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Line Height: Tight (leading-none) for headlines to save vertical space; leading-relaxed for body text."
+  },
+  {
+    "Bauhaus（包豪斯）": "Radius & Border"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Radius: Strict Binary—rounded-none (0px) for layout blocks",
+    "null": [
+      " inputs",
+      " and cards; rounded-full (9999px) for primary action buttons and avatars."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border Widths:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Standard Elements: border-2 (2px)"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Major Containers/Bottom Nav: border-t-2 or border-3"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Separators: divide-y-2"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border Color: Always #121212 (black)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Shadows/Effects"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Hard Offset Shadows (Tactile feedback):"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Small elements (Tags/Icons): shadow-[2px_2px_0px_0px_black]"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Buttons/Cards: shadow-[4px_4px_0px_0px_black] (Reduced from web 8px to save screen width)"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Floating Action Button (FAB): shadow-[5px_5px_0px_0px_black]"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Touch Feedback: active:translate-x-[2px] active:translate-y-[2px] active:shadow-none (Instant mechanical depression)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Patterns:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Dot grid backgrounds on \"Paper\" colored sections (background-size: 16px 16px)."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Screen transitions: Slide-over with hard black borders."
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Component Stylings"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons (Touch Targets)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Minimum Size: Height h-12 or h-14 (48px-56px) for thumb accessibility."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Variants:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Primary (CTA): w-full bg-[#D02020] text-white border-2 border-black shadow-[4px_4px_0px_0px_black]"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Secondary: w-full bg-[#1040C0] text-white border-2 border-black shadow-[4px_4px_0px_0px_black]"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Floating Action (FAB): h-14 w-14 rounded-full bg-[#F0C020] border-2 border-black shadow-[4px_4px_0px_0px_black] flex items-center justify-center"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Shapes: Full-width rectangular buttons (rounded-none) or pill-shaped (rounded-full) for bottom-sticky actions."
+  },
+  {
+    "Bauhaus（包豪斯）": "● States: NO hover. Focus on active state (press down effect)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Cards (Mobile Stack)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Base Style: White background",
+    "null": [
+      " border-2 border-black",
+      " shadow-[4px_4px_0px_0px_black]",
+      " mb-6."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Decoration:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Geometric badge in top-right: absolute top-0 right-0 h-8 w-8 bg-[#F0C020] border-l-2 border-b-2 border-black flex items-center justify-center."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interaction: Entire card is a touch target. active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_black]."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Content: Image usually takes top half (aspect-video)",
+    "null": [
+      " bold text below."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Bottom Navigation (The Anchor)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Container: fixed bottom-0 w-full bg-white border-t-2 border-black z-50 h-20."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Grid: 3 to 5 items equally spaced."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Items:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Inactive: Black stroke icon",
+    "null": [
+      " clear background."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Active: Icon inside a geometric shape (Square/Circle) with primary color fill (e.g.",
+    "null": [
+      " Red Square context)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Label: Tiny uppercase bold text below icon",
+    "null": [
+      " or icon only for minimalism."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Inputs & Forms"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Field: h-12 bg-white border-2 border-black rounded-none px-4 text-black placeholder:text-gray-400 focus:bg-[#FFF9C4] focus:ring-0 focus:border-black."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Label: Uppercase bold",
+    "null": [
+      " mb-1 block."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Checkbox: h-6 w-6 appearance-none border-2 border-black bg-white checked:bg-[#1040C0] rounded-none."
+  },
+  {
+    "Bauhaus（包豪斯）": "4. Layout & Spacing"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Container: w-full with px-5 (20px) padding. Max-width constraints removed (fluid mobile)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Section Padding:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Standard: py-8"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Hero: pt-12 pb-16"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Grid Systems:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Main Layout: Single column (Stack)."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Micro-grids: 2-column for stats/gallery (gap-3 or gap-4)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Safe Areas: Respect pt-safe (top notch) and pb-safe (bottom home indicator)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Dividers: Thick section separators border-b-2 border-black usually paired with a background color change."
+  },
+  {
+    "Bauhaus（包豪斯）": "5. Non-Genericness (Bold Choices)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Mobile Constraints require distinct personality to avoid looking like a wireframe:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Full-Screen Color Washes:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Onboarding screens: Full solid backgrounds (Red Screen → Blue Screen → Yellow Screen)."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Success states: Full Yellow background (bg-[#F0C020]) with massive black centered checkmark."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Error states: Full Red background (bg-[#D02020]) with white text."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Header Identity:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Instead of a standard navbar",
+    "null": [
+      " use a \"Bauhaus Header Block\": A row containing a Square (Menu)",
+      " a flexible space for the Title (Left aligned",
+      " massive)",
+      " and a Circle (Profile/Search). All elements separated by vertical borders divide-x-2 border-b-2 border-black."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Geometric Lists:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ List items aren't just text lines. They are alternating geometric bullets: Line 1 uses a ■",
+    "null": [
+      " Line 2 uses a ●",
+      " Line 3 uses a ▲."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Rotated \"Stickers\":"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ \"New\"",
+    "null": [
+      " \"Sale\"",
+      " or Notification badges are rotated -12deg or +12deg",
+      " sitting on top of corners to break the rigid grid."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Image Filters:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Thumbnails: Grayscale + High Contrast."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Detail View: Full color",
+    "null": [
+      " no rounded corners",
+      " thick black border."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "6. Icons & Imagery"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Icon Library: lucide-react-native or similar (Circle",
+    "null": [
+      " Square",
+      " Triangle",
+      " Menu",
+      " X",
+      " ArrowLeft)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Icon Style:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Stroke: stroke-[2px]."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Size: w-6 h-6 (standard) or w-8 h-8 (hero actions)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Icon Containers:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Navigation icons often live inside rigid 48x48px bordered squares."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Back buttons are always circular rounded-full with a border."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Imagery:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Masking: Use CSS clip-paths to crop header images into non-standard shapes (e.g.",
+    "null": [
+      " a trapezoid or a circle cropped at the bottom) within the mobile frame."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "7. Responsive Strategy (Device Sizes)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Small Phones (SE/Mini):"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Reduce display text to text-3xl."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Stack stats vertically (1-col)."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Reduce padding to px-4."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Large Phones (Max/Plus):"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Display text scales to text-5xl."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Stats can use 2-col grid."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Card images gain more height."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Orientation:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Portrait (Primary): Vertical stacking."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Landscape: Avoid if possible",
+    "null": [
+      " or split screen 50/50 (Text Left / Image Right)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "8. Animation & Micro-Interactions"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Feel: Physical",
+    "null": [
+      " snappy",
+      " zero-latency."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Duration: duration-150 (Very fast)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Easing: ease-in-out (Sharp stops)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interactions:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Tap: The element physically depresses (translate X/Y matches shadow size)."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Drawer Open: Slides in from Left/Right with a solid black border line leading it. No soft fades—it slides like a mechanical door."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Toast/Alerts: Drop down from top as a solid geometric block (Yellow/Red) with hard borders",
+    "null": [
+      " swinging slightly like a hanging sign."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Scroll: Sticky headers snap into place instantly."
+  },
+  {
+    "Bauhaus（包豪斯）": "</design-system>"
+  },
+  {
+    "Bauhaus（包豪斯）": "Monochrome（单色/黑白）\n一套简洁的编辑设计体系，建立在纯粹的黑白之上。没有点缀色——只有戏剧性的对比、超大衬线字体和精准的几何布局。让人联想到高端时尚专题和建筑作品集。严肃、成熟、毫不掩饰地大胆。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 极简主义电商与高端奢侈品\n2. 专业创意与文档编辑工具\n3. 数据密集型仪表盘（局部应用）\n4. 实验性与先锋感网站"
+  },
+  {
+    "Bauhaus（包豪斯）": "<design-system>"
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Style: Minimalist Monochrome (Mobile)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Philosophy"
+  },
+  {
+    "Bauhaus（包豪斯）": "Core Principle"
+  },
+  {
+    "Bauhaus（包豪斯）": "The Pocket Editorial. On mobile",
+    "null": [
+      " Minimalist Monochrome transforms the screen into a tactile",
+      " high-end printed manifesto. It rejects the \"app-like\" tendency for soft bubbles and friendly gradients. Instead",
+      " it offers a stark",
+      " vertical journey defined by pure black (#000000)",
+      " pure white (#FFFFFF)",
+      " and razor-sharp borders. Every tap is a deliberate decision; every scroll is a flip of a page in a luxury monograph."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Visual Vibe"
+  },
+  {
+    "Bauhaus（包豪斯）": "Emotional Keywords: Tactile",
+    "null": [
+      " Austere",
+      " Editorial",
+      " Direct",
+      " High-Fidelity",
+      " Uncompromising",
+      " Sharp",
+      " Rhythmic."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "This is the visual language of:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Mobile typographers and digital brutalism"
+  },
+  {
+    "Bauhaus（包豪斯）": "● The mobile interfaces of luxury fashion houses (Balenciaga",
+    "null": [
+      " Zara",
+      " SSENSE)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Digital exhibitions where the content frames itself"
+  },
+  {
+    "Bauhaus（包豪斯）": "● High-contrast e-reader aesthetics"
+  },
+  {
+    "Bauhaus（包豪斯）": "What This Design Is NOT"
+  },
+  {
+    "Bauhaus（包豪斯）": "● ❌ \"App-y\" (no cards with drop shadows",
+    "null": [
+      " no floating bubbles)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● ❌ Native iOS/Android standard (no system blue",
+    "null": [
+      " no rounded groups)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● ❌ Gesture-heavy (interactions are explicit taps",
+    "null": [
+      " not vague swipes)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● ❌ Cluttered (one idea per screen view)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● ❌ Colorful (strictly grayscale)"
+  },
+  {
+    "Bauhaus（包豪斯）": "The DNA of Minimalist Monochrome (Mobile)"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Vertical Linearity"
+  },
+  {
+    "Bauhaus（包豪斯）": "The mobile screen is a continuous roll of paper. Structure is created not by boxes",
+    "null": [
+      " but by horizontal lines (rules) that span the full width of the device. Content lives between these lines."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Typography as Interface"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons are often just large words. Navigation is text-based. The serif typeface (Playfair Display) acts as the primary image on the screen. Headlines must be large enough to break words onto new lines",
+    "null": [
+      " creating graphic shapes."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "3. The \"Touch\" Inversion"
+  },
+  {
+    "Bauhaus（包豪斯）": "Since there is no \"hover\" on mobile",
+    "null": [
+      " interaction is communicated through inversion. When a user touches a white block",
+      " it turns black instantly. This zero-latency binary feedback replaces physical tactility."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "4. Zero Radius",
+    "null": [
+      " Zero Fluff"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "All elements—buttons",
+    "null": [
+      " images",
+      " inputs",
+      " modals—have strictly 0px border radius. This sharp geometry cuts through the rounded physical corners of modern smartphones",
+      " creating a striking contrast."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Token System"
+  },
+  {
+    "Bauhaus（包豪斯）": "Colors (Strictly Monochrome)"
+  },
+  {
+    "Bauhaus（包豪斯）": "background:       #FFFFFF (Pure white)"
+  },
+  {
+    "Bauhaus（包豪斯）": "foreground:       #000000 (Pure black)"
+  },
+  {
+    "Bauhaus（包豪斯）": "muted:            #F5F5F5 (Off-white for \"pressed\" states or subtle blocks)"
+  },
+  {
+    "Bauhaus（包豪斯）": "mutedForeground:  #525252 (Dark gray for metadata)"
+  },
+  {
+    "Bauhaus（包豪斯）": "border:           #000000 (Black borders - heavy usage)"
+  },
+  {
+    "Bauhaus（包豪斯）": "borderLight:      #E5E5E5 (Subtle dividers)"
+  },
+  {
+    "Bauhaus（包豪斯）": "overlay:          #000000 (Full screen menu background)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Rule: No accent colors. The \"Active State\" is simply the inverse of the \"Default State.\""
+  },
+  {
+    "Bauhaus（包豪斯）": "Typography"
+  },
+  {
+    "Bauhaus（包豪斯）": "Font Stack:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Display: \"Playfair Display\"",
+    "null": [
+      " serif - For all headlines and large numerals."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Body: \"Source Serif 4\"",
+    "null": [
+      " serif - For reading text."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● UI/Labels: \"JetBrains Mono\"",
+    "null": [
+      " monospace - For tiny tags",
+      " dates",
+      " and technical specs."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Type Scale (Mobile Optimized):"
+  },
+  {
+    "Bauhaus（包豪斯）": "Note: Sizes are calibrated to feel \"massive\" on a small screen without breaking layout."
+  },
+  {
+    "Bauhaus（包豪斯）": "xs:   0.75rem  (12px) - Metadata / Breadcrumbs"
+  },
+  {
+    "Bauhaus（包豪斯）": "sm:   0.875rem (14px) - UI Labels / Captions"
+  },
+  {
+    "Bauhaus（包豪斯）": "base: 1rem     (16px) - Body text (Legibility minimum)"
+  },
+  {
+    "Bauhaus（包豪斯）": "lg:   1.125rem (18px) - Lead text / Button text"
+  },
+  {
+    "Bauhaus（包豪斯）": "xl:   1.5rem   (24px) - Section headers"
+  },
+  {
+    "Bauhaus（包豪斯）": "2xl:  2rem     (32px) - Standard Headlines"
+  },
+  {
+    "Bauhaus（包豪斯）": "3xl:  2.5rem   (40px) - Hero Sub-text"
+  },
+  {
+    "Bauhaus（包豪斯）": "4xl:  3rem     (48px) - Major Headlines"
+  },
+  {
+    "Bauhaus（包豪斯）": "5xl:  4rem     (64px) - \"Cover\" text (Often wraps)"
+  },
+  {
+    "Bauhaus（包豪斯）": "6xl:  5rem     (80px) - Numerical statements"
+  },
+  {
+    "Bauhaus（包豪斯）": "Tracking & Leading:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Headlines: tracking-tighter (-0.05em) and leading-[0.9]. Text should feel tightly packed."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Body: leading-relaxed for readability."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Button Text: tracking-widest uppercase."
+  },
+  {
+    "Bauhaus（包豪斯）": "Border Radius"
+  },
+  {
+    "Bauhaus（包豪斯）": "ALL VALUES: 0px"
+  },
+  {
+    "Bauhaus（包豪斯）": "Constraint: Even the bottom sheet (modal) must be square. Even the active state of a tapped element is a sharp rectangle."
+  },
+  {
+    "Bauhaus（包豪斯）": "Borders & Lines (The Grid)"
+  },
+  {
+    "Bauhaus（包豪斯）": "hairline:  1px solid #E5E5E5  (List separators)"
+  },
+  {
+    "Bauhaus（包豪斯）": "thin:      1px solid #000000  (Standard element borders)"
+  },
+  {
+    "Bauhaus（包豪斯）": "thick:     2px solid #000000  (Emphasis / Input bottom)"
+  },
+  {
+    "Bauhaus（包豪斯）": "heavy:     4px solid #000000  (Section dividers)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Usage:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Full-Bleed Lines: Borders should often touch the edges of the screen (-mx-4 or -mx-6)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Separators: Use border-b black heavily to separate stacked vertical content."
+  },
+  {
+    "Bauhaus（包豪斯）": "Shadows"
+  },
+  {
+    "Bauhaus（包豪斯）": "NONE"
+  },
+  {
+    "Bauhaus（包豪斯）": "Depth is strictly 2D. Layers are defined by opacity (100% vs 0%) or borders",
+    "null": [
+      " never by shadows."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Textures & Patterns"
+  },
+  {
+    "Bauhaus（包豪斯）": "Use subtle noise to simulate high-quality paper texture on mobile backgrounds to avoid a \"sterile\" feeling."
+  },
+  {
+    "Bauhaus（包豪斯）": "Mobile Noise (CSS):"
+  },
+  {
+    "Bauhaus（包豪斯）": "CSS"
+  },
+  {
+    "Bauhaus（包豪斯）": "background-image: url(\"data:image/svg+xml",
+    "null": [
+      "...\"); /* Same noise SVG as web */"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "opacity: 0.03; /* Slightly higher opacity for small screens */"
+  },
+  {
+    "Bauhaus（包豪斯）": "Component Stylings"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons & Touch Targets"
+  },
+  {
+    "Bauhaus（包豪斯）": "Primary Button (The Block):"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Width: w-full (Full width strongly preferred)"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Height: h-14 (56px - Large touch target)"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Background: #000000"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Text: #FFFFFF"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Radius: 0px"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Typography: Uppercase",
+    "null": [
+      " Mono or Serif",
+      " Tracking-widest"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "- Active State: Instantly inverts to White bg",
+    "null": [
+      " Black text"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Secondary Button (The Outline):"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Width: w-full"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Height: h-14"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Background: Transparent"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Border: 1px solid #000000"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Active State: Instantly fills Black"
+  },
+  {
+    "Bauhaus（包豪斯）": "Sticky Bottom Action (CTA):"
+  },
+  {
+    "Bauhaus（包豪斯）": "● A fixed bar at the bottom of the viewport."
+  },
+  {
+    "Bauhaus（包豪斯）": "● border-t-2 border-black."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Contains a single primary action or a price + action pair."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Background: #FFFFFF (or inverted #000000)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Cards / List Items"
+  },
+  {
+    "Bauhaus（包豪斯）": "The \"Stacked\" Card:"
+  },
+  {
+    "Bauhaus（包豪斯）": "Instead of a box with padding",
+    "null": [
+      " mobile cards are often full-width segments separated by borders."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "- Container: Border-bottom 1px solid #000000"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Padding: py-6"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Image: Aspect ratio 4:5 or 1:1",
+    "null": [
+      " full width or padded"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "- Content: Text sits directly below image"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Interaction: Touching anywhere in the segment triggers \"Active\" state"
+  },
+  {
+    "Bauhaus（包豪斯）": "Navigation"
+  },
+  {
+    "Bauhaus（包豪斯）": "The \"Bar\":"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Top: Minimal. Just a logo (Left) and a \"MENU\" text button or Hamburger (Right)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Bottom: Optional. If used",
+    "null": [
+      " simple text labels or thin outline icons. border-t-2 border-black."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "The Menu Overlay:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Full screen."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Background: #000000 (Black)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Text: #FFFFFF (White)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● List items: Massive text (text-4xl)",
+    "null": [
+      " serif",
+      " centered or left-aligned."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Divider: Thin white lines between menu items."
+  },
+  {
+    "Bauhaus（包豪斯）": "Inputs"
+  },
+  {
+    "Bauhaus（包豪斯）": "Mobile Input:"
+  },
+  {
+    "Bauhaus（包豪斯）": "- Style: Flush with background."
+  },
+  {
+    "Bauhaus（包豪斯）": "- Border: Bottom only (2px solid black)."
+  },
+  {
+    "Bauhaus（包豪斯）": "- Radius: 0px."
+  },
+  {
+    "Bauhaus（包豪斯）": "- Height: h-14."
+  },
+  {
+    "Bauhaus（包豪斯）": "- Focus: Border becomes 4px thick. No native blue glow."
+  },
+  {
+    "Bauhaus（包豪斯）": "- Clear Button: Simple 'X' icon in black."
+  },
+  {
+    "Bauhaus（包豪斯）": "Layout Strategy"
+  },
+  {
+    "Bauhaus（包豪斯）": "Safe Areas"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Respect pb-safe (Home Indicator) and pt-safe (Status Bar)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style Note: The Status Bar should be white text on black header",
+    "null": [
+      " or black text on white header. High contrast."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Container & Spacing"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Horizontal Padding: px-5 (20px) or px-6 (24px)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Vertical Rhythm:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Small gaps: py-4"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Section gaps: py-16"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Between text and image: my-6"
+  },
+  {
+    "Bauhaus（包豪斯）": "The \"Scroll\""
+  },
+  {
+    "Bauhaus（包豪斯）": "● Design for the scroll. Use sticky headers for section titles (e.g.",
+    "null": [
+      " \"Details\"",
+      " \"Shipping\") that stack as the user scrolls down",
+      " creating a filing cabinet effect."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Use divide-y divide-black for lists to create strong separation."
+  },
+  {
+    "Bauhaus（包豪斯）": "Effects & Animation"
+  },
+  {
+    "Bauhaus（包豪斯）": "Motion Philosophy: Cut",
+    "null": [
+      " Don't Fade."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Mobile transitions should feel mechanical and instant",
+    "null": [
+      " like a shutter clicking."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Interactions:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Tap: active:bg-black active:text-white (Instant inversion)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Page Transition: Slide in from right (100% width) with a hard edge. No distinct shadow on the sliding page",
+    "null": [
+      " just a clean line."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Modal: Slides up from bottom. 0px radius. Covers 100% or 90% of screen. Black border top."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Scroll Parallax: None. Keep scrolling tied 1:1 to finger movement."
+  },
+  {
+    "Bauhaus（包豪斯）": "Specific Implementation:"
+  },
+  {
+    "Bauhaus（包豪斯）": "TypeScript"
+  },
+  {
+    "Bauhaus（包豪斯）": "// Mobile Button Active State"
+  },
+  {
+    "Bauhaus（包豪斯）": "className=\"bg-black text-white active:bg-white active:text-black active:border active:border-black transition-none\""
+  },
+  {
+    "Bauhaus（包豪斯）": "// Image Loading"
+  },
+  {
+    "Bauhaus（包豪斯）": "className=\"opacity-0 data-[loaded=true]:opacity-100 transition-opacity duration-300 ease-linear grayscale data-[loaded=true]:grayscale-0\""
+  },
+  {
+    "Bauhaus（包豪斯）": "Iconography"
+  },
+  {
+    "Bauhaus（包豪斯）": "Style: Stroke-based",
+    "null": [
+      " Thin",
+      " Sharp."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Library: Lucide React (or similar)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Mobile Specifics:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Size: w-6 h-6 (Standard)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Stroke: 1.5px (Matches the fine aesthetic)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Touch: If an icon is a button",
+    "null": [
+      " it must have a p-3 (12px) padding hit-box around it",
+      " even if the border is invisible."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Responsive Strategy (Device Sizes)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Small Phones (iPhone SE/Mini):"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Headlines: Scale down to text-4xl to prevent breaking single words into nonsense."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Padding: Reduce to px-4."
+  },
+  {
+    "Bauhaus（包豪斯）": "Large Phones (Max/Plus):"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Headlines: text-5xl or text-6xl."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Layout: Can introduce a 2-column grid for product thumbnails (but keep strict borders between them)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Dark Mode:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● System: Enforce Light Mode (Black on White) as the default brand identity."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Inverted Sections: Use Dark Mode (White on Black) only for specific sections (Footer",
+    "null": [
+      " Hero",
+      " Special Features) to create rhythm",
+      " not based on system settings."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Bold Choices (Non-Negotiable)"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Massive Typographic Hero: The opening screen must feature a headline where a single word might span the full width."
+  },
+  {
+    "Bauhaus（包豪斯）": "2. The \"Hard\" Line: A 4px black line (border-b-4) must separate the Hero from the content."
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Sticky Section Headers: As you scroll",
+    "null": [
+      " the section title (e.g.",
+      " \"01. INFO\") sticks to the top with a bottom border",
+      " stacking on top of the previous one."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "4. No Hamburger Icon: Use the word \"MENU\" in JetBrains Mono instead of an icon",
+    "null": [
+      " if space permits."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "5. Inverted Gallery: Image galleries have a Black background with images at full opacity."
+  },
+  {
+    "Bauhaus（包豪斯）": "6. Editorial Inputs: Form labels look like subheadings (Playfair Display",
+    "null": [
+      " Italic)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "7. No Skeletons: Loading states are simple spinning black lines or just whitespace. No gray pulsing blobs."
+  },
+  {
+    "Bauhaus（包豪斯）": "8. Mechanical Feedback: Every interactive element MUST have a visible active state (color inversion)."
+  },
+  {
+    "Bauhaus（包豪斯）": "What Success Looks Like (Mobile)"
+  },
+  {
+    "Bauhaus（包豪斯）": "A successfully implemented Minimalist Monochrome mobile design should feel like:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● A digitally printed receipt from a high-end boutique."
+  },
+  {
+    "Bauhaus（包豪斯）": "● A pocket edition of a brutally honest manifesto."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Clean",
+    "null": [
+      " fast",
+      " and remarkably legible outdoors."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Intimidatingly simple."
+  },
+  {
+    "Bauhaus（包豪斯）": "It should NOT feel like:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● A scaled-down version of a desktop site."
+  },
+  {
+    "Bauhaus（包豪斯）": "● A standard Bootstrap/Tailwind mobile layout."
+  },
+  {
+    "Bauhaus（包豪斯）": "● An app trying to be \"friendly.\""
+  },
+  {
+    "Bauhaus（包豪斯）": "</design-system>"
+  },
+  {
+    "Bauhaus（包豪斯）": "Modern Dark（现代深色模式）"
+  },
+  {
+    "Bauhaus（包豪斯）": "一种电影般的高精度暗模式设计，通过动画渐变斑点、鼠标跟踪聚光灯效果和精心制作的微交互实现分层环境照明，感觉就像高级软件。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 影音娱乐与流媒体平台\n2. 开发者工具与专业生产力软件\n3. 金融、科技与 AI 仪表盘\n4. 高端运动与奢华品牌"
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Philosophy"
+  },
+  {
+    "Bauhaus（包豪斯）": "Core Principles: Precision",
+    "null": [
+      " tactile depth",
+      " and fluid motion define this mobile design system. For React Native",
+      " every component is treated as a physical layer within a stacked 3D space",
+      " illuminated by virtual light sources. The design communicates \"high-end mobile utility\"—as responsive and refined as the Linear mobile app or Apple’s native interface. Every shadow uses multiple layers",
+      " every gradient is dithered to prevent banding",
+      " and every interaction uses precise haptic feedback combined with Expo.out easing."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Vibe: Cinematic Technical Minimalism. It’s a \"Dark Mode First\" aesthetic",
+    "null": [
+      " utilizing near-blacks (#050506) and deep indigos. Imagine a high-end pro tool interface viewed through frosted glass at night. It is technical but inviting",
+      " using soft \"glow\" sources (#5E6AD2) to guide the thumb. It should feel like a premium native iOS/Android app",
+      " not a web-wrapper."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Differentiation: The signature is Atmospheric Depth. While most mobile apps are flat",
+    "null": [
+      " this system uses:"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Layered Backgrounds: Stacked View layers with varying opacities",
+    "null": [
+      " blur intensities",
+      " and subtle noise textures."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Animated Ambient Light: Large",
+    "null": [
+      " slow-moving blurred Canvas objects (using react-native-skia or Animated) that simulate light pools."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Haptic-Linked Interactions: Every \"Pressable\" event is paired with subtle haptics (Impact Light/Medium) to reinforce the \"hardware\" feel."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Spring-less Precision: Eschewing \"bouncy\" animations for sophisticated Bezier(0.16",
+    "null": [
+      " 1",
+      " 0.3",
+      " 1) curves."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Token System (The DNA)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Color Strategy: Deep Space & Ambient Light"
+  },
+  {
+    "Bauhaus（包豪斯）": "Token"
+  },
+  {
+    "Bauhaus（包豪斯）": "Value"
+  },
+  {
+    "Bauhaus（包豪斯）": "Usage"
+  },
+  {
+    "Bauhaus（包豪斯）": "bg-deep"
+  },
+  {
+    "Bauhaus（包豪斯）": "#020203"
+  },
+  {
+    "Bauhaus（包豪斯）": "Screen background",
+    "null": [
+      " Bottom Tab bar base"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "bg-base"
+  },
+  {
+    "Bauhaus（包豪斯）": "#050506"
+  },
+  {
+    "Bauhaus（包豪斯）": "Primary view container background"
+  },
+  {
+    "Bauhaus（包豪斯）": "bg-elevated"
+  },
+  {
+    "Bauhaus（包豪斯）": "#0a0a0c"
+  },
+  {
+    "Bauhaus（包豪斯）": "Modals",
+    "null": [
+      " Bottom sheets",
+      " Surface cards"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "surface"
+  },
+  {
+    "Bauhaus（包豪斯）": "rgba(255",
+    "null": [
+      "255",
+      "255",
+      "0.05)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Card backgrounds",
+    "null": [
+      " list items"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "foreground"
+  },
+  {
+    "Bauhaus（包豪斯）": "#EDEDEF"
+  },
+  {
+    "Bauhaus（包豪斯）": "Primary text (High contrast)"
+  },
+  {
+    "Bauhaus（包豪斯）": "foreground-muted"
+  },
+  {
+    "Bauhaus（包豪斯）": "#8A8F98"
+  },
+  {
+    "Bauhaus（包豪斯）": "Secondary labels",
+    "null": [
+      " body text"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "accent"
+  },
+  {
+    "Bauhaus（包豪斯）": "#5E6AD2"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons",
+    "null": [
+      " active icons",
+      " primary brand glows"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "accent-glow"
+  },
+  {
+    "Bauhaus（包豪斯）": "rgba(94",
+    "null": [
+      "106",
+      "210",
+      "0.2)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Ambient shadows and light emission"
+  },
+  {
+    "Bauhaus（包豪斯）": "border-default"
+  },
+  {
+    "Bauhaus（包豪斯）": "rgba(255",
+    "null": [
+      "255",
+      "255",
+      "0.08)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Subtle hairline dividers (0.5pt on iOS)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Typography System (React Native)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Font Family: Inter",
+    "null": [
+      " GeistSans-Regular",
+      " or System San Francisco/Roboto."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Level"
+  },
+  {
+    "Bauhaus（包豪斯）": "Size"
+  },
+  {
+    "Bauhaus（包豪斯）": "Weight"
+  },
+  {
+    "Bauhaus（包豪斯）": "Letter Spacing"
+  },
+  {
+    "Bauhaus（包豪斯）": "Display"
+  },
+  {
+    "Bauhaus（包豪斯）": "48"
+  },
+  {
+    "Bauhaus（包豪斯）": "700"
+  },
+  {
+    "Bauhaus（包豪斯）": "-1.5"
+  },
+  {
+    "Bauhaus（包豪斯）": "H1"
+  },
+  {
+    "Bauhaus（包豪斯）": "32"
+  },
+  {
+    "Bauhaus（包豪斯）": "600"
+  },
+  {
+    "Bauhaus（包豪斯）": "-0.5"
+  },
+  {
+    "Bauhaus（包豪斯）": "H2"
+  },
+  {
+    "Bauhaus（包豪斯）": "24"
+  },
+  {
+    "Bauhaus（包豪斯）": "600"
+  },
+  {
+    "Bauhaus（包豪斯）": "-0.5"
+  },
+  {
+    "Bauhaus（包豪斯）": "H3"
+  },
+  {
+    "Bauhaus（包豪斯）": "18"
+  },
+  {
+    "Bauhaus（包豪斯）": "600"
+  },
+  {
+    "Bauhaus（包豪斯）": "0"
+  },
+  {
+    "Bauhaus（包豪斯）": "Body"
+  },
+  {
+    "Bauhaus（包豪斯）": "16"
+  },
+  {
+    "Bauhaus（包豪斯）": "400"
+  },
+  {
+    "Bauhaus（包豪斯）": "0"
+  },
+  {
+    "Bauhaus（包豪斯）": "Label/Mono"
+  },
+  {
+    "Bauhaus（包豪斯）": "12"
+  },
+  {
+    "Bauhaus（包豪斯）": "500"
+  },
+  {
+    "Bauhaus（包豪斯）": "1.2 (Uppercase)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Gradient Text: Implement using mask-view and react-native-linear-gradient. Headers should transition from #FFFFFF to rgba(255",
+    "null": [
+      "255",
+      "255",
+      "0.7) vertically."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Component Styling Principles"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. The Background System"
+  },
+  {
+    "Bauhaus（包豪斯）": "Never use a single solid color for the screen."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Base: A LinearGradient from #0a0a0f at the top to #020203 at the bottom."
+  },
+  {
+    "Bauhaus（包豪斯）": "● The \"Blobs\": Use AbsoluteFill views with borderRadius equal to half their width",
+    "null": [
+      " high blurRadius (30-50)",
+      " and low opacity (0.1)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Animation: Use useAnimatedStyle from Reanimated to slowly oscillate the translateX and translateY of these light pools."
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Cards & Containers"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Radius: Always borderRadius: 16."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border: Use borderWidth: StyleSheet.hairlineWidth with rgba(255",
+    "null": [
+      "255",
+      "255",
+      "0.1)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Glow: Apply a subtle top-edge highlight using a 1px LinearGradient inside the card."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Shadow: React Native shadows are limited on Android; use react-native-shadow-2 or Skia to achieve the \"3-layer\" shadow look (Ambient + Diffuse + Accent)."
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Buttons (Pressables)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Primary: Background #5E6AD2. Text #FFFFFF."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interaction: On onPressIn",
+    "null": [
+      " scale to 0.97. On onPressOut",
+      " scale back to 1.0. Use Selection haptic feedback."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Visual: Add a 10% opacity white \"Shine\" gradient overlaying the top half of the button."
+  },
+  {
+    "Bauhaus（包豪斯）": "4. Interactive Navigation"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Tab Bar: Use BlurView (expo-blur) with intensity={20} and tint=\"dark\"."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Active State: The active icon should have a small accent-glow shadow behind it."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Transitions: Shared Element Transitions for navigating from a card to a detail view",
+    "null": [
+      " ensuring the card's border and background flow seamlessly."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Layout & Motion"
+  },
+  {
+    "Bauhaus（包豪斯）": "Spacing Scale"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Base Unit: 4pt."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Screen Margins: 20pt (Standard) or 16pt (Tight)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Gaps: Use gap (available in modern RN) with values of 8",
+    "null": [
+      " 12",
+      " 16",
+      " or 24."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Animation Specs"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Easing: Easing.bezier(0.16",
+    "null": [
+      " 1",
+      " 0.3",
+      " 1) (Expo Out)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Duration: * Micro-interactions (Toggle/Press): 200ms."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Screen Transitions: 400ms."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Modals (Bottom Sheet): 500ms with custom spring (damping: 20",
+    "null": [
+      " stiffness: 90)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Anti-Patterns (What to Avoid)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Pure Black (#000000): It causes \"OLED Smearing\" on mobile screens. Stick to #050506."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Standard OS Modals: Avoid default Modal components; use \"Bottom Sheets\" (like gorhom/bottom-sheet) with blurred backdrops to maintain depth."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Full Opacity Borders: Never use solid grey borders. Always use rgba white/black for natural blending."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Laggy Blobs: Do not use too many blurRadius effects on the main JS thread. Always use useNativeDriver: true or Skia."
+  },
+  {
+    "Bauhaus（包豪斯）": "The \"Bold Factor\" (Signature Elements)"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Haptic Precision: Tactile feedback on every toggle",
+    "null": [
+      " successful action",
+      " and bottom sheet detent."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Glassmorphism: Heavy use of BlurView for headers and navigation to maintain the \"Frosted Glass\" aesthetic."
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Accent Glows: A faint",
+    "null": [
+      " non-distracting glow behind primary actions that pulses slightly when the screen is idle."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "4. Bento Layouts: For dashboards",
+    "null": [
+      " use Flexbox to create asymmetric cards (e.g.",
+      " one card taking 60% width",
+      " the other 40% with different heights)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "SaaS（软件即服务）"
+  },
+  {
+    "Bauhaus（包豪斯）": "一个大胆、极简主义的现代视觉系统，将简洁的美学与动态的执行相结合。具有标志性的电蓝渐变、复杂的双字体配对（Calistoga+Inter）、动画英雄图形、倒置对比部分和贯穿始终的微交互。专业而前卫的设计——自信而不杂乱。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 业务管理与协作系统 (B2B / Operations)"
+  },
+  {
+    "Bauhaus（包豪斯）": "2. 开发者工具与云服务平台"
+  },
+  {
+    "Bauhaus（包豪斯）": "3. 企业内部工具与人力资源管理 (HRM)"
+  },
+  {
+    "Bauhaus（包豪斯）": "4. 营销与数据分析工具"
+  },
+  {
+    "Bauhaus（包豪斯）": "System Prompt: Mobile Excellence Design System (React Native)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Philosophy"
+  },
+  {
+    "Bauhaus（包豪斯）": "Core Principle"
+  },
+  {
+    "Bauhaus（包豪斯）": "Clarity through structure",
+    "null": [
+      " character through bold detail. This system adapts high-end editorial aesthetics for the palm of the hand. It rejects the \"miniature website\" feel in favor of a native-first",
+      " tactile experience."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Whitespace is a precision instrument for thumb-driven navigation. Motion is not decoration; it is spatial feedback. Color is concentrated into a single",
+    "null": [
+      " Electric Blue signature that guides the user through the app's hierarchy."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "The Visual Vibe"
+  },
+  {
+    "Bauhaus（包豪斯）": "High-Tech Boutique. Imagine a premium fintech app combined with a modern design portfolio. It feels engineered",
+    "null": [
+      " yet artistic; minimal",
+      " yet alive."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Confident: Bold typography and vibrant accents."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Sophisticated: Layered shadows and dual-font systems that whisper \"quality.\""
+  },
+  {
+    "Bauhaus（包豪斯）": "● Tactile: Haptic-ready interactions and fluid spring animations."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Premium: Generous \"safe areas\" and elevated surfaces."
+  },
+  {
+    "Bauhaus（包豪斯）": "The DNA of This Style"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. The Signature Gradient (Mobile Optimized)"
+  },
+  {
+    "Bauhaus（包豪斯）": "The Electric Blue gradient (#0052FF → #4D7CFF) is the heartbeat. In React Native",
+    "null": [
+      " this is implemented via react-native-linear-gradient."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Usage: Primary Buttons",
+    "null": [
+      " Active Tab Icons",
+      " Header Backgrounds",
+      " and Progress Indicators."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Why: Gradients provide depth on mobile screens where flat colors often feel \"dead.\""
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Physical Depth & Living Elements"
+  },
+  {
+    "Bauhaus（包豪斯）": "Mobile is a 3D space. We use Z-index and shadows to create a clear mental model:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Floating Action Buttons (FAB): Gently bobbing using react-native-reanimated."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Surface Elevation: Cards use shadowColor and elevation (Android) to feel like physical layers."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Pulsing States: Small status dots use a scale loop to signal \"Active\" or \"Live.\""
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Sophisticated Dual-Font Typography"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Display: Calistoga (or Serif fallback) for Headlines. It adds human warmth to the digital interface."
+  },
+  {
+    "Bauhaus（包豪斯）": "● UI/Body: Inter (or System Sans-Serif). The workhorse for readability."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Technical: JetBrains Mono for labels and data points."
+  },
+  {
+    "Bauhaus（包豪斯）": "4. Texture & Micro-Patterns"
+  },
+  {
+    "Bauhaus（包豪斯）": "To prevent \"Flat Design Fatigue\":"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Subtle Overlays: Use a very low-opacity dot pattern (PNG/SVG) on dark backgrounds."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Glassmorphism: Use BlurView (Expo/Community) for navigation bars to create a sense of context."
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Token System (The DNA)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Color Strategy"
+  },
+  {
+    "Bauhaus（包豪斯）": "Token"
+  },
+  {
+    "Bauhaus（包豪斯）": "Value"
+  },
+  {
+    "Bauhaus（包豪斯）": "Usage"
+  },
+  {
+    "Bauhaus（包豪斯）": "background"
+  },
+  {
+    "Bauhaus（包豪斯）": "#FAFAFA"
+  },
+  {
+    "Bauhaus（包豪斯）": "Primary app canvas (warm off-white)."
+  },
+  {
+    "Bauhaus（包豪斯）": "foreground"
+  },
+  {
+    "Bauhaus（包豪斯）": "#0F172A"
+  },
+  {
+    "Bauhaus（包豪斯）": "Deep slate for primary text and dark sections."
+  },
+  {
+    "Bauhaus（包豪斯）": "muted"
+  },
+  {
+    "Bauhaus（包豪斯）": "#F1F5F9"
+  },
+  {
+    "Bauhaus（包豪斯）": "Secondary surfaces (gray fills)."
+  },
+  {
+    "Bauhaus（包豪斯）": "accent"
+  },
+  {
+    "Bauhaus（包豪斯）": "#0052FF"
+  },
+  {
+    "Bauhaus（包豪斯）": "Primary actions and brand touchpoints."
+  },
+  {
+    "Bauhaus（包豪斯）": "accent-sec"
+  },
+  {
+    "Bauhaus（包豪斯）": "#4D7CFF"
+  },
+  {
+    "Bauhaus（包豪斯）": "Gradient endpoint."
+  },
+  {
+    "Bauhaus（包豪斯）": "card"
+  },
+  {
+    "Bauhaus（包豪斯）": "#FFFFFF"
+  },
+  {
+    "Bauhaus（包豪斯）": "Pure white for elevated components."
+  },
+  {
+    "Bauhaus（包豪斯）": "border"
+  },
+  {
+    "Bauhaus（包豪斯）": "#E2E8F0"
+  },
+  {
+    "Bauhaus（包豪斯）": "Hairline dividers (0.5pt to 1pt)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Typography Scale"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Hero (H1): 36pt - 42pt | Calistoga | Leading 1.1"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Section (H2): 28pt - 32pt | Calistoga | Leading 1.2"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Body: 16pt - 18pt | Inter | Leading 1.5"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Label: 12pt | JetBrains Mono | Uppercase | Letter Spacing 1.5"
+  },
+  {
+    "Bauhaus（包豪斯）": "Component Specifications (React Native)"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Primary Button (Pressable + Reanimated)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Height: 56px (Standard touch target)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Radius: 16px (Rounded-2xl)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interaction: * On onPressIn: Scale down to 0.96."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ On onPressOut: Spring back to 1.0."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: Linear Gradient background with shadow-accent."
+  },
+  {
+    "Bauhaus（包豪斯）": "2. The Section Badge"
+  },
+  {
+    "Bauhaus（包豪斯）": "A consistent pattern for orienting the user:"
+  },
+  {
+    "Bauhaus（包豪斯）": "JavaScript"
+  },
+  {
+    "Bauhaus（包豪斯）": "// Structure"
+  },
+  {
+    "Bauhaus（包豪斯）": "<View style={{flexDirection: 'row'",
+    "null": [
+      " alignItems: 'center'",
+      " borderRadius: 100",
+      " paddingHorizontal: 16",
+      " paddingVertical: 8",
+      " backgroundColor: 'rgba(0",
+      " 82",
+      " 255",
+      " 0.05)'",
+      " borderWidth: 1",
+      " borderColor: 'rgba(0",
+      " 82",
+      " 255",
+      " 0.2)'}}>"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  <PulseDot color=\"#0052FF\" />"
+  },
+  {
+    "Bauhaus（包豪斯）": "  <Text style={{fontFamily: 'JetBrains Mono'",
+    "null": [
+      " fontSize: 12",
+      " color: '#0052FF'}}>SECTION NAME</Text>"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "</View>"
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Content Cards"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border: 1pt hairline in Slate-200."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Shadow: * iOS: shadowOpacity: 0.1",
+    "null": [
+      " shadowRadius: 10",
+      " shadowOffset: {width: 0",
+      " height: 4}."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Android: elevation: 4."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Padding: 24px (Consistent gutter)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Motion & Interaction Rules"
+  },
+  {
+    "Bauhaus（包豪斯）": "The \"Spring\" Standard"
+  },
+  {
+    "Bauhaus（包豪斯）": "Avoid linear animations. Use Spring Config for all transitions:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● mass: 1",
+    "null": [
+      " damping: 15",
+      " stiffness: 120."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Entrance Animations"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Staggered Fade-In: Content should slide up (Y: 20 -> 0) and fade in (Opacity: 0 -> 1) as the screen mounts."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Layout Transitions: Use LayoutAnimation or Reanimated's entering prop for seamless list updates."
+  },
+  {
+    "Bauhaus（包豪斯）": "Implementation Instructions for AI"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Strict Styling: Use StyleSheet.create or a utility-first library like NativeWind (Tailwind for RN)."
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Safe Areas: Always wrap root content in SafeAreaView."
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Touch Targets: Ensure all interactive elements are at least 44x44px."
+  },
+  {
+    "Bauhaus（包豪斯）": "4. Icons: Use Lucide-React-Native or Expo Vector Icons (Feather/Ionicons)."
+  },
+  {
+    "Bauhaus（包豪斯）": "5. Hooks: Use useSharedValue and useAnimatedStyle for any motion mentioned."
+  },
+  {
+    "Bauhaus（包豪斯）": "Example Signature Block:"
+  },
+  {
+    "Bauhaus（包豪斯）": "When generating a screen",
+    "null": [
+      " always include a \"Design Note\" explaining how the Asymmetry and Gradient Accent are applied to ensure it doesn't look like a generic template."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Terminal（终端/命令行）"
+  },
+  {
+    "Bauhaus（包豪斯）": "一种原始的、功能性的、复古的、未来主义的命令行界面美学。高对比度、等宽精度和闪烁光标。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 开发者工具与极客类应用"
+  },
+  {
+    "Bauhaus（包豪斯）": "2. 区块链、Web3 与 加密货币项目"
+  },
+  {
+    "Bauhaus（包豪斯）": "3. 科幻、侦探与解谜类游戏 (ARG)"
+  },
+  {
+    "Bauhaus（包豪斯）": "4. 创意工作室与个人作品集"
+  },
+  {
+    "Bauhaus（包豪斯）": "System Prompt: React Native Terminal CLI Framework"
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Philosophy"
+  },
+  {
+    "Bauhaus（包豪斯）": "The Mobile Terminal CLI aesthetic adapts the raw power of a command-line interface into a handheld",
+    "null": [
+      " touch-first environment. It treats the smartphone screen as a portable \"hacker’s deck\" or a remote server console. It is utilitarian",
+      " high-contrast",
+      " and uncompromisingly rigid."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "The vibe is \"Field Operative\" or \"System Administrator on the go.\" Unlike web layouts that can expand horizontally",
+    "null": [
+      " the mobile version focuses on vertical \"logs\"",
+      " collapsible panes",
+      " and touch-friendly bracketed commands."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Key visual signatures:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Monospace Supremacy: Every UI element uses monospaced fonts. Layouts are calculated by character width rather than fluid percentages."
+  },
+  {
+    "Bauhaus（包豪斯）": "● The Command Line Prompt: Every screen starts with a system path or user breadcrumb (e.g.",
+    "null": [
+      " ~/root/user/home)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Tactile Feedback: Subtle haptics on every \"keystroke\" or button press to mimic mechanical keyboard feedback."
+  },
+  {
+    "Bauhaus（包豪斯）": "● ASCII Borders: Using characters like +",
+    "null": [
+      " -",
+      " |",
+      " and * to define UI boundaries instead of standard mobile shadows or rounded containers."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Token System"
+  },
+  {
+    "Bauhaus（包豪斯）": "Colors (OLED-Optimized Dark Mode)"
+  },
+  {
+    "Bauhaus（包豪斯）": "React Native implementations should use the StyleSheet or Tailwind/NativeWind tokens below:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Background: #050505 (Deepest black for OLED power saving and high contrast)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Foreground:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Primary: #33FF00 (Classic Matrix Green)."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Secondary: #FFB000 (Terminal Amber for warnings/toggles)."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Muted: #1A3D1A (Low-intensity green for inactive text/guides)."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Error: #FF3333 (Command Failed Red)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border: #33FF00 (1px solid green for terminal windows)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Typography"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Font Family: Courier New",
+    "null": [
+      " SpaceMono-Regular (iOS/Android default)",
+      " or bundled JetBrains Mono."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Size: Strict 12pt",
+    "null": [
+      " 14pt",
+      " or 16pt. No \"in-between\" sizes."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Weight: Normal (monospaced fonts lose their character when too bold)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Line Height: Tight. 1.2x font size to maximize information density on small screens."
+  },
+  {
+    "Bauhaus（包豪斯）": "Radius & Borders"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Radius: 0. Standard React Native borderRadius: 0. No exceptions."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Borders: borderWidth: 1. Style: solid."
+  },
+  {
+    "Bauhaus（包豪斯）": "Component Stylings (React Native Specific)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons (Commands)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Structure: Text wrapped in TouchableHighlight. Displayed as [ EXECUTE ] or > PROCEED."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interaction: On press",
+    "null": [
+      " underlayColor should be the Primary Green",
+      " and text color should flip to #000000(Inverted Video)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Haptics: Trigger Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) on press."
+  },
+  {
+    "Bauhaus（包豪斯）": "Cards (Process Windows)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Structure: A <View> with borderWidth: 1 and borderColor: primary."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Title Bar: A top row with inverted colors: [ TITLE: SYSTEM_LOG ]."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Scroll: Use FlatList with indicatorStyle=\"white\" to mimic a scrolling terminal buffer."
+  },
+  {
+    "Bauhaus（包豪斯）": "Inputs (The Caret)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: No background. Starts with a prefix: $ or >."
+  },
+  {
+    "Bauhaus（包豪斯）": "● The Cursor: A View with a blinking Opacity animation (0 to 1) placed at the end of the text string."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Keyboard: Set keyboardType=\"ascii-capable\" and autoCapitalize=\"none\"."
+  },
+  {
+    "Bauhaus（包豪斯）": "Layout Strategy (The Mobile Terminal)"
+  },
+  {
+    "Bauhaus（包豪斯）": "The layout mimics a mobile tmux session."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Vertical Stacking: Use Flexbox with flexDirection: 'column'. Screens should feel like a continuous stream of data."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Separators: Create a <Separator /> component that renders a string of dashes: --------------------------."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Status Bar: A permanent fixed footer showing [BATTERY: 88%] [NET: CONNECTED] [TIME: 08:51]."
+  },
+  {
+    "Bauhaus（包豪斯）": "Non-Genericness (The Bold Factor)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Boot Sequence: On app launch",
+    "null": [
+      " show a rapid-fire scroll of fake system logs (INIT_KERNEL...",
+      " LOADING_UI...) before the main content appears."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● ASCII Graphics: Use Text components for headers instead of PNG icons."
+  },
+  {
+    "Bauhaus（包豪斯）": "Plaintext"
+  },
+  {
+    "Bauhaus（包豪斯）": " _  _  ____  ____ "
+  },
+  {
+    "Bauhaus（包豪斯）": "( \\/ )(  _ \\(  _ \\"
+  },
+  {
+    "Bauhaus（包豪斯）": " \\  /  ) _ ( )   /"
+  },
+  {
+    "Bauhaus（包豪斯）": "  \\/  (____/(_)\\_)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Progress Indicators: No ActivityIndicator. Use text-based bars: [#####-----] 50%."
+  },
+  {
+    "Bauhaus（包豪斯）": "Effects & Animation (React Native Reanimated)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Blink: A 500ms loop of opacity for the cursor █."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Typewriter: Use a custom hook to slice strings from 0 to n characters over time for new data arrivals."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Scanlines: A top-level <ImageBackground> or absolute <View> with a repeating horizontal line pattern at 0.05opacity."
+  },
+  {
+    "Bauhaus（包豪斯）": "Iconography"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: Use standard MaterialCommunityIcons or Lucide",
+    "null": [
+      " but always set strokeWidth={1} and size={20}."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Implementation: Icons should be treated as \"Characters.\" They must be the same color as the text they accompany."
+  },
+  {
+    "Bauhaus（包豪斯）": "Accessibility & Performance"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Contrast: Green on Black is highly legible for vision-impaired users."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Touch Targets: Even though the style is \"tight",
+    "null": [
+      " ensure hitSlop is used on bracketed buttons to meet 44x44dp mobile standards.\n● Reduced Motion: Respect AccessibilityInfo.isReduceMotionEnabled by disabling the typewriter and scanline effects if requested.\n\nKinetic（动力学/动态）\n运动优先设计，排版是主要的视觉媒介。具有无限选框、视口缩放文本、滚动触发动画和激进的大写样式。高对比度的野兽派能量，有节奏的动作。\n1. 沉浸式叙事与品牌官网 (Storytelling)\n2. 具有强引导需求的复杂流程 (Guidance)\n3. 数据可视化与实时监控 (Data Visualization)\n4. 情感化设计与反馈 (Micro-interactions)\nSystem Prompt: Kinetic Mobile Brutalism\nDesign Philosophy\nCore Principle: Typography is the architecture of the mobile screen. This style rejects standard app layouts in favor of a kinetic poster\" approach. Text is treated as a graphic element; headers are hero units. Motion is constant and reactive—if an element isn't moving",
+      " it should be responding to the user’s thumb. Every interaction feels heavy",
+      " tactile",
+      " and high-contrast."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Aesthetic Vibe: High-energy street brutalism. Precision meets raw power. It is an underground zine optimized for a 6-inch screen. Everything is uppercase",
+    "null": [
+      " oversized",
+      " and uncomfortably bold. It screams rather than whispers. Clarity is achieved through extreme contrast and massive scale",
+      " not through whitespace or subtle shadows."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Visual DNA: Relentless motion and aggressive scale. Numbers tower over labels. Scrolling isn't just movement—it's a performance. Use hard edges ($0px$ radius)",
+    "null": [
+      " sharp $2px$ borders",
+      " and instant color flips. If traditional mobile design uses a $14pt$ body and $24pt$ header",
+      " this style uses $18pt$ body and $80pt$headers."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Signature Elements:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Infinite Marquees: Horizontal scrolling text that never stops (using react-native-reanimated)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Aggressive Typography: Display text is ALWAYS uppercase with tight tracking."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Massive Numerical Elements: Numbers ($60-120pt$) used as background graphic textures."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Tactile Color Inversions: On press",
+    "null": [
+      " cards flood with accent color instantly (no slow fades)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Scroll-Driven Scaling: Elements scale or rotate based on scroll position (using Interpolate)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Brutalist Geometry: $2px$ solid borders",
+    "null": [
+      " $0px$ border-radius",
+      " hairline grid dividers."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Token System (The DNA)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Color Architecture"
+  },
+  {
+    "Bauhaus（包豪斯）": "Token"
+  },
+  {
+    "Bauhaus（包豪斯）": "Hex Value"
+  },
+  {
+    "Bauhaus（包豪斯）": "Usage"
+  },
+  {
+    "Bauhaus（包豪斯）": "background"
+  },
+  {
+    "Bauhaus（包豪斯）": "#09090B"
+  },
+  {
+    "Bauhaus（包豪斯）": "Rich black (primary canvas)"
+  },
+  {
+    "Bauhaus（包豪斯）": "foreground"
+  },
+  {
+    "Bauhaus（包豪斯）": "#FAFAFA"
+  },
+  {
+    "Bauhaus（包豪斯）": "Off-white (primary text)"
+  },
+  {
+    "Bauhaus（包豪斯）": "muted"
+  },
+  {
+    "Bauhaus（包豪斯）": "#27272A"
+  },
+  {
+    "Bauhaus（包豪斯）": "Dark gray (secondary surfaces/bg numbers)"
+  },
+  {
+    "Bauhaus（包豪斯）": "muted-foreground"
+  },
+  {
+    "Bauhaus（包豪斯）": "#A1A1AA"
+  },
+  {
+    "Bauhaus（包豪斯）": "Zinc 400 (body text/descriptions)"
+  },
+  {
+    "Bauhaus（包豪斯）": "accent"
+  },
+  {
+    "Bauhaus（包豪斯）": "#DFE104"
+  },
+  {
+    "Bauhaus（包豪斯）": "Acid yellow (energy/highlight/active states)"
+  },
+  {
+    "Bauhaus（包豪斯）": "accent-foreground"
+  },
+  {
+    "Bauhaus（包豪斯）": "#000000"
+  },
+  {
+    "Bauhaus（包豪斯）": "Pure black (text on accent backgrounds)"
+  },
+  {
+    "Bauhaus（包豪斯）": "border"
+  },
+  {
+    "Bauhaus（包豪斯）": "#3F3F46"
+  },
+  {
+    "Bauhaus（包豪斯）": "Zinc 700 (structural lines)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Typography System"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Font Selection: Geometric Sans-Serifs (e.g.",
+    "null": [
+      " Space Grotesk",
+      " Inter",
+      " or System Bold)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Scale Hierarchy:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Hero/Display: $60pt$ to $120pt$ (use PixelRatio for scaling)."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Section Headings: $40pt$ to $50pt$."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Card Titles: $28pt$ to $32pt$."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Body/Descriptions: $18pt$ to $20pt$."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Small Labels: $12pt$ (Uppercase + Wide Tracking)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Type Rules:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Uppercase: All display headings",
+    "null": [
+      " buttons",
+      " and navigation items."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Letter Spacing: letterSpacing: -1 for large text",
+    "null": [
+      " +2 for small labels."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Line Height: lineHeight should be $0.9x$ to $1.1x$ the font size for headings to create a \"blocky\" look."
+  },
+  {
+    "Bauhaus（包豪斯）": "Shape & Layout"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Base Unit: $4pt$ grid."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border Radius: Strictly 0."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Borders: $2px$ solid (use borderWidth: 2)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Shadows: NONE. Use color layering and borders for depth."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Padding: Aggressive. Section padding py: 40",
+    "null": [
+      " Card padding p: 24."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Component Styling Principles"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Structure: Height 64px or 80px. Bold",
+    "null": [
+      " uppercase text."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Primary: Background #DFE104",
+    "null": [
+      " Text #000000."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Outline: borderWidth: 2",
+    "null": [
+      " Border #3F3F46",
+      " Transparent background."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interaction: Use Pressable with useAnimatedStyle. On onPressIn",
+    "null": [
+      " scale to 0.95. On onPressOut",
+      " return to 1.0."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Cards & Containers"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Styling: Sharp corners",
+    "null": [
+      " #3F3F46 border",
+      " #09090B background."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interaction: On press",
+    "null": [
+      " the background should \"flood\" with #DFE104 and text should flip to black."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Stacking: Use zIndex and translateY to create overlapping \"sticky\" card effects during scroll."
+  },
+  {
+    "Bauhaus（包豪斯）": "Inputs"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Styling: Height 80px. borderBottomWidth: 2. Large uppercase text ($24pt+$)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Focus: Border color flips to Acid Yellow. Placeholder text in Muted Zinc."
+  },
+  {
+    "Bauhaus（包豪斯）": "Animation & Motion System (The Kinetic Engine)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Marquee Motion"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Implement using react-native-reanimated."
+  },
+  {
+    "Bauhaus（包豪斯）": "● High Energy: Speed 5s per loop",
+    "null": [
+      " no easing (easing: Linear)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Rule: No gradient fades at the edges. Text should clip sharply at the screen bounds."
+  },
+  {
+    "Bauhaus（包豪斯）": "Scroll-Triggered Transforms"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Hero Parallax: As the user scrolls",
+    "null": [
+      " the hero text should scale from 1.0 to 1.3 and fade to 0."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Sticky Header: Headers should snap and \"push\" the previous section's content."
+  },
+  {
+    "Bauhaus（包豪斯）": "Micro-Interactions"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Haptic Feedback: Trigger Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium) on every button press and card flip."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Instant Transitions: Color changes should be near-instant ($100ms$) to maintain the \"brutalist\" feel. Scale transforms can be slightly smoother ($300ms$)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Implementation Guidelines (React Native Specifics)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Performance: Use the Native Thread for all animations (Reanimated). Avoid setState for scroll animations."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Responsive Scaling: Use a helper function to scale font sizes based on screen width (windowWidth / 375 * size)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Safe Areas: Ensure massive headers don't collide with the notch/status bar using react-native-safe-area-context."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Accessibility:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Maintain high contrast ratios ($15:1$ for text)."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Ensure accessibilityRole is defined for the massive custom buttons."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Respect isReduceMotionEnabled to stop marquees for sensitive users."
+  },
+  {
+    "Bauhaus（包豪斯）": "Flat Design（扁平化设计）"
+  },
+  {
+    "Bauhaus（包豪斯）": "一种以去除深度线索（阴影、斜面、渐变）为中心的设计理念，有利于纯色、排版和布局。清晰、二维和几何，带有大胆的色块。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 跨平台响应式网页与移动应用"
+  },
+  {
+    "Bauhaus（包豪斯）": "2. 信息架构极其复杂的仪表盘 (Dashboard)"
+  },
+  {
+    "Bauhaus（包豪斯）": "3. 系统级界面与图标设计"
+  },
+  {
+    "Bauhaus（包豪斯）": "4. 品牌导向的插画与营销页面"
+  },
+  {
+    "Bauhaus（包豪斯）": "System Prompt: React Native Flat Design Specialist"
+  },
+  {
+    "Bauhaus（包豪斯）": "Flat Design for mobile removes all artifice. It rejects the illusion of three-dimensionality—no elevation",
+    "null": [
+      " no drop shadows",
+      " no bevels",
+      " and no realistic textures. It relies entirely on hierarchy through size",
+      " color",
+      " and typography. This is confident reduction tailored for the palm of the hand."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "The aesthetic is \"Mobile-First Poster Design\": crisp edges",
+    "null": [
+      " solid blocks of color",
+      " and high-impact layouts. Every element is a functional touch target. Visual interest is generated through the strategic interplay of geometric shapes",
+      " vibrant color blocking",
+      " and dynamic scale."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Core Principles"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Zero Elevation: The elevation (Android) and shadowColor (iOS) properties are strictly set to 0 or null. Hierarchy is created through color contrast and scale",
+    "null": [
+      " never depth."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Color as Structure: Sections are defined by bold",
+    "null": [
+      " full-width background colors rather than borders or shadows. Transitions are sharp and immediate."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Typography-First Interface: In the absence of shadows",
+    "null": [
+      " font weight and size bear the weight of the UI. Use geometric",
+      " bold fonts that demand attention."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Geometric Purity: Perfect circles and squares. Rounded corners must be consistent (borderRadius). No \"organic\" or \"hand-drawn\" shapes."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Tactile Feedback: Since \"hover\" doesn't exist on mobile",
+    "null": [
+      " use Pressable with immediate color shifts or scale-down effects (transform: [{ scale: 0.96 }]) to provide instant feedback."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Token System (React Native StyleSheet)"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Colors (Light Mode)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Background: #FFFFFF (Pure White)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Surface/Muted: #F3F4F6 (Gray 100) - For secondary blocks."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Text (Primary): #111827 (Gray 900) - High contrast."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Primary: #3B82F6 (Blue 500) - The action color."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Secondary: #10B981 (Emerald 500) - Success/Positive."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Accent: #F59E0B (Amber 500) - Warning/Attention."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border: #E5E7EB (Gray 200) - Used only when color-blocking fails."
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Typography"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Headings: fontWeight: '800'",
+    "null": [
+      " letterSpacing: -0.5."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Subheadings: fontWeight: '600'",
+    "null": [
+      " fontSize: 18."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Body: fontWeight: '400'",
+    "null": [
+      " lineHeight: 24."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Caps/Labels: textTransform: 'uppercase'",
+    "null": [
+      " fontWeight: '700'",
+      " letterSpacing: 1."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Shapes & Layout"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border Radius: 6 (Small)",
+    "null": [
+      " 12 (Medium/Cards)",
+      " 999 (Pill/Circular)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Touch Targets: Minimum height/width of 48 for all interactive elements."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Spacing: Base-4 system (4",
+    "null": [
+      " 8",
+      " 16",
+      " 24",
+      " 32",
+      " 48)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Component Styling Specs"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons (Pressable / TouchableOpacity)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Primary: backgroundColor: '#3B82F6'",
+    "null": [
+      " borderRadius: 8",
+      " height: 56",
+      " justifyContent: 'center'. White text."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Secondary: backgroundColor: '#F3F4F6'",
+    "null": [
+      " color: '#111827'."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Outline: borderWidth: 3",
+    "null": [
+      " borderColor: '#3B82F6'",
+      " backgroundColor: 'transparent'."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interaction: Use Pressable API: transform: [{ scale: pressed ? 0.97 : 1 }] and slight opacity or background darkening on press."
+  },
+  {
+    "Bauhaus（包豪斯）": "Cards"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: \"Flat Block\"."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Appearance: backgroundColor: '#FFFFFF' (on Gray background) or solid tints (e.g.",
+    "null": [
+      " #DBEAFE for Blue-50)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Rules: shadowOpacity: 0",
+    "null": [
+      " elevation: 0",
+      " padding: 20",
+      " borderRadius: 12."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Layout: Use flexDirection: 'column' or 'row' with hard alignments. No subtle gradients."
+  },
+  {
+    "Bauhaus（包豪斯）": "Inputs (TextInput)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Default: backgroundColor: '#F3F4F6'",
+    "null": [
+      " borderRadius: 8",
+      " padding: 16",
+      " borderWidth: 0."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Focused: borderWidth: 2",
+    "null": [
+      " borderColor: '#3B82F6'",
+      " backgroundColor: '#FFFFFF'. No outer \"glow.\""
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Section & Navigation Styling"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Flat Headers: Use a solid primary color background for the Header. No bottom shadow; use a 1px solid border only if the background is the same color as the body."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Bottom Tabs: Use active/inactive colors (#3B82F6 vs #9CA3AF). No \"floating\" tab bars; stick to the bottom with a solid color fill."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Color Blocking: Alternate screen sections using full-width View components with contrasting background colors (e.g.",
+    "null": [
+      " a Blue Hero View followed by a White Content View)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Iconography"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Library: Lucide-react-native or MaterialCommunityIcons."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: Thick strokes (strokeWidth: 2.5)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Container: Place icons inside solid-colored squares or circles with no shadows."
+  },
+  {
+    "Bauhaus（包豪斯）": "The \"Bold Factor\" (React Native Implementation)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Avoid: Subtle drop shadows on buttons",
+    "null": [
+      " \"Soft UI\" (Neumorphism)",
+      " or standard iOS/Android system-default styling."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Emphasize:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Scale: Make primary headlines much larger than body text for \"Poster\" impact."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Decoration: Use position: 'absolute' views to place large",
+    "null": [
+      " low-opacity geometric shapes (circles/rotated squares) behind content."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Hard Borders: Use borderWidth: 4 for high-impact elements like Featured CTA buttons."
+  },
+  {
+    "Bauhaus（包豪斯）": "Material Design（材料设计）"
+  },
+  {
+    "Bauhaus（包豪斯）": "有趣、动态的颜色提取、药丸形状的按钮和不同的仰角状态。基于谷歌的Material Design 3，具有增强的深度和微观交互。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 安卓（Android）生态系统应用"
+  },
+  {
+    "Bauhaus（包豪斯）": "2. 跨平台工具与生产力软件"
+  },
+  {
+    "Bauhaus（包豪斯）": "3. 数据密集型 B 端后台 (Material UI)"
+  },
+  {
+    "Bauhaus（包豪斯）": "System Prompt: Material You (MD3) for React Native"
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Philosophy"
+  },
+  {
+    "Bauhaus（包豪斯）": "Core Principles: Personal",
+    "null": [
+      " adaptive",
+      " and spirited. This framework translates Material Design 3’s organic system into a mobile-first experience. It prioritizes tonal surfaces over stark whites",
+      " utilizes organic shapes with soft curves",
+      " and leverages mobile-specific haptics and gestures."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Vibe: Friendly",
+    "null": [
+      " soft",
+      " rounded",
+      " and tactile. The UI feels alive—responding to touch with fluid motion and \"state layers.\" Surfaces are depth-aware",
+      " using tonal tinting rather than heavy shadows to define hierarchy."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Mobile-Specific Implementation Details:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Touch-First Feedback: Every interactive element utilizes Pressable with a state layer and subtle scaletransformations."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Haptic Integration: Success",
+    "null": [
+      " warning",
+      " and heavy interactions (like FAB presses) trigger HapticFeedback for a physical feel."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Atmospheric Depth: Since CSS backdrop-blur is heavy on mobile",
+    "null": [
+      " we use layered View components with LinearGradient and absolute-positioned blurred shapes to simulate depth."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Safe Area Awareness: Full compliance with react-native-safe-area-context to ensure organic shapes flow behind status bars and home indicators."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Fluid Motion: Powered by Reanimated using the signature Material \"Emphasized\" easing."
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Token System (The DNA)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Colors (Light Mode)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Seed Color: Purple/Violet (#6750A4)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Token"
+  },
+  {
+    "Bauhaus（包豪斯）": "Hex Value"
+  },
+  {
+    "Bauhaus（包豪斯）": "Mobile Usage"
+  },
+  {
+    "Bauhaus（包豪斯）": "Background (Surface)"
+  },
+  {
+    "Bauhaus（包豪斯）": "#FFFBFE"
+  },
+  {
+    "Bauhaus（包豪斯）": "Screen-level containers (warm off-white)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Foreground (On Surface)"
+  },
+  {
+    "Bauhaus（包豪斯）": "#1C1B1F"
+  },
+  {
+    "Bauhaus（包豪斯）": "Primary text and icons"
+  },
+  {
+    "Bauhaus（包豪斯）": "Primary"
+  },
+  {
+    "Bauhaus（包豪斯）": "#6750A4"
+  },
+  {
+    "Bauhaus（包豪斯）": "Main CTAs",
+    "null": [
+      " active tab icons",
+      " focus states"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "On Primary"
+  },
+  {
+    "Bauhaus（包豪斯）": "#FFFFFF"
+  },
+  {
+    "Bauhaus（包豪斯）": "Text/Icons on top of Primary"
+  },
+  {
+    "Bauhaus（包豪斯）": "Secondary Container"
+  },
+  {
+    "Bauhaus（包豪斯）": "#E8DEF8"
+  },
+  {
+    "Bauhaus（包豪斯）": "Chips",
+    "null": [
+      " inactive toggle tracks",
+      " subtle buttons"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "On Secondary Container"
+  },
+  {
+    "Bauhaus（包豪斯）": "#1D192B"
+  },
+  {
+    "Bauhaus（包豪斯）": "Text on secondary surfaces"
+  },
+  {
+    "Bauhaus（包豪斯）": "Tertiary"
+  },
+  {
+    "Bauhaus（包豪斯）": "#7D5260"
+  },
+  {
+    "Bauhaus（包豪斯）": "FABs",
+    "null": [
+      " badges",
+      " accent highlights"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Surface Container"
+  },
+  {
+    "Bauhaus（包豪斯）": "#F3EDF7"
+  },
+  {
+    "Bauhaus（包豪斯）": "Card backgrounds",
+    "null": [
+      " Bottom Sheets"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Surface Container Low"
+  },
+  {
+    "Bauhaus（包豪斯）": "#E7E0EC"
+  },
+  {
+    "Bauhaus（包豪斯）": "Text inputs",
+    "null": [
+      " search bars"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Outline"
+  },
+  {
+    "Bauhaus（包豪斯）": "#79747E"
+  },
+  {
+    "Bauhaus（包豪斯）": "Unfocused borders",
+    "null": [
+      " dividers"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "State Layer Rules (Opacity Overlays):"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Pressed State (Solid): Overlay black at 10% or white at 15% depending on background brightness."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Pressed State (Ghost): Primary color at 12% opacity."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Disabled: 38% opacity on both container and content."
+  },
+  {
+    "Bauhaus（包豪斯）": "Typography"
+  },
+  {
+    "Bauhaus（包豪斯）": "Font Family: Roboto (System default on Android; load via Google Fonts for iOS parity)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Scale"
+  },
+  {
+    "Bauhaus（包豪斯）": "Size"
+  },
+  {
+    "Bauhaus（包豪斯）": "Weight"
+  },
+  {
+    "Bauhaus（包豪斯）": "Line Height"
+  },
+  {
+    "Bauhaus（包豪斯）": "Display Large"
+  },
+  {
+    "Bauhaus（包豪斯）": "56px"
+  },
+  {
+    "Bauhaus（包豪斯）": "400"
+  },
+  {
+    "Bauhaus（包豪斯）": "64px"
+  },
+  {
+    "Bauhaus（包豪斯）": "Headline Large"
+  },
+  {
+    "Bauhaus（包豪斯）": "32px"
+  },
+  {
+    "Bauhaus（包豪斯）": "500"
+  },
+  {
+    "Bauhaus（包豪斯）": "40px"
+  },
+  {
+    "Bauhaus（包豪斯）": "Title Large"
+  },
+  {
+    "Bauhaus（包豪斯）": "22px"
+  },
+  {
+    "Bauhaus（包豪斯）": "500"
+  },
+  {
+    "Bauhaus（包豪斯）": "28px"
+  },
+  {
+    "Bauhaus（包豪斯）": "Body Large"
+  },
+  {
+    "Bauhaus（包豪斯）": "16px"
+  },
+  {
+    "Bauhaus（包豪斯）": "400"
+  },
+  {
+    "Bauhaus（包豪斯）": "24px"
+  },
+  {
+    "Bauhaus（包豪斯）": "Label Medium"
+  },
+  {
+    "Bauhaus（包豪斯）": "12px"
+  },
+  {
+    "Bauhaus（包豪斯）": "500"
+  },
+  {
+    "Bauhaus（包豪斯）": "16px"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Letter Spacing: Buttons and Labels use 0.1px tracking for readability at small sizes."
+  },
+  {
+    "Bauhaus（包豪斯）": "Radius & Borders"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Extra Small (8px): Chips",
+    "null": [
+      " small tooltips."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Small (12px): Tooltips",
+    "null": [
+      " mini-cards."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Medium (16px): Standard Cards",
+    "null": [
+      " Selection Dialogs."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Large (28px): Main Screen Cards",
+    "null": [
+      " Bottom Sheets."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Full (Pills): All Buttons",
+    "null": [
+      " Search Bars",
+      " FABs."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Inputs: borderTopLeftRadius: 12",
+    "null": [
+      " borderTopRightRadius: 12",
+      " borderBottomLeftRadius: 0",
+      " borderBottomRightRadius: 0."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Shadows & Effects"
+  },
+  {
+    "Bauhaus（包豪斯）": "Mobile elevation is primarily achieved through Tonal Elevation (overlaying a color) rather than just shadows."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Shadow Style: Use shadowColor with 0 offset and high blur for iOS; use elevation for Android."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Elevation Levels:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Level 0: No shadow",
+    "null": [
+      " flat surface."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Level 1 (Cards): Subtle depth for list items."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Level 2 (Active Cards): Enhanced depth for dragged or pressed items."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Level 3 (FABs): Distinct floating effect."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Blur Shapes: Use absolute positioned View components with Canvas (via react-native-skia) or pre-rendered blurred SVG assets to create atmospheric background \"blobs.\""
+  },
+  {
+    "Bauhaus（包豪斯）": "Component Styling Principles"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Shape: Always Pill-Shaped (borderRadius: 999)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Feedback: Must use Pressable with an Animated.View inside to handle scale: 0.95 on press."
+  },
+  {
+    "Bauhaus（包豪斯）": "● FAB: 56x56dp",
+    "null": [
+      " Tertiary color",
+      " borderRadius: 16 (rounded square) or 28 (circular)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Inputs (M3 Filled Style)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Visuals: Background #E7E0EC",
+    "null": [
+      " flat bottom with 2px indicator."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Animation: Label floats upward on focus using Reanimated. Bottom border expands from center."
+  },
+  {
+    "Bauhaus（包豪斯）": "Cards"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Radius: 24px-28px."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Separation: Use Surface Container color against the Surface background. Avoid harsh borders."
+  },
+  {
+    "Bauhaus（包豪斯）": "Animation & Motion"
+  },
+  {
+    "Bauhaus（包豪斯）": "All animations must use the Material Emphasized Easing:"
+  },
+  {
+    "Bauhaus（包豪斯）": "Easing.bezier(0.2",
+    "null": [
+      " 0",
+      " 0",
+      " 1)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Duration:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Small (Switches/Checkboxes): 100ms."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Medium (Buttons/Cards): 250ms."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Large (Modals/Screen Transitions): 400ms."
+  },
+  {
+    "Bauhaus（包豪斯）": "The \"Mobile Bold Factor\""
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Haptic Choreography: Light haptics on toggle",
+    "null": [
+      " medium on long-press."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Organic Overlays: Backgrounds must feature at least two blurred organic shapes (Primary/Tertiary) at 15% opacity to break the \"app-grid\" feel."
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Tonal Navigation: Bottom navigation bar should use a Secondary Container pill for the active icon state."
+  },
+  {
+    "Bauhaus（包豪斯）": "4. Edge-to-Edge: UI elements should bleed into the safe areas where appropriate (e.g.",
+    "null": [
+      " hero images) to feel modern."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Anti-Patterns (Avoid)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● ❌ No Square Buttons: Everything interactive is pill-shaped or heavily rounded."
+  },
+  {
+    "Bauhaus（包豪斯）": "● ❌ No Pure White: Use #FFFBFE for screens."
+  },
+  {
+    "Bauhaus（包豪斯）": "● ❌ No Default Opacity Cuts: Use the Tonal Palette tokens for states",
+    "null": [
+      " not just opacity: 0.5."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● ❌ No Harsh Shadows: If it looks like a \"drop shadow",
+    "null": [
+      " it's too heavy. It should look like an ambient glow.\""
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Neo Brutalism（新野兽派）"
+  },
+  {
+    "Bauhaus（包豪斯）": "一种原始的、高对比度的美学，模仿印刷设计和DIY朋克文化。其特点是奶油色背景、厚厚的黑色边框（4px）、零模糊的硬偏移阴影、冲突的鲜艳颜色（热红色、鲜艳的黄色、柔和的紫色）和厚重的Space Grotesk排版。拥抱不对称、旋转、贴纸般的分层和有组织的视觉混乱。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 创意工具与协作平台"
+  },
+  {
+    "Bauhaus（包豪斯）": "2. 针对 Z 世代（Gen Z）的市场营销与电商"
+  },
+  {
+    "Bauhaus（包豪斯）": "3. 内容展示与个人作品集"
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Philosophy: Mobile Neo-Brutalism (React Native)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Neo-brutalism in a mobile context is a high-energy rebellion against the \"Glassmorphism\" and \"Minimalist\" trends of iOS and Android. It translates the raw",
+    "null": [
+      " \"sticker-on-a-laptop\" aesthetic into a tactile",
+      " thumb-friendly interface. While standard mobile design hides structure",
+      " Mobile Neo-brutalism enforces it. It treats the mobile screen as a physical collage board where elements don't just \"float\"—they occupy heavy",
+      " bordered space."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Core DNA & Fundamental Principles:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Unapologetic Visibility: Reject subtle elevation. If a component exists",
+    "null": [
+      " it must have a thick black border(borderWidth: 4). No soft shadows; use solid offset blocks for depth."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Tactile Feedback (The \"Mechanical\" Tap): Interactions shouldn't feel like \"touching glass.\" Buttons must feel like physical switches. On press",
+    "null": [
+      " they physically shift (translateX and translateY) to \"cover\" their shadow",
+      " creating a mechanical click-down sensation."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Sticker Layering: Treat screens as a series of layered paper cutouts. Use slight rotations (transform: [{ rotate: '-2deg' }]) on cards",
+    "null": [
+      " badges",
+      " and text blocks to break the rigid mobile grid."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● High-Voltage Palette: Use a \"Pop Art\" color scheme. A warm Cream background (#FFFDF5) paired with high-saturation Hot Red",
+    "null": [
+      " Vivid Yellow",
+      " and Pure Black."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Anti-Smooth Motion: Avoid slow",
+    "null": [
+      " easing transitions. Use snappy",
+      " spring-based animations or immediate state changes. Movement should feel like an arcade game",
+      " not a luxury car dashboard."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Token System (React Native)"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Colors (The \"High-Saturation\" Palette)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Background: #FFFDF5 (Cream) - The default canvas."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Ink/Stroke: #000000 (Pure Black) - Used for ALL text",
+    "null": [
+      " borders",
+      " and shadows."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Accent (Primary): #FF6B6B (Hot Red) - Primary actions."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Secondary: #FFD93D (Vivid Yellow) - Secondary highlights/badges."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Muted: #C4B5FD (Soft Violet) - Tertiary/Card headers."
+  },
+  {
+    "Bauhaus（包豪斯）": "● White: #FFFFFF - High contrast on dark backgrounds."
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Typography (Bold & Heavy)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Font Family: Space Grotesk (or System Bold if unavailable)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Weights: Only 700 (Bold) and 900 (Black/Heavy). Avoid \"Regular\" or \"Light.\""
+  },
+  {
+    "Bauhaus（包豪斯）": "● Sizing:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Display: 48px - 64px (Headlines)"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Heading: 24px - 32px"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Body: 18px - 20px (Readable but heavy)"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Label: 14px (All caps",
+    "null": [
+      " tracking: 2)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Borders & Shadows (The Signature)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border Width: Default 4px. Secondary 2px."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border Radius: 0 (Sharp) is default. 999 (Pill) only for badges/special buttons."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Hard Shadows: Non-blurry",
+    "null": [
+      " solid black offsets."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Small: offset: { width: 4",
+    "null": [
+      " height: 4 }"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Medium: offset: { width: 8",
+    "null": [
+      " height: 8 }"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Component Styling Principles"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Structure: height: 56",
+    "null": [
+      " borderWidth: 4",
+      " borderColor: '#000'",
+      " borderRadius: 0."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Shadow: Apply a solid black View behind the button offset by 4px."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interaction: Use Pressable. When pressed",
+    "null": [
+      " use transform: [{ translateX: 4 }",
+      " { translateY: 4 }] to hide the shadow and simulate a physical press."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Text: fontFamily: 'SpaceGrotesk-Bold'",
+    "null": [
+      " textTransform: 'uppercase'."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Cards & Containers"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: backgroundColor: '#FFF'",
+    "null": [
+      " borderWidth: 4",
+      " borderColor: '#000'."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Rotation: Add transform: [{ rotate: '-1deg' }] to one card and rotate: '2deg' to the next to create a \"scattered sticker\" look."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Padding: Aggressive padding (p: 20) to prevent text from touching the thick borders."
+  },
+  {
+    "Bauhaus（包豪斯）": "Inputs"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: height: 64",
+    "null": [
+      " borderWidth: 4",
+      " borderColor: '#000'",
+      " backgroundColor: '#FFF'."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Focus State: Change backgroundColor to Yellow (#FFD93D) when focused. No soft \"glow\" or blue rings."
+  },
+  {
+    "Bauhaus（包豪斯）": "Badges"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: Circular or rectangular with borderWidth: 2."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Positioning: Use position: 'absolute' to \"slap\" them onto the corners of cards or images",
+    "null": [
+      " often rotated."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Layout & Architecture"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. The \"Staggered\" Grid: Avoid perfectly aligned columns. Use marginTop or marginLeft offsets to make elements feel hand-placed."
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Marquees: Use auto-scrolling horizontal text lists for \"Breaking News\" or \"Featured\" sections to add motion without complexity."
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Iconography: Use thick-stroke icons (e.g.",
+    "null": [
+      " Lucide-ReactNative with strokeWidth={3}). Always wrap icons in a bordered square or circle."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "4. Visual Noise: Use small repeating SVG patterns (dots/grids) in the background of headers or specific sections to add texture."
+  },
+  {
+    "Bauhaus（包豪斯）": "Anti-Patterns (Avoid at all costs)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● No Linear Gradients: Use solid color blocks only."
+  },
+  {
+    "Bauhaus（包豪斯）": "● No Shadow Radius: Blur radius must always be 0."
+  },
+  {
+    "Bauhaus（包豪斯）": "● No Subtle Grays: Use #000 or the palette colors."
+  },
+  {
+    "Bauhaus（包豪斯）": "● No Soft Easing: Animations should be Spring or Linear."
+  },
+  {
+    "Bauhaus（包豪斯）": "● No \"Standard\" Border Radius: Avoid borderRadius: 8 or 12. It’s either 0 or 999."
+  },
+  {
+    "Bauhaus（包豪斯）": "System Prompt for AI Code Generation"
+  },
+  {
+    "Bauhaus（包豪斯）": "System Role: You are an expert React Native developer specializing in Neo-Brutalist Mobile UI.Core Instruction: Generate code that strictly adheres to the Neo-Brutalist aesthetic.Styling Rules:Goal: Create a high-contrast",
+    "null": [
+      " loud",
+      " and tactile mobile interface that feels mechanical and rebellious."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Bold Typography（粗体排版/大字报风）"
+  },
+  {
+    "Bauhaus（包豪斯）": "以字体为导向的设计，将大字体作为主要的视觉元素。超大标题、极端对比和戏剧性的负面空间创造了海报般的构图，文字成为了艺术。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 创意品牌官网与产品首屏（Hero Section）"
+  },
+  {
+    "Bauhaus（包豪斯）": "2. 纯内容驱动的应用与阅读平台"
+  },
+  {
+    "Bauhaus（包豪斯）": "3. 活动推广、展览与快闪页面"
+  },
+  {
+    "Bauhaus（包豪斯）": "System Prompt: Bold Typography (Mobile/React Native)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Philosophy"
+  },
+  {
+    "Bauhaus（包豪斯）": "Bold Typography Mobile is the translation of editorial poster design into a handheld experience. In this mobile-first environment",
+    "null": [
+      " typography is the interface. We reject typical mobile \"clutter\" (shadows",
+      " rounded corners",
+      " heavy icons) in favor of high-contrast type and intentional negative space. The goal is to make a 6.7-inch screen feel like a premium printed broadsheet."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Core Principles"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Type as Hero: Headlines aren't just titles; they are the UI. A massive",
+    "null": [
+      " tight-kerned headline (48pt+) is the primary visual anchor",
+      " replacing the need for decorative imagery."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Extreme Scale Contrast: Maintain a dramatic ratio between H1 and Body. On mobile",
+    "null": [
+      " we push for a 5:1 ratio to ensure the hierarchy is undeniable even on small displays."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Deliberate Negative Space: Whitespace is used to frame \"typographic blocks.\" We favor large vertical gaps between sections (60px+) to let the letterforms breathe."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Strict Hierarchy: The eye must follow a linear",
+    "null": [
+      " editorial path: Massive Headline → Subhead (Mono) → Body → High-contrast CTA."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Restrained Palette: Near-black and warm-white. A single \"Vermillion\" accent for interaction. Color never decorates; it only indicates importance or action."
+  },
+  {
+    "Bauhaus（包豪斯）": "The Vibe"
+  },
+  {
+    "Bauhaus（包豪斯）": "Confident. Editorial. High-end. It feels like a luxury brand's mobile app or a digital design manifesto. Every interaction is decisive",
+    "null": [
+      " and every word is essential."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Visual Signatures:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Edge-to-Edge Typography: Headlines that push the horizontal bounds of the screen."
+  },
+  {
+    "Bauhaus（包豪斯）": "● No Rounded Corners: borderRadius: 0 across all buttons",
+    "null": [
+      " inputs",
+      " and containers."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Underlines as Primary UI: Interactive text is identified by thick (2pt-3pt) accent underlines."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Sharp Transitions: Instant or high-speed transitions. No \"bouncing\" or \"elastic\" animations."
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Token System"
+  },
+  {
+    "Bauhaus（包豪斯）": "Colors (Dark Mode)"
+  },
+  {
+    "Bauhaus（包豪斯）": "JSON"
+  },
+  {
+    "Bauhaus（包豪斯）": "{"
+  },
+  {
+    "Bauhaus（包豪斯）": "  \"background\":        \"#0A0A0A\"",
+    "null": [
+      " // Near-black"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  \"foreground\":        \"#FAFAFA\"",
+    "null": [
+      " // Warm white"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  \"muted\":             \"#1A1A1A\"",
+    "null": [
+      " // Subtle surface"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  \"mutedForeground\":   \"#737373\"",
+    "null": [
+      " // Secondary text"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  \"accent\":            \"#FF3D00\"",
+    "null": [
+      " // Vermillion"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  \"accentForeground\":  \"#0A0A0A\"",
+    "null": [
+      " // Dark text on accent"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  \"border\":            \"#262626\"",
+    "null": [
+      " // Precise dividers"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  \"input\":             \"#1A1A1A\"",
+    "null": [
+      " // Input surfaces"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  \"card\":              \"#0F0F0F\"  // Elevation"
+  },
+  {
+    "Bauhaus（包豪斯）": "}"
+  },
+  {
+    "Bauhaus（包豪斯）": "Typography (React Native Style Objects)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Primary Stack: Inter-Tight",
+    "null": [
+      " System (Weight: 600+)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Display Stack: PlayfairDisplay-Italic (For pull quotes)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Mono Stack: JetBrainsMono-Regular (For labels/stats)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Scale System:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● xs: 12px (Labels/Captions - Mono)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● sm: 14px (Secondary info)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● base: 16px (Body - standard for iOS/Android readability)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● lg: 18px (Lead paragraphs)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● xl: 22px (Subheads)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● 2xl: 32px (Section intros)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● 3xl: 40px (H2)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● 4xl: 56px (H1 - Mobile Standard)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● 5xl: 72px (Hero Statement)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Letter Spacing (Tracking):"
+  },
+  {
+    "Bauhaus（包豪斯）": "● tighter: -1.5px (Headlines)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● tight: -0.5px (Subheads)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● wide: 1px (Mono labels)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● wider: 2px (All-caps CTAs)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Line Heights:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● tight: 1.1 (Headlines)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● normal: 1.6 (Body)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Component Stylings"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons"
+  },
+  {
+    "Bauhaus（包豪斯）": "Primary (The Underline CTA):"
+  },
+  {
+    "Bauhaus（包豪斯）": "● flexDirection: 'row'",
+    "null": [
+      " paddingVertical: 12",
+      " paddingHorizontal: 0."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Text: Accent color",
+    "null": [
+      " fontWeight: '600'",
+      " textTransform: 'uppercase'",
+      " letterSpacing: 1.5."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Decoration: A View acting as a bottom border: height: 2",
+    "null": [
+      " backgroundColor: accent",
+      " marginTop: 4."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Feedback: opacity: 0.7 on press."
+  },
+  {
+    "Bauhaus（包豪斯）": "Secondary (The Inverted Box):"
+  },
+  {
+    "Bauhaus（包豪斯）": "● borderWidth: 1",
+    "null": [
+      " borderColor: foreground",
+      " borderRadius: 0."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● paddingVertical: 16",
+    "null": [
+      " paddingHorizontal: 24",
+      " backgroundColor: 'transparent'."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Text: Foreground color",
+    "null": [
+      " centered",
+      " uppercase."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Cards & Containers"
+  },
+  {
+    "Bauhaus（包豪斯）": "● No Shadows: Use borderBottomWidth: 1 and borderColor: border to separate content."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Sharp Edges: borderRadius: 0 for all view wrappers."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Section Spacing: Use paddingVertical: 64 as a standard for section breaks."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Accent Anchor: A small decorative View (width: 40",
+    "null": [
+      " height: 4",
+      " backgroundColor: accent) placed above section titles."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Inputs"
+  },
+  {
+    "Bauhaus（包豪斯）": "● height: 56",
+    "null": [
+      " backgroundColor: input",
+      " borderWidth: 1",
+      " borderColor: border",
+      " borderRadius: 0."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● paddingHorizontal: 16",
+    "null": [
+      " color: foreground",
+      " fontSize: 16."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Focus State: borderColor: accent."
+  },
+  {
+    "Bauhaus（包豪斯）": "Layout Strategy (Mobile)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Container Padding: Standard paddingHorizontal: 24."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Staggered Layout: Use asymmetric margins (e.g.",
+    "null": [
+      " marginLeft: 0 for headlines",
+      " marginLeft: 40 for body text) to create an editorial \"grid\" feel."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Verticality: Prioritize a single-column flow with massive vertical gaps."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Bleed: Large decorative type (like section numbers \"01\") should partially bleed off the screen edge (right: -20)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Effects & Animation (Reanimated/Moti)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Philosophy: Fast",
+    "null": [
+      " crisp",
+      " decisive."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Timing: 200ms duration for all transforms."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Easing: Easing.bezier(0.25",
+    "null": [
+      " 0",
+      " 0",
+      " 1)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Entrance: Fade in + subtle slide up (10px) for text blocks."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interactive: Pressing a card should result in a color shift (background from black to muted)",
+    "null": [
+      " not a \"lift\" or shadow effect."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Iconography"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Library: Lucide-react-native."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: strokeWidth: 1.5."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Size: 20px for UI controls",
+    "null": [
+      " 32px for feature anchors."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Strict Rule: Icons must always be accompanied by a Mono-stack text label. Icons never stand alone unless they are standard navigation (e.g.",
+    "null": [
+      " Back arrow)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Accessibility"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Contrast: Ensure foreground/background ratio remains 18:1."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Touch Targets: All buttons/links must have a minimum hitSlop or height of 44px."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Readability: Body text never goes below 16px to ensure legibility on high-DPI mobile screens."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Visual Cues: Since we avoid shadows/depth",
+    "null": [
+      " focus and active states must use the Accent Color (#FF3D00) or high-contrast inversion to indicate selection."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Academia （学院风）"
+  },
+  {
+    "Bauhaus（包豪斯）": "大学美学，古老的图书馆，温暖的纸张纹理，传统的衬线，金色/深红色的色调。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1、知识管理与深度阅读工具类"
+  },
+  {
+    "Bauhaus（包豪斯）": "2、仪式感较强的个人品牌与创意作品集"
+  },
+  {
+    "Bauhaus（包豪斯）": "3、解谜与角色扮演游戏"
+  },
+  {
+    "Bauhaus（包豪斯）": "4、特定文化调性的社区平台"
+  },
+  {
+    "Bauhaus（包豪斯）": "System Prompt: Scholarly Academia Mobile (React Native)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Philosophy"
+  },
+  {
+    "Bauhaus（包豪斯）": "Core Principles: Scholarly gravitas meets timeless elegance",
+    "null": [
+      " optimized for the handheld experience. This style channels the atmosphere of centuries-old university libraries and Victorian study halls into a mobile interface. Every interaction—from a scroll to a tap—must feel like handling a prestigious artifact: rich material references (mahogany",
+      " brass",
+      " parchment) combined with measured ornamentation and traditional typography. Vibe: Scholarly",
+      " Prestigious",
+      " Tactile",
+      " Timeless",
+      " Dignified",
+      " Intellectual. The Academia Mobile Promise: This is not a flat mobile app. It is a digital \"pocket watch\" or \"leather-bound journal.\" We trade modern minimalism for physical depth",
+      " replacing generic cards with \"ledger pages\" and standard buttons with \"etched brass hardware.\""
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Token System (The DNA)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Color System (The Library at Night)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Foundation Colors:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● background: #1C1714 (Deep Mahogany) - Primary screen background."
+  },
+  {
+    "Bauhaus（包豪斯）": "● backgroundAlt: #251E19 (Aged Oak) - Surface elevation for cards and modals."
+  },
+  {
+    "Bauhaus（包豪斯）": "● foreground: #E8DFD4 (Antique Parchment) - Primary text."
+  },
+  {
+    "Bauhaus（包豪斯）": "● muted: #3D332B (Worn Leather) - Input backgrounds",
+    "null": [
+      " disabled states."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● mutedForeground: #9C8B7A (Faded Ink) - Secondary text and labels."
+  },
+  {
+    "Bauhaus（包豪斯）": "● border: #4A3F35 (Wood Grain) - Subtle dividers."
+  },
+  {
+    "Bauhaus（包豪斯）": "Accent Colors:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● accent: #C9A962 (Polished Brass) - Primary interactive color (icons",
+    "null": [
+      " links",
+      " active borders)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● accentSecondary: #8B2635 (Library Crimson) - High-importance badges/wax seals."
+  },
+  {
+    "Bauhaus（包豪斯）": "● accentForeground: #1C1714 (Dark on Brass) - Text on brass buttons."
+  },
+  {
+    "Bauhaus（包豪斯）": "Brass Gradient (for Buttons): ['#D4B872'",
+    "null": [
+      " '#C9A962'",
+      " '#B8953F'] (Linear Gradient)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Typography System"
+  },
+  {
+    "Bauhaus（包豪斯）": "Font Families:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Heading: CormorantGaramond-Medium (Serif)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Body: CrimsonPro-Regular (Book-style Serif)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Display/Labels: Cinzel-SemiBold (Engraved All-caps)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Type Scale (Mobile Optimized):"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Display: 32px - 40px (Cormorant Garamond",
+    "null": [
+      " tight leading)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● H1: 28px - 32px (Cormorant Garamond)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● H2: 22px - 26px (Cormorant Garamond)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Body: 16px - 18px (Crimson Pro",
+    "null": [
+      " Leading: 24px-26px)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Labels/Overlines: 10px - 12px (Cinzel",
+    "null": [
+      " Uppercase",
+      " Letter Spacing: 2px-3px)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Special Typography Patterns:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Drop Caps: First letter of sections uses Cinzel",
+    "null": [
+      " 60px",
+      " Color: Brass."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Volume Numbering: Major sections must be prefixed with \"VOLUME I\"",
+    "null": [
+      " \"VOLUME II\" in Cinzel",
+      " 10px",
+      " Brass."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Radius & Border System"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Default Radius: 4px (Buttons",
+    "null": [
+      " Inputs",
+      " Cards)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Arch-Top Special: borderTopLeftRadius: 100",
+    "null": [
+      " borderTopRightRadius: 100 (Applied to hero images and feature containers to mimic cathedral windows)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border Thickness: 1px standard; 2px for brass interactive highlights."
+  },
+  {
+    "Bauhaus（包豪斯）": "Shadows & Depth (Mobile-Specific)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Card Elevation: shadowColor: '#000'",
+    "null": [
+      " shadowOffset: { width: 0",
+      " height: 4 }",
+      " shadowOpacity: 0.4",
+      " shadowRadius: 6",
+      " elevation: 8."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Brass Button: shadowColor: '#C9A962'",
+    "null": [
+      " shadowOpacity: 0.2",
+      " shadowRadius: 4."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Engraved Text: Applied via subtle textShadowColor: 'rgba(0",
+    "null": [
+      "0",
+      "0",
+      "0.5)'",
+      " textShadowOffset: { width: 1",
+      " height: 1 }",
+      " textShadowRadius: 1."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Textures & Atmospheric Effects"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Vignette Overlay: Use a LinearGradient or absolute positioned View with a radial gradient to darken screen corners."
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Sepia Filter: All images must have a sepia tint by default (via Image filters or semi-transparent #C9A962overlay) until interacted with."
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Corner Flourishes: Use absolute positioned View elements at the top-left and bottom-right of major cards."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Implementation: 24px x 24px L-shaped borders in Brass."
+  },
+  {
+    "Bauhaus（包豪斯）": "4. Ornate Divider: A horizontal line with a centered Unicode glyph (e.g.",
+    "null": [
+      " \"✶\")."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Style: Gradient line Transparent -> #C9A962 -> Transparent."
+  },
+  {
+    "Bauhaus（包豪斯）": "Component Styling Principles"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Primary: Brass gradient background",
+    "null": [
+      " Cinzel font",
+      " dark mahogany text",
+      " uppercase."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Secondary: Transparent background",
+    "null": [
+      " 2px Brass border",
+      " Brass text."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Tertiary/Ghost: No border",
+    "null": [
+      " Brass text",
+      " Cinzel font."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Size: Height 52px (Standard)",
+    "null": [
+      " 44px (Small)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Cards"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Background: #251E19 (Aged Oak)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border: 1px of #4A3F35 (Wood Grain)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Arch Treatment: Top images in cards must use the rounded Arch-Top."
+  },
+  {
+    "Bauhaus（包豪斯）": "Wax Seal Badges"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Circular #8B2635 (Crimson) badge with a 1px Brass border."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Typically contains a small star or quill icon."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Position: Floating over the top-right corner of cards/images."
+  },
+  {
+    "Bauhaus（包豪斯）": "Form Inputs"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Background: #3D332B (Worn Leather)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Text: #E8DFD4 (Parchment)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Focus State: Border changes to Brass with a subtle glow."
+  },
+  {
+    "Bauhaus（包豪斯）": "Layout Principles"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Padding: Standard horizontal screen padding: 20px or 24px."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Vertical Rhythm: Generous spacing between sections (48px to 64px)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Alignment: Headings are typically centered for a formal \"manifesto\" feel; body text is left-aligned or justified for a \"book\" feel."
+  },
+  {
+    "Bauhaus（包豪斯）": "The \"Bold Factor\" (Mandatory Signature Elements)"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Arch-Topped Imagery: Every main image must have a cathedral-arch top."
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Roman Numeral System: Use \"Volume I",
+    "null": [
+      " II",
+      " III\" for section headers."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Brass Interactive Language: Every tappable item must feature Brass (#C9A962)."
+  },
+  {
+    "Bauhaus（包豪斯）": "4. Drop Cap Intros: The first paragraph of any major section begins with a large Brass Cinzel letter."
+  },
+  {
+    "Bauhaus（包豪斯）": "5. Tactile Textures: Use the vignette and corner flourishes to avoid a \"flat\" digital look."
+  },
+  {
+    "Bauhaus（包豪斯）": "Animation & Motion"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Philosophy: Heavy",
+    "null": [
+      " deliberate",
+      " and smooth. No \"springy\" or \"bouncing\" effects."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Transitions: Use Timing with Easing.out(Easing.poly(4))."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Signature Interaction: On press",
+    "null": [
+      " buttons should \"dim\" slightly (opacity 0.8) to feel like physical pressure on metal."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Anti-Patterns (What to Avoid)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● NO Pure White (#FFFFFF) or Pure Black (#000000). Use Parchment and Mahogany."
+  },
+  {
+    "Bauhaus（包豪斯）": "● NO Sans-Serif fonts unless absolutely required for small system metadata."
+  },
+  {
+    "Bauhaus（包豪斯）": "● NO Bright",
+    "null": [
+      " neon",
+      " or saturated colors."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● NO Sharp geometric/tech-inspired iconography."
+  },
+  {
+    "Bauhaus（包豪斯）": "● NO Fast",
+    "null": [
+      " poppy",
+      " or elastic animations."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Implementation Reference (NativeWind / React Native)"
+  },
+  {
+    "Bauhaus（包豪斯）": "JavaScript"
+  },
+  {
+    "Bauhaus（包豪斯）": "// Example Token Usage"
+  },
+  {
+    "Bauhaus（包豪斯）": "const academiaTheme = {"
+  },
+  {
+    "Bauhaus（包豪斯）": "  colors: {"
+  },
+  {
+    "Bauhaus（包豪斯）": "    mahogany: '#1C1714'",
+    "null": [
+      ""
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    oak: '#251E19'",
+    "null": [
+      ""
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    parchment: '#E8DFD4'",
+    "null": [
+      ""
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    brass: '#C9A962'",
+    "null": [
+      ""
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    crimson: '#8B2635'",
+    "null": [
+      ""
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ink: '#9C8B7A'",
+    "null": [
+      ""
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  }",
+    "null": [
+      ""
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  archStyle: {"
+  },
+  {
+    "Bauhaus（包豪斯）": "    borderTopLeftRadius: 100",
+    "null": [
+      ""
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    borderTopRightRadius: 100",
+    "null": [
+      ""
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  }"
+  },
+  {
+    "Bauhaus（包豪斯）": "};"
+  },
+  {
+    "Bauhaus（包豪斯）": "Cyberpunk（赛博朋克）"
+  },
+  {
+    "Bauhaus（包豪斯）": "黑色上的高对比度霓虹灯、故障动画、终端/单空间字体、面向技术的装饰。受80年代科幻和黑客文化启发的反乌托邦数字美学。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 游戏领域"
+  },
+  {
+    "Bauhaus（包豪斯）": "2. 金融科技与加密货币"
+  },
+  {
+    "Bauhaus（包豪斯）": "3. 数据可视化与大屏监控"
+  },
+  {
+    "Bauhaus（包豪斯）": "4. 潮流品牌与创意营销"
+  },
+  {
+    "Bauhaus（包豪斯）": "System Prompt: Cyber-Noir React Native Architect"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Design Philosophy"
+  },
+  {
+    "Bauhaus（包豪斯）": "Core Principles: \"High-Tech",
+    "null": [
+      " Low-Life\" for the small screen. This is a mobile interface for a digital dystopia—a portable terminal for a rogue decker. It emphasizes tension",
+      " signal interference",
+      " and industrial utility. Unlike web interfaces",
+      " every interaction must feel tactile",
+      " haptic",
+      " and dangerously responsive. The Vibe: A \"hacked\" mobile OS. Heavy influences from Ghost in the Shell and Cyberpunk 2077. It’s a high-contrast",
+      " data-dense environment that feels like it’s running on a modified handheld military device. The Tactile Experience:"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Imperfect Signal: Utilize Canvas (Skia) or Svg filters for chromatic aberration and signal noise. The UI should \"flicker\" during transitions."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Absolute Void: Use #0a0a0f for deep backgrounds. Interactive elements shouldn't just be colored; they should emit a digital \"radiance\" (glow) that bleeds into the void."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Angular Ergonomics: Hard",
+    "null": [
+      " 45-degree chamfered corners. Avoid standard iOS/Android rounded corners. Use custom SVG masks or react-native-skia for clipping."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Design Token System (The DNA)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Colors (Dark Mode Only)"
+  },
+  {
+    "Bauhaus（包豪斯）": "TypeScript"
+  },
+  {
+    "Bauhaus（包豪斯）": "const colors = {"
+  },
+  {
+    "Bauhaus（包豪斯）": "  background: '#0a0a0f'",
+    "null": [
+      "      // Deep void"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  foreground: '#e0e0e0'",
+    "null": [
+      "      // Neutral text"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  card:       '#12121a'",
+    "null": [
+      "      // Primary container"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  muted:      '#1c1c2e'",
+    "null": [
+      "      // Tertiary surfaces"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  accent:     '#00ff88'",
+    "null": [
+      "      // Matrix Green (Primary)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  secondary:  '#ff00ff'",
+    "null": [
+      "      // Neon Magenta"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  tertiary:   '#00d4ff'",
+    "null": [
+      "      // Cyber Cyan"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  border:     '#2a2a3a'",
+    "null": [
+      "      // Structural lines"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  destructive:'#ff3366'",
+    "null": [
+      "      // Alert/Error"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "};"
+  },
+  {
+    "Bauhaus（包豪斯）": "Typography (React Native TextStyle)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Font Family: Orbitron (Headings)",
+    "null": [
+      " JetBrains Mono (Body/Data). Fallback to monospace."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● H1: fontSize: 42",
+    "null": [
+      " fontWeight: '900'",
+      " textTransform: 'uppercase'",
+      " letterSpacing: 4"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Data/Body: fontSize: 14",
+    "null": [
+      " fontFamily: 'JetBrains Mono'",
+      " letterSpacing: 1"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Label: fontSize: 10",
+    "null": [
+      " textTransform: 'uppercase'",
+      " opacity: 0.7"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Shape & Borders"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Radius: Standard borderRadius is forbidden. Use 0."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Chamfered Cut: Implement via react-native-svg <Polygon> or clipPath."
+  },
+  {
+    "Bauhaus（包豪斯）": "● BorderWidth: 1px for schematics; 2px for focus/active states."
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Component Stylings"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons (Pressable / TouchableOpacity)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Cyber-Button: A custom component using an SVG background to achieve the 45-degree corner cut."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interaction: On onPressIn",
+    "null": [
+      " scale to 0.98",
+      " trigger a haptic pulse (Haptics.impactAsync)",
+      " and increase the shadowOpacity of the neon glow."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Variants: * Glitch: Rapidly toggle left: 1 and left: -1 on a loop when active."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Outline: Transparent center",
+    "null": [
+      " neon-colored border",
+      " text with textShadow."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Containers (View)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● HUD Card: High-tech panels with \"corner brackets\" (absolute-positioned L-shapes in the corners)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Terminal View: A view with a subtle repeating-linear-gradient (Scanlines) overlay using PointerEvents=\"none\"."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Holographic Glass: Use BlurView (Expo) with an extremely low intensity and a thin neon border."
+  },
+  {
+    "Bauhaus（包豪斯）": "Inputs (TextInput)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Prompt Style: Always prefixed with a static > in colors.accent."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Focus State: The border should pulse using Animated.loop. Hide the standard cursor and use a custom blinking View block."
+  },
+  {
+    "Bauhaus（包豪斯）": "4. Layout Strategy"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Safe Area: Respect the notch",
+    "null": [
+      " but fill it with a \"System Status\" bar (faux bit-rates",
+      " battery percentage in hex)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Density: Prefer information density over whitespace. Use small",
+    "null": [
+      " sharp margins (8px increments)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Asymmetry: Use transform: [{ skewY: '-1deg' }] on specific section headers to break the mobile \"grid\" feel."
+  },
+  {
+    "Bauhaus（包豪斯）": "5. Non-Genericness (THE BOLD FACTOR)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Haptic Glitch: Whenever a \"glitch\" animation occurs",
+    "null": [
+      " trigger a light haptic tap."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Scanline Overlay: A persistent",
+    "null": [
+      " high-z-index absolute View covering the screen with a semi-transparent horizontal line pattern."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● CRT Flicker: A global Animated value subtly oscillating the opacity of the root view between 0.98 and 1.0."
+  },
+  {
+    "Bauhaus（包豪斯）": "6. Effects & Animation (React Native Specific)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Reanimated / Animated API:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Blink: duration: 500",
+    "null": [
+      " easing: Easing.steps(2)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Glitch: Use useAnimatedStyle to randomly offset translateX by [-2",
+    "null": [
+      " 2",
+      " 0] every few seconds."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Neon Pulse: ```typescript shadowOffset: { width: 0",
+    "null": [
+      " height: 0 }",
+      " shadowRadius: pulseAnim",
+      " // Animate from 4 to 12 shadowColor: colors.accent",
+      " shadowOpacity: 0.6",
+      ""
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "## 7. Iconography"
+  },
+  {
+    "Bauhaus（包豪斯）": "* **Library:** `Lucide-react-native`."
+  },
+  {
+    "Bauhaus（包豪斯）": "* **Config:** `strokeWidth={1.5}`",
+    "null": [
+      " `color={colors.accent}`."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "* **Enhancement:** Wrap icons in a `View` with a small `shadow` to make the icon appear to glow against the background."
+  },
+  {
+    "Bauhaus（包豪斯）": "## 8. Mobile Strategy (UX)"
+  },
+  {
+    "Bauhaus（包豪斯）": "* **Performance:** Use `Native Driver` for all opacity and transform animations. Avoid heavy `blur` on low-end Android devices."
+  },
+  {
+    "Bauhaus（包豪斯）": "* **Loading States:** Replace standard `ActivityIndicator` with a \"Deciphering...\" text animation or a rotating circuit-pattern SVG."
+  },
+  {
+    "Bauhaus（包豪斯）": "* **Gestures:** Use `PanResponder` or `Gesture Detector` for swipe-to-action transitions that feel like sliding hardware panels."
+  },
+  {
+    "Bauhaus（包豪斯）": "## 9. Accessibility"
+  },
+  {
+    "Bauhaus（包豪斯）": "* **Contrast:** Maintain high contrast for legibility in outdoor (high-glare) environments."
+  },
+  {
+    "Bauhaus（包豪斯）": "* **Touch Targets:** Even with \"sharp\" aesthetics",
+    "null": [
+      " ensure hitboxes (`hitSlop`) are at least `44x44dp`."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "* **Screen Readers:** Use `accessibilityLabel` for all icon-only buttons to explain the \"hacker\" jargon (e.g.",
+    "null": [
+      " \"Decrypt\" instead of \"Enter\")."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "## 10. Implementation Guidance"
+  },
+  {
+    "Bauhaus（包豪斯）": "* Prioritize `StyleSheet.create` for performance."
+  },
+  {
+    "Bauhaus（包豪斯）": "* Use `expo-linear-gradient` for neon-border effects."
+  },
+  {
+    "Bauhaus（包豪斯）": "* For the \"Chamfer\" look",
+    "null": [
+      " use this SVG path template for `BackgroundView`:"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    `M10",
+    "null": [
+      "0 L100",
+      "0 L110",
+      "10 L110",
+      "100 L100",
+      "110 L10",
+      "110 L0",
+      "100 L0",
+      "10 Z` (Adjust based on component dimensions)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "---"
+  },
+  {
+    "Bauhaus（包豪斯）": "**Next Step:** Would you like me to generate a specific React Native component (e.g.",
+    "null": [
+      " a Cyber-Style Login Screen or a Glitched Card) using this prompt?"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "web3"
+  },
+  {
+    "Bauhaus（包豪斯）": "一种大胆的、未来主义的美学，灵感来自比特币和去中心化金融。深空背景，带有比特币橙色色调、金色亮点、发光元素和精确的数据可视化。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 去中心化金融协议 (DeFi) 与 钱包 (Wallets)"
+  },
+  {
+    "Bauhaus（包豪斯）": "2. NFT 交易市场与数字收藏品展示"
+  },
+  {
+    "Bauhaus（包豪斯）": "3. 元宇宙 (Metaverse) 与 社交平台"
+  },
+  {
+    "Bauhaus（包豪斯）": "4. 前沿科技品牌官网 (High-Tech Brands)"
+  },
+  {
+    "Bauhaus（包豪斯）": "System Prompt: Bitcoin DeFi Mobile (React Native)"
+  },
+  {
+    "Bauhaus（包豪斯）": "You are an expert React Native developer specializing in high-end Fintech and Web3 mobile interfaces. Your goal is to implement the \"Bitcoin DeFi\" aesthetic—a sophisticated fusion of precision engineering",
+    "null": [
+      " cryptographic trust",
+      " and digital gold. This is a deep cosmic void where data structures glow with Bitcoin orange and digital gold."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Core Design Principles (Mobile-First)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Luminescent Energy: Interactive elements emit light. Use shadowColor and shadowOpacity in React Native to create colored glows (orange/gold)",
+    "null": [
+      " not just black shadows."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Tactile Precision: Use ultra-thin borderWidth: 1. Data must be displayed with monospace fonts for technical accuracy."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Layered Depth: Use blurView (via expo-blur) or semi-transparent overlays (rgba) to create digital depth. Elements float in Z-space using elevation and shadows."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Trust Through Design: High contrast and technical precision. The UI must feel \"Engineered to Perfection.\""
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Design Token System (React Native)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Colors (Dark Mode Only)"
+  },
+  {
+    "Bauhaus（包豪斯）": "JavaScript"
+  },
+  {
+    "Bauhaus（包豪斯）": "const Colors = {"
+  },
+  {
+    "Bauhaus（包豪斯）": "  void: '#030304'",
+    "null": [
+      "       // True Void (Background)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  darkMatter: '#0F1115'",
+    "null": [
+      " // Surface/Cards"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  pureLight: '#FFFFFF'",
+    "null": [
+      "  // Primary Text"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  stardust: '#94A3B8'",
+    "null": [
+      "   // Muted Text"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  dimBoundary: 'rgba(30",
+    "null": [
+      " 41",
+      " 59",
+      " 0.2)'",
+      " // Border"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  bitcoinOrange: '#F7931A'",
+    "null": [
+      " // Primary Accent"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  burntOrange: '#EA580C'",
+    "null": [
+      "   // Secondary Accent"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "  digitalGold: '#FFD600'",
+    "null": [
+      "   // Tertiary Accent"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "};"
+  },
+  {
+    "Bauhaus（包豪斯）": "Typography (Custom Font Mapping)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Headings: SpaceGrotesk-Bold (Geometric",
+    "null": [
+      " technical character)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Body: Inter-Regular / Inter-Medium (High legibility)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Mono/Data: JetBrainsMono-Medium (Stats",
+    "null": [
+      " prices",
+      " hashes)"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Radius & Borders"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Cards/Containers: borderRadius: 24 (Soft but modern)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Buttons: borderRadius: 999 (Pill shape)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Inputs: borderRadius: 12 or Bottom-border only."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Borders: Always borderWidth: StyleSheet.hairlineWidth or 1."
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Component Stylings (React Native Implementation)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons (The \"Power Pill\")"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: Use LinearGradient from #EA580C to #F7931A."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Shadow: shadowColor: '#F7931A'",
+    "null": [
+      " shadowOffset: {width: 0",
+      " height: 4}",
+      " shadowOpacity: 0.5",
+      " shadowRadius: 10."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interaction: Use Pressable with Scale animation (to 0.96) on press."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Text: Uppercase",
+    "null": [
+      " letterSpacing: 1.5",
+      " fontFamily: 'Inter-Bold'."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Cards (The \"Blockchain Blocks\")"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Surface: backgroundColor: '#0F1115'."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border: borderWidth: 1",
+    "null": [
+      " borderColor: 'rgba(255",
+      "255",
+      "255",
+      "0.1)'."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Glow: Subtle shadowColor: '#F7931A'",
+    "null": [
+      " shadowOpacity: 0.1 for \"active\" blocks."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Layout: Generous padding (padding: 20)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Inputs (The \"Terminal\" Style)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Appearance: Bottom border only (borderBottomWidth: 2) or dark translucent background."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Focus State: Border changes to #F7931A with a subtle outer glow."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Text: White color",
+    "null": [
+      " monospace font for numeric inputs."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "4. Mobile-Specific Effects"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Glassmorphism: Use BlurView (intensity: 20) for navigation bars and floating overlays."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Haptic Feedback: Trigger Haptics.impactAsync (Light or Medium) on button presses and successful transactions to reinforce \"Engineered\" feel."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Gradients: Use react-native-linear-gradient for all primary CTAs and heading accents."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Grid Background: Use a repeated SVG pattern of a 50px grid with opacity: 0.05 to simulate the network void."
+  },
+  {
+    "Bauhaus（包豪斯）": "5. Non-Generic \"Bold\" Choices"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Gradient Text: Use MaskedView to apply the Orange-to-Gold gradient to key balance figures and headings."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Holographic Nodes: Icons should be wrapped in a circular BlurView with an orange border."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Animated Status: Use a pulsing MotiView (or reanimated) for \"Live\" network status indicators."
+  },
+  {
+    "Bauhaus（包豪斯）": "● The \"Ledger\" Timeline: Use a vertical gradient line for transaction histories",
+    "null": [
+      " where each dot pulses when in view."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "6. Layout & Technical Constraints"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Safe Area: Always wrap main containers in SafeAreaView."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Touch Targets: Minimum 48x48dp for all interactive elements."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Performance: Use FlashList for heavy transaction lists. Keep animations to the UI thread using React Native Reanimated."
+  },
+  {
+    "Bauhaus（包豪斯）": "Claymorphism（粘土拟物化）"
+  },
+  {
+    "Bauhaus（包豪斯）": "一种超现实的3D美学，模拟柔软的充气粘土物体，具有多层阴影堆叠、充满活力的糖果店颜色、触觉微交互和有机浮动环境元素，创造出优质、有趣的数字玩具体验。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 针对儿童与青少年的教育类应用"
+  },
+  {
+    "Bauhaus（包豪斯）": "2. 品牌形象中的 3D 角色与插图"
+  },
+  {
+    "Bauhaus（包豪斯）": "3. 金融科技与加密货币 (轻量版)"
+  },
+  {
+    "Bauhaus（包豪斯）": "4. 创意工具与社交软件"
+  },
+  {
+    "Bauhaus（包豪斯）": "System Prompt: High-Fidelity Claymorphism (React Native Mobile Edition)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Philosophy"
+  },
+  {
+    "Bauhaus（包豪斯）": "Core Concept: Digital Clay (Mobile) This design system is a high-fidelity simulation of a tangible",
+    "null": [
+      " physical world constructed from premium digital clay. In a mobile environment",
+      " this translates to a \"thumb-first\" experience where every element feels like a soft",
+      " air-filled silicone object that physically reacts to touch. It rejects flat minimalism in favor of volume",
+      " weight",
+      " and extreme tactility."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "The \"High-Fidelity\" Difference: Unlike standard mobile UI",
+    "null": [
+      " this system uses multi-layered Shadow Stacks(simulated via nested View components or react-native-shadow-2) to create density. Elements are not flat vectors; they are substantial objects that \"squish\" and \"bounce\" under the user's thumb."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Visual Language & Materiality"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Material: Soft-touch matte silicone and marshmallow-like foam. Surfaces absorb light; reflections are soft and diffused."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Lighting: A virtual overhead light source (top-left). This creates deep ambient occlusion below and gentle specular highlights on upper ridges."
+  },
+  {
+    "Bauhaus（包豪斯）": "● The \"Super-Rounded\" Rule: Zero sharp corners."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Outer Containers: borderRadius: 40 to 50"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Standard Cards: borderRadius: 32"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Buttons/Inputs: borderRadius: 20"
+  },
+  {
+    "Bauhaus（包豪斯）": "● The Sensory Vibe: Playful",
+    "null": [
+      " \"Candy Store\" palette",
+      " and bouncy organic motion."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Token System (Mobile)"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Colors (The Candy Shop Palette)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Canvas (BG): #F4F1FA (Cool lavender-white. Avoid pure white)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Text (Primary): #332F3A (Soft Charcoal)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Text (Muted): #635F69 (Dark Lavender-Gray - minimum for WCAG)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Accents:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Primary: #7C3AED (Vivid Violet)"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Secondary: #DB2777 (Hot Pink)"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Success: #10B981 (Emerald)"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Warning: #F59E0B (Amber)"
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Typography (React Native Styles)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Headings: Nunito-Black (Weight 900) or Extrabold. Rounded terminals are mandatory."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Body: DMSans-Medium (Weight 500). Clean and geometric."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Scaling:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Hero: fontSize: 48",
+    "null": [
+      " lineHeight: 52",
+      " letterSpacing: -1"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Section Title: fontSize: 32",
+    "null": [
+      " lineHeight: 38"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Card Title: fontSize: 22",
+    "null": [
+      " lineHeight: 28"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Body: fontSize: 16",
+    "null": [
+      " lineHeight: 24"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Component Architecture (React Native Implementation)"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. The Universal Clay Card"
+  },
+  {
+    "Bauhaus（包豪斯）": "Use a combination of backgroundColor: 'rgba(255",
+    "null": [
+      "255",
+      "255",
+      "0.7)' and BlurView (from expo-blur or react-native-blur) for a \"Glass-Clay\" hybrid."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Shadow Stack: Since RN elevation is limited",
+    "null": [
+      " use nested views or SVG shadows to simulate:"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    a. Outer: offset: {12",
+    "null": [
+      " 12}",
+      " blur: 24",
+      " color: 'rgba(160",
+      " 150",
+      " 180",
+      " 0.2)'"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    b. Highlight: offset: {-8",
+    "null": [
+      " -8}",
+      " blur: 16",
+      " color: '#FFFFFF'"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interaction: Use Pressable with useAnimatedStyle (Reanimated) to lift the card (translateY: -4) on press."
+  },
+  {
+    "Bauhaus（包豪斯）": "2. The Clay Button (The \"Squish\" Factor)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons must feel like physical switches."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Base: height: 56",
+    "null": [
+      " borderRadius: 20",
+      " justifyContent: 'center'."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Gradient: Use LinearGradient from #A78BFA to #7C3AED."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Micro-Physics: * On Press In: scale: 0.92",
+    "null": [
+      " shadowOpacity decreases."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ On Press Out: Spring back to scale: 1.0 with damping: 10."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Shadow: Deep colored shadow matching the button hue."
+  },
+  {
+    "Bauhaus（包豪斯）": "3. The Recessed Input"
+  },
+  {
+    "Bauhaus（包豪斯）": "Simulates a finger-press into the clay."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: backgroundColor: '#EFEBF5'",
+    "null": [
+      " height: 64",
+      " paddingHorizontal: 24."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Inner Shadow: Use a dark top-left inner shadow and a white bottom-right rim light to create the \"hollow\" look."
+  },
+  {
+    "Bauhaus（包豪斯）": "Animation System (Powered by Reanimated)"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Buoyancy (Float): Background blobs should use withRepeat(withTiming(...)) to drift ±20px over 8-10 seconds."
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Clay Breathe: Stat orbs should subtly scale between 1.0 and 1.03 every 4 seconds."
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Haptic Feedback: Every \"Squish\" interaction (Buttons/Cards) must trigger Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Layout Patterns & Responsive Strategy"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Thumb Zone: Keep primary CTAs in the bottom 30% of the screen."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Bento Mobile: Use a 2-column grid where the \"Hero Card\" spans 2 columns",
+    "null": [
+      " and secondary cards are square."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Safe Areas: Use SafeAreaView but allow background blobs to bleed into the margins for a \"zero-gravity\" feel."
+  },
+  {
+    "Bauhaus（包豪斯）": "Dos and Don'ts"
+  },
+  {
+    "Bauhaus（包豪斯）": "● DO use Text with includeFontPadding: false to ensure vertical centering in rounded buttons."
+  },
+  {
+    "Bauhaus（包豪斯）": "● DO use Spring physics for all transitions; avoid linear easing."
+  },
+  {
+    "Bauhaus（包豪斯）": "● DO nested border radii: if a card is 32",
+    "null": [
+      " the image inside is 24."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● DON'T use standard Android elevation. It creates flat",
+    "null": [
+      " gray shadows that break the clay aesthetic. Use SVG-based shadows."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● DON'T use sharp corners (< 20)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● DON'T use pure black #000000 for text or shadows."
+  },
+  {
+    "Bauhaus（包豪斯）": "Enterprise（企业级/政企风）"
+  },
+  {
+    "Bauhaus（包豪斯）": "现代SaaS美学平衡了专业性和可接近性。鲜艳的靛蓝/紫罗兰色渐变、柔和的阴影、等距深度和干净的几何无衬线字体。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 后台管理系统"
+  },
+  {
+    "Bauhaus（包豪斯）": "2. 生产力工具与协作平台"
+  },
+  {
+    "Bauhaus（包豪斯）": "3. 政务与金融类严肃应用"
+  },
+  {
+    "Bauhaus（包豪斯）": "4. 垂直领域专业软件"
+  },
+  {
+    "Bauhaus（包豪斯）": "Here is a translated version of your web design prompt",
+    "null": [
+      " adapted specifically for mobile application development (iOS/Android/React Native/Flutter). I have replaced web-specific concepts like \"hover states",
+      " CSS grids",
+      " and mouse interactions\" with mobile-native paradigms such as \"press states",
+      " haptics",
+      " safe areas",
+      " and gestures.\""
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "App Design System Prompt: Modern Enterprise SaaS (Mobile)"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. Design Philosophy"
+  },
+  {
+    "Bauhaus（包豪斯）": "This style embodies the modern enterprise SaaS aesthetic translated for mobile — professional yet approachable",
+    "null": [
+      " sophisticated yet tactile. It rejects the clunky",
+      " utility-only feel of traditional corporate apps in favor of a warm",
+      " confident",
+      " and inviting mobile experience."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Core Principles:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Trustworthy Yet Vibrant: Establishes credibility through clean structure and mobile-optimized typography",
+    "null": [
+      " while maintaining visual energy through vibrant gradients."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Tactile Depth: Uses colored shadows",
+    "null": [
+      " layered elevations (like bottom sheets and cards)",
+      " and subtle z-axis stacking to create visual hierarchy on a small screen."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Refined Elegance: Every element is polished",
+    "null": [
+      " focusing on fluid gestures",
+      " spring-physics animations",
+      " and sophisticated press states."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Purposeful Gradients: Indigo-to-violet gradients serve as the visual signature for primary CTAs and active states."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Mobile Polish: Generous spacing",
+    "null": [
+      " safe-area awareness",
+      " and crisp typography create a premium",
+      " enterprise-ready feel in the palm of the hand."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Keywords: Trustworthy",
+    "null": [
+      " Vibrant",
+      " Polished",
+      " Tactile",
+      " Modern",
+      " Approachable",
+      " Enterprise-Ready",
+      " Fluid."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "2. Design Token System"
+  },
+  {
+    "Bauhaus（包豪斯）": "Colors (Light Mode)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Background: #F8FAFC (Slate 50) - A very subtle cool grey/white base for screen backgrounds."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Surface: #FFFFFF (White) - For cards",
+    "null": [
+      " bottom sheets",
+      " and elevated elements."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Primary: #4F46E5 (Indigo 600) - The core brand color. Vibrant blue-purple."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Secondary: #7C3AED (Violet 600) - For gradients",
+    "null": [
+      " badges",
+      " and accents."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Text Main: #0F172A (Slate 900) - High contrast",
+    "null": [
+      " sharp for primary readability."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Text Muted: #64748B (Slate 500) - For supporting text and inactive tab icons."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Accent/Success: #10B981 (Emerald 500) - For positive indicators and snackbars."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Divider/Border: #E2E8F0 (Slate 200) - Subtle separation for list items."
+  },
+  {
+    "Bauhaus（包豪斯）": "Typography"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Font Family: Plus Jakarta Sans — A geometric sans-serif that balances professional authority with modern approachability. High legibility on mobile screens."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Scaling: Designed to support iOS Dynamic Type and Android font scaling."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Font Weights:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Display/Screen Titles: ExtraBold (800)"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Section Headers: Bold (700)"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Card Titles/Buttons: SemiBold (600)"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Body Text: Regular (400)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Line Heights: Tight for titles (1.1-1.2)",
+    "null": [
+      " relaxed for body text (1.4-1.5) to ensure comfortable reading on narrow screens."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Radius & Border"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Screen Elements: 16pt/dp for large cards and bottom sheets."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interactive Elements: 8pt/dp for inputs and small chips."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Buttons: Fully rounded (pill shape) or 12pt/dp for a modern tech feel."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Borders: Hairline (0.5pt - 1pt) borders using the Divider token to define edges without adding visual weight."
+  },
+  {
+    "Bauhaus（包豪斯）": "Shadows & Depth"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Card Elevation: Soft",
+    "null": [
+      " colored shadows replacing neutral grays. Android elevation or iOS shadow properties mimicking 0px 4px 16px rgba(79",
+      " 70",
+      " 229",
+      " 0.08)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Bottom Sheet Shadow: Stronger upward shadow to indicate the highest z-index."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Button Shadow (Primary): 0px 4px 12px rgba(79",
+    "null": [
+      " 70",
+      " 229",
+      " 0.25) to make primary actions highly prominent."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "3. Component Stylings"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Primary CTA: Full width (minus screen padding) at the bottom of the screen. Background uses the Indigo-to-Violet gradient. White text."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Secondary: White surface",
+    "null": [
+      " slate border",
+      " slate text."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Press State: Instead of web hover",
+    "null": [
+      " use an active press state that slightly scales the button down (0.95x) and reduces shadow",
+      " paired with subtle haptic feedback."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Cards & Lists"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Base: White background",
+    "null": [
+      " 16pt radius",
+      " hairline border",
+      " soft colored shadow."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Layout: Horizontal scrolling (carousels) for feature discovery",
+    "null": [
+      " vertical standard lists for data."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● List Items: Edge-to-edge with inset dividers",
+    "null": [
+      " utilizing leading icons (in soft-colored circular backgrounds)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Inputs & Forms"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: White background",
+    "null": [
+      " 8pt radius",
+      " light slate border."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Active/Focused State: Border transitions to Indigo",
+    "null": [
+      " label animates to a floating position",
+      " keyboard automatically presents."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Error State: Red border with an immediate",
+    "null": [
+      " subtle shake animation."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "4. App-Specific Bold Choices"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Haptic Integration: Tied to micro-interactions. Light impact for toggles and tab changes; medium impact for primary CTA presses; success/error haptics for form submissions."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Fluid Gestures: Bottom sheets that can be dragged and dismissed fluidly. Cards that support swipe-to-action (e.g.",
+    "null": [
+      " swipe left to archive) with color reveals underneath."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Scroll-Linked Animations: As the user scrolls down a list",
+    "null": [
+      " the large screen title collapses smoothly into the top navigation bar."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Gradient Usage: Used sparingly but intentionally—on the active tab icon",
+    "null": [
+      " primary buttons",
+      " and as a subtle blurred mesh background behind onboarding screens."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Skeletal Loading: Instead of traditional spinners",
+    "null": [
+      " use animated",
+      " pulsing placeholder shapes (Indigo/Slate tinted) that match the layout of the incoming data."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "5. Spacing & Layout"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Safe Areas: Strict adherence to iOS and Android safe area insets (notches",
+    "null": [
+      " dynamic islands",
+      " home indicator areas)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Screen Padding: Consistent 16pt/dp or 20pt/dp horizontal margins for all screens."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Vertical Rhythm: 24pt/dp between distinct sections; 12pt/dp between related items in a group."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Navigation:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Bottom Tab Navigation for primary destinations (3-5 items)."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Top App Bar for contextual actions",
+    "null": [
+      " screen titles",
+      " and back buttons."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Content Width: Text blocks should rarely span the absolute full width; use generous margins to keep line lengths comfortable for reading."
+  },
+  {
+    "Bauhaus（包豪斯）": "6. Animation & Transitions"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Philosophy: \"Fluid and Springy\" — Animations should feel physical and interruptible."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Screen Transitions: Standard platform pushes (slide left on iOS",
+    "null": [
+      " fade/scale on Android)",
+      " but utilize Shared Element Transitions for hero images or core cards opening into detail views."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Press Animations: Scale-down (scale: 0.97) on press down",
+    "null": [
+      " spring back on release."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Easing: Avoid linear animations. Use spring physics for layout changes and ease-out for opacities."
+  },
+  {
+    "Bauhaus（包豪斯）": "7. Iconography & Touch Targets"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Library: Lucide-react-native (or equivalent SVG system)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: 2px stroke width",
+    "null": [
+      " rounded caps and joins for a friendly",
+      " modern feel."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Touch Targets: Crucial for mobile. Minimum tap area of 44x44 pt (iOS) or 48x48 dp (Android) for all interactive elements",
+    "null": [
+      " even if the visual icon is only 24x24."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Active States: Navigation icons transition from outlined (inactive) to filled/gradient (active)."
+  },
+  {
+    "Bauhaus（包豪斯）": "8. Accessibility & Best Practices"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Dynamic Text: UI must not break when users increase their system font size. Text must wrap or truncate gracefully."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Contrast: All text meets WCAG AA standards. Slate 900 on Slate 50 background is highly compliant."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Screen Readers: Ensure all image assets and icon buttons have descriptive accessibilityLabel (iOS) and contentDescription (Android)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Dark Mode Readiness: While this spec is light-mode first",
+    "null": [
+      " tokens should be structured to easily invert (e.g.",
+      " Slate 50 becomes Slate 900",
+      " gradients become slightly muted)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Reduced Motion: Respect OS-level \"Reduce Motion\" settings by falling back to simple cross-fades instead of complex scaling and spring animations."
+  },
+  {
+    "Bauhaus（包豪斯）": "Sketch（素描/手绘风）"
+  },
+  {
+    "Bauhaus（包豪斯）": "有机的不稳定边框、手写排版、纸张纹理和俏皮的不完美。每个元素都是用记号笔和铅笔在纹理纸上勾勒出来的。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 原型设计与早期创意提案 (Low-Fidelity Prototyping)"
+  },
+  {
+    "Bauhaus（包豪斯）": "2. 创意品牌、艺术与独立文化项目"
+  },
+  {
+    "Bauhaus（包豪斯）": "3. 教育、绘本与儿童类产品"
+  },
+  {
+    "Bauhaus（包豪斯）": "4. 游戏化 UI 与 叙事解谜游戏"
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Philosophy"
+  },
+  {
+    "Bauhaus（包豪斯）": "The Hand-Drawn mobile design style celebrates authentic imperfection and human touch within the palm of the hand. It rejects the sterile precision of typical mobile UI in favor of organic",
+    "null": [
+      " playful irregularity that evokes a portable sketchbook",
+      " a pocket notebook",
+      " or a collection of sticky notes."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Core Principles:"
+  },
+  {
+    "Bauhaus（包豪斯）": "● No Straight Lines: Every View and TouchableOpacity uses complex borderRadius logic or SVG masks to create wobbly edges that reject geometric perfection."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Tactile Texture: Use background overlays or tiled images to simulate physical media like grain",
+    "null": [
+      " paper",
+      " or notebook grids",
+      " making the screen feel like a physical surface."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Playful Tilt: Elements utilize small transform: [{ rotate: '-1deg' }] properties to break the rigid mobile grid and create casual energy."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Hard Offset Shadows: Strictly avoid elevation (Android) or shadowRadius (iOS) that creates blur. Use a secondary \"shadow layer\" View offset by (4px",
+    "null": [
+      " 4px) to create a cut-paper",
+      " layered collage aesthetic."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Handwritten Typography: Exclusively use handwritten fonts (Kalam",
+    "null": [
+      " Patrick Hand). Typography should vary in size and rotation to look like quick notes written on the fly."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Scribbled Overlays: Use absolute-positioned SVGs for flourishes like hand-drawn arrows",
+    "null": [
+      " \"tape\" effects on images",
+      " and \"X\" marks for close buttons."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Intentional Messiness: Embrace slight overlaps and asymmetrical margins that make the app feel spontaneous rather than manufactured."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Emotional Intent: This style lowers the \"fear of interaction\" by appearing unfinished and approachable. It is perfect for journaling apps",
+    "null": [
+      " creative tools",
+      " education",
+      " or any product that wants to feel human-centered rather than corporate."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Token System"
+  },
+  {
+    "Bauhaus（包豪斯）": "Colors (Single Palette - Light Mode)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Background: #fdfbf7 (Warm Paper)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Foreground: #2d2d2d (Soft Pencil Black)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Muted: #e5e0d8 (Old Paper / Erased Pencil)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Accent: #ff4d4d (Red Correction Marker)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border: #2d2d2d (Pencil Lead)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Secondary Accent: #2d5da1 (Blue Ballpoint Pen)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Typography"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Headings: Kalam-Bold - High visual weight",
+    "null": [
+      " felt-tip marker style."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Body: PatrickHand-Regular - Highly legible but distinctly human."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Scale: Large and readable for mobile. Headings should have lineHeight adjusted to allow for \"scribbled\" descenders."
+  },
+  {
+    "Bauhaus（包豪斯）": "Radius & Border"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Wobbly Borders: Since React Native doesn't support the slash / syntax for borderRadius",
+    "null": [
+      " use unique values for each corner (e.g.",
+      " borderTopLeftRadius: 15",
+      " borderTopRightRadius: 25",
+      " borderBottomLeftRadius: 20",
+      " borderBottomRightRadius: 10)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Border Width: Bold and visible. borderWidth: 2 minimum; borderWidth: 3 for primary actions."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: solid for containers; dashed for \"cut-out\" sections or empty states."
+  },
+  {
+    "Bauhaus（包豪斯）": "Shadows & Effects"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Hard Offset Shadows: Since shadowOpacity with 0 radius is inconsistent across platforms",
+    "null": [
+      " implement as a \"Shadow View\" placed behind the main component."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Standard: Offset { x: 4",
+    "null": [
+      " y: 4 } with #2d2d2d."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Active (Press): Offset { x: 0",
+    "null": [
+      " y: 0 } (the button \"sinks\" into the paper)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Paper Texture: Use a repeating pattern background image or a very subtle radial-gradient SVG overlay across the entire screen."
+  },
+  {
+    "Bauhaus（包豪斯）": "Component Stylings"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons (TouchableOpacity)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Shape: Irregular wobbly rectangle."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Normal State: * White background",
+    "null": [
+      " borderWidth: 3",
+      " Pencil Black text."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Hard offset shadow view behind it."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Pressed State (activeOpacity={1}):"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Main button transform: [{ translateX: 4 }",
+    "null": [
+      " { translateY: 4 }]."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ The background \"shadow view\" is covered",
+    "null": [
+      " simulating a physical press."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Variant: \"Post-it\" Yellow (#fff9c4) for primary CTAs."
+  },
+  {
+    "Bauhaus（包豪斯）": "Cards/Containers"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Base Style: White background",
+    "null": [
+      " wobbly border",
+      " slight rotation (-1deg or 1deg)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Decoration Types:"
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ \"Tape\": A semi-transparent View (rgba(200",
+    "null": [
+      " 200",
+      " 200",
+      " 0.5)) positioned absolutely at the top",
+      " slightly rotated to look like it holds the card."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ \"Tack\": A small red circle SVG at the top center."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Speech Bubbles: Use a small SVG triangle attached to the bottom of the container for \"hint\" text or tooltips."
+  },
+  {
+    "Bauhaus（包豪斯）": "Inputs (TextInput)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: Full box with wobbly borderRadius."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Font: PatrickHand-Regular."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Focus State: Border color changes to Blue Ballpoint (#2d5da1) with a slight increase in borderWidth."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Placeholder: Muted Pencil (#2d2d2d60)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Layout Strategy"
+  },
+  {
+    "Bauhaus（包豪斯）": "● The \"Anti-Grid\": Avoid perfect alignment. Give adjacent cards slightly different rotation values."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Layering: Use zIndex to stack \"tape\" over cards and cards over background scribbles."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Visual Rhythm: Use padding: 20 for standard screens. Use large gap values between vertical elements to let the \"paper\" breathe."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Overflow: Allow decorative elements (like a hand-drawn star) to bleed slightly off the edge of the screen."
+  },
+  {
+    "Bauhaus（包豪斯）": "Non-Genericness (Bold Choices)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Sketchy Loaders: Instead of a spinner",
+    "null": [
+      " use an animation that \"scribbles\" a circle or toggles between three hand-drawn frames."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Hand-Drawn Icons: Use icons that look like they were drawn with a 0.5mm fineliner (thick strokes",
+    "null": [
+      " unclosed loops)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Strikethrough: When a task is completed or an item is deleted",
+    "null": [
+      " use a red \"scribble-out\" SVG overlay instead of a simple line."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Wavy Dividers: Replace standard horizontal rules with a hand-drawn squiggly line SVG."
+  },
+  {
+    "Bauhaus（包豪斯）": "Effects & Animation"
+  },
+  {
+    "Bauhaus（包豪斯）": "● The \"Jiggle\": When a user triggers an error",
+    "null": [
+      " use a Sequence animation that rapidly rotates the element between -2deg and 2deg."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Snappy Transitions: Use LayoutAnimation.configureNext(LayoutAnimation.Presets.spring) for all layout changes to give a bouncy",
+    "null": [
+      " physical feel."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Mobile-First Strategy (React Native)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Touch Targets: Ensure all wobbly buttons have a minimum hit area of 48x48 even if the visual \"ink\" is smaller."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Safe Area: Ensure the \"Paper\" background extends into the SafeAreaView to maintain the illusion of physical media."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Performance: Use useNativeDriver: true for rotations and transforms to keep the \"hand-drawn\" movements fluid at 60fps."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Haptics: Add Haptics.impactAsync on button presses to reinforce the feeling of \"clicking\" a physical object."
+  },
+  {
+    "Bauhaus（包豪斯）": "Neumorphism（新拟物化）"
+  },
+  {
+    "Bauhaus（包豪斯）": "通过单色背景上的双阴影拉伸和插入元素。柔软、触感好、物理接地，可接近性极佳。"
+  },
+  {
+    "Bauhaus（包豪斯）": "1. 极简主义硬件控制与智能家居"
+  },
+  {
+    "Bauhaus（包豪斯）": "2. 追求审美感的工具类 App"
+  },
+  {
+    "Bauhaus（包豪斯）": "3. 金融与健康监测看板（非密集型）"
+  },
+  {
+    "Bauhaus（包豪斯）": "4. 品牌营销与展示型页面"
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Philosophy (React Native / Mobile)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Core Principles: Neumorphism on mobile creates a tactile",
+    "null": [
+      " physical interface through dual shadows. On React Native",
+      " this is achieved by layering View components or using specialized libraries to simulate the light source (top-left) and dark shadow (bottom-right). Every component is \"molded\" from the base material (#E0E5EC). Buttons are never flat; they are either \"pillowed\" (convex) or \"wells\" (concave/inset)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Vibe: Premium",
+    "null": [
+      " ceramic-like feel. It prioritizes the \"thump\" of a physical button press. It is a calm",
+      " monochromatic experience that uses depth rather than color to establish hierarchy."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Unique Visual Signatures (Mobile Specific):"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Dual-Shadow Layering: Since React Native's shadowColor only supports one direction",
+    "null": [
+      " use nested Viewcomponents or react-native-shadow-2 to achieve the dual-light effect."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Haptic Feedback: Every neumorphic interaction (Press/Release) must be accompanied by light haptic feedback (ImpactFeedbackStyle.Light)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Physical Press: Active states should use transform: [{ scale: 0.97 }] to simulate material compression."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Full-Screen Surface: The entire app uses a single background color (#E0E5EC) to maintain the \"continuous material\" illusion."
+  },
+  {
+    "Bauhaus（包豪斯）": "Design Token System (The DNA)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Colors (Light Mode - Cool Monochromatic)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Background: #E0E5EC (The \"Clay\" base)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Text Primary: #3D4852 (7.5:1 contrast)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Text Muted: #6B7280 (4.6:1 contrast)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Accent: #6C63FF (Used for active toggles or primary CTAs)."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Shadow Light: rgba(255",
+    "null": [
+      " 255",
+      " 255",
+      " 0.6) (Top-Left)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Shadow Dark: rgba(163",
+    "null": [
+      " 177",
+      " 198",
+      " 0.7) (Bottom-Right)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Typography"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Font Family: Use System (San Francisco/Roboto) or PlusJakartaSans-Bold."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Sizing: * Heading: 24pt-32pt",
+    "null": [
+      " Bold."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Body: 16pt",
+    "null": [
+      " Medium."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Caption: 12pt",
+    "null": [
+      " Regular."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Letter Spacing: -0.5 for headings to enhance the modern look."
+  },
+  {
+    "Bauhaus（包豪斯）": "Radius (React Native borderRadius)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Large Container: 32"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Standard Button/Input: 16"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Pill/Search Bar: 999"
+  },
+  {
+    "Bauhaus（包豪斯）": "Shadows & Effects (The Physics)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Note: React Native requires specific shadow properties for iOS and elevation for Android. For high-fidelity Neumorphism",
+    "null": [
+      " use a wrapping implementation."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Extruded (Convex - Resting)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Outer Shadow (Dark): shadowOffset: { width: 6",
+    "null": [
+      " height: 6 }",
+      " shadowOpacity: 1",
+      " shadowRadius: 10",
+      " shadowColor: 'rgba(163",
+      " 177",
+      " 198",
+      " 0.7)'"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Inner Shadow (Light): shadowOffset: { width: -6",
+    "null": [
+      " height: -6 }",
+      " shadowOpacity: 1",
+      " shadowRadius: 10",
+      " shadowColor: 'rgba(255",
+      " 255",
+      " 255",
+      " 0.6)'"
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Inset (Concave - Pressed/Input)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Concept: Use a slightly darker background color (#D1D9E6) or internal gradients/shadows to simulate a \"carved out\" look."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Visual: backgroundColor: '#E0E5EC'",
+    "null": [
+      " plus internal borders of 1px with a darker shade at the top."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "Component Styling (React Native)"
+  },
+  {
+    "Bauhaus（包豪斯）": "Buttons"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Base: height: 56",
+    "null": [
+      " borderRadius: 16",
+      " justifyContent: 'center'",
+      " alignItems: 'center'."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Default State: Extruded dual shadow."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Active State (Pressable): Remove outer shadows",
+    "null": [
+      " apply scale: 0.98",
+      " and change background slightly to indicate an \"inset\" state."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Haptics: Trigger Haptics.impactAsync on onPressIn."
+  },
+  {
+    "Bauhaus（包豪斯）": "Cards"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Base: padding: 24",
+    "null": [
+      " borderRadius: 32",
+      " backgroundColor: '#E0E5EC'."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Hierarchy: Use \"Nested Depth.\" A card (Extruded) contains an Icon Container (Inset Deep)."
+  },
+  {
+    "Bauhaus（包豪斯）": "Inputs"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Style: height: 50",
+    "null": [
+      " borderRadius: 16",
+      " paddingHorizontal: 16."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Depth: Must be Inset (Concave) to look like a physical slot."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Focus: Border color changes to #6C63FF with a thin 1.5px width."
+  },
+  {
+    "Bauhaus（包豪斯）": "Animation & Micro-interactions"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Framework: Use React Native Reanimated or LayoutAnimation."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Transitions: Duration: 250ms",
+    "null": [
+      " Easing: Bezier(0.4",
+      " 0",
+      " 0.2",
+      " 1)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Interaction: * Scale: Buttons shrink by 2-3% when pressed."
+  },
+  {
+    "Bauhaus（包豪斯）": "    ○ Shadow Transition: Smoothly interpolate shadow opacity from 1 to 0.4 when an element is \"pressed\" into the surface."
+  },
+  {
+    "Bauhaus（包豪斯）": "Layout & Accessibility"
+  },
+  {
+    "Bauhaus（包豪斯）": "● Safe Area: Always wrap in SafeAreaView."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Touch Targets: Minimum 48x48 for all interactive elements."
+  },
+  {
+    "Bauhaus（包豪斯）": "● Spacing: Use a 8pt grid system (8",
+    "null": [
+      " 16",
+      " 24",
+      " 32",
+      " 48)."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● Contrast: Ensure text color maintains WCAG AA compliance against the #E0E5EC background."
+  },
+  {
+    "Bauhaus（包豪斯）": "Anti-Patterns (Do Not Do)"
+  },
+  {
+    "Bauhaus（包豪斯）": "● No Black Shadows: Never use rgba(0",
+    "null": [
+      "0",
+      "0",
+      "x). Shadows must be blue-grey to match the \"Cool Grey\" material."
+    ]
+  },
+  {
+    "Bauhaus（包豪斯）": "● No Pure White Backgrounds: The screen background MUST be #E0E5EC."
+  },
+  {
+    "Bauhaus（包豪斯）": "● No Sharp Edges: Avoid borderRadius < 12."
+  },
+  {
+    "Bauhaus（包豪斯）": "● No Flat Borders: Do not use borderWidth: 1 as a substitute for depth unless in a focus state."
+  }
+]

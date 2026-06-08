@@ -30,6 +30,8 @@ export default antfu(
       '.next/**/*',
       'pnpm-workspace.yaml',
       '**/*.md',
+      '**/ui-ux-pro-max/data/**/*.json',
+      '**/ui-ux-pro-max/scripts/**/*',
     ],
   },
   // --- Accessibility Rules ---
