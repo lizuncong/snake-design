@@ -57,7 +57,7 @@ export function createAgent(config: AgentConfig): AgentInstance {
       const loadSkillTool = createLoadSkillTool(skillManager);
       const readSkillFileTool = createReadSkillFileTool(skillManager);
       const evalSkillJsTool = createEvalSkillJsTool(skillManager);
-
+      // window.evalSkillJsTool = evalSkillJsTool;
       const toolsWithSkills = [...allTools, loadSkillTool, readSkillFileTool, evalSkillJsTool];
 
       return runAgent(

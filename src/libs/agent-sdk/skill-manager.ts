@@ -175,6 +175,11 @@ export class SkillManager {
     return skill ? Object.keys(skill.files) : [];
   }
 
+  getSkillFiles(skillName: string): Record<string, string> {
+    const skill = this.skills.get(skillName);
+    return skill ? skill.files : {};
+  }
+
   // ---- Prompt 生成（Level 1）----
 
   getSkillIndex(): string {

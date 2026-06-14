@@ -1,20 +1,14 @@
 /**
- * UI/UX Pro Max Search Engine - BM25 搜索引擎（浏览器端版本）
+ * UI/UX Pro Max Search Engine - BM25 搜索引擎（eval_skill_js 沙箱版本）
+ *
+ * 执行环境：通过 eval_skill_js 在沙箱中运行，_skillFiles 已注入所有文件内容。
  *
  * 使用方式：
- *   1. 先通过 read_skill_file() 加载所需 JSON 数据
- *   2. 调用 UIUXSearch.search(query, domain) 进行域搜索
- *   3. 调用 UIUXSearch.generateDesignSystem(query) 生成完整设计系统
- *
- * 示例：
- *   const products = JSON.parse(read_skill_file("ui-ux-pro-max/data/products.json"));
- *   const styles = JSON.parse(read_skill_file("ui-ux-pro-max/data/styles.json"));
- *   // ... 加载其他数据
- *   UIUXSearch.loadData({ products, styles, colors, typography, landing, uiReasoning });
- *   const ds = UIUXSearch.generateDesignSystem("健身App 运动追踪");
+ *   eval_skill_js('ui-ux-pro-max', 'scripts/search.js',
+ *     "UIUXSearch.generateDesignSystem('健身App 运动追踪')")
  */
 
-console.log('BM25 搜索引擎加载');
+console.log('search.js _skillFiles.....', _skillFiles);
 
 // ============ BM25 实现 ============
 class BM25 {
@@ -29,12 +23,53 @@ class BM25 {
     this.N = 0;
   }
 
+  /**
+   * 轻量词干还原：剥离常见后缀，让 ordering→order、analytics→analytic 等能命中
+   */
+  static stem(word) {
+    const rules = [
+      [/ing$/, 3],   // ordering→order
+      [/ly$/, 2],    // quickly→quick
+      [/ion$/, 3],   // animation→animat
+      [/ive$/, 3],   // active→act
+      [/ment$/, 4],  // management→manage
+      [/ness$/, 4],  // darkness→dark
+      [/er$/, 3],    // tracker→track
+      [/s$/, 1],     // orders→order（仅末尾s）
+    ];
+    for (const [sfx, minLen] of rules) {
+      if (sfx.test(word)) {
+        const s = word.replace(sfx, '');
+        if (s.length >= minLen) return s;
+      }
+    }
+    return word;
+  }
+
   tokenize(text) {
-    return String(text || "")
+    const rawTokens = String(text || "")
       .toLowerCase()
-      .replace(/[^\w\s]/g, " ")
+      .replace(/[^\w一-鿿\s]/g, " ")
       .split(/\s+/)
-      .filter((w) => w.length > 2);
+      .filter((w) => {
+        if (!w) return false;
+        const isCJK = /[一-鿿]/.test(w);
+        return isCJK ? w.length >= 1 : w.length > 2;
+      });
+
+    // 对英文词同时保留原形和词干（提升召回率）
+    const tokens = [];
+    const seen = new Set();
+    for (const w of rawTokens) {
+      if (!seen.has(w)) { tokens.push(w); seen.add(w); }
+      if (/[a-z]/.test(w)) {
+        const s = BM25.stem(w);
+        if (s !== w && !seen.has(s) && s.length > 2) { tokens.push(s); seen.add(s); }
+      }
+    }
+
+    console.log(`[UIUXSearch:tokenize] "${text}" → [${tokens.join(', ')}]`);
+    return tokens;
   }
 
   fit(documents) {
@@ -230,6 +265,7 @@ class UIUXSearchEngine {
     let bestDomain = "style";
     let bestScore = 0;
 
+    const scores = {};
     for (const [domain, keywords] of Object.entries(DOMAIN_KEYWORDS)) {
       let score = 0;
       for (const kw of keywords) {
@@ -237,11 +273,13 @@ class UIUXSearchEngine {
         const regex = new RegExp("\\b" + escaped + "\\b", "i");
         if (regex.test(lower)) score++;
       }
+      scores[domain] = score;
       if (score > bestScore) {
         bestScore = score;
         bestDomain = domain;
       }
     }
+    console.log(`[UIUXSearch:detectDomain] "${query}" → ${bestDomain} (scores: ${JSON.stringify(scores)})`);
     return bestDomain;
   }
 
@@ -277,6 +315,8 @@ class UIUXSearchEngine {
     bm25.fit(documents);
     const ranked = bm25.score(query);
 
+    console.log(`[UIUXSearch:search] domain=${domain}, docs=${documents.length}, top3 scores: [${ranked.slice(0, 3).map(([, s]) => s.toFixed(2)).join(', ')}]`);
+
     // 提取 Top-N 结果
     const results = [];
     for (const [idx, score] of ranked.slice(0, n)) {
@@ -291,6 +331,7 @@ class UIUXSearchEngine {
       }
     }
 
+    console.log(`[UIUXSearch:search] → ${results.length} results, first: ${results[0]?.[config.outputCols[0]] || 'none'}`);
     return {
       domain,
       query,
@@ -364,6 +405,87 @@ class UIUXSearchEngine {
   }
 
   /**
+   * 计算匹配置信度（0-100）
+   *
+   * 评估维度：
+   * - 产品类型是否命中（非 General fallback）
+   * - 各域搜索结果的 BM25 分数
+   * - 是否大量使用了默认值
+   * - 查询关键词与数据源的匹配程度
+   */
+  _calculateConfidence(query, productResult, styleResult, colorResult, typographyResult, landingResult) {
+    let score = 50; // 基准分
+
+    // 维度1：产品类型匹配质量 (+20)
+    const productResults = productResult.results || [];
+    if (productResults.length > 0) {
+      const topProduct = productResults[0];
+      if (topProduct["Product Type"] && topProduct["Product Type"] !== "General") {
+        score += 15;
+        // BM25 分数越高越可信
+        if (productResult.scores && productResult.scores[0] > 10) score += 5;
+      }
+    } else {
+      score -= 15; // 完全没搜到产品类型，严重降分
+    }
+
+    // 维度2：风格匹配质量 (+15)
+    const styleResults = styleResult.results || [];
+    if (styleResults.length > 0) {
+      score += 8;
+      if (styleResult.scores && styleResult.scores[0] > 8) score += 7;
+    }
+
+    // 维度3：配色匹配质量 (+15)
+    const colorResults = colorResult.results || [];
+    if (colorResults.length > 0) {
+      score += 8;
+      if (colorResult.scores && colorResult.scores[0] > 8) score += 7;
+    } else {
+      score -= 10; // 配色使用默认值，降分
+    }
+
+    // 维度4：字体匹配质量 (+10)
+    const typographyResults = typographyResult.results || [];
+    if (typographyResults.length > 0) {
+      score += 6;
+      if (typographyResult.scores && typographyResult.scores[0] > 6) score += 4;
+    }
+
+    // 维度5：布局模式匹配质量 (+10)
+    const landingResults = landingResult.results || [];
+    if (landingResults.length > 0) {
+      score += 5;
+      if (landingResult.scores && landingResult.scores[0] > 6) score += 5;
+    }
+
+    // 维度6：查询质量 — 关键词丰富度
+    const queryWords = query.toLowerCase().split(/\s+/).filter(function(w) { return w.length > 2; });
+    if (queryWords.length >= 4) score += 5;     // 关键词足够多
+    else if (queryWords.length >= 2) score += 2;
+    else score -= 5;                              // 查询太模糊
+
+    // 维度7：默认值惩罚 — 如果多个域都用了 fallback
+    let defaultCount = 0;
+    if (!colorResults || colorResults.length === 0) defaultCount++;
+    if (!typographyResults || typographyResults.length === 0) defaultCount++;
+    if (!styleResults || styleResults.length === 0) defaultCount++;
+    if (!landingResults || landingResults.length === 0) defaultCount++;
+    score -= defaultCount * 5;
+
+    return Math.max(0, Math.min(100, score));
+  }
+
+  /**
+   * 根据置信度返回建议动作
+   */
+  _getConfidenceAction(confidence) {
+    if (confidence >= 75) return { level: "high", action: "use_as_reference", message: "搜索结果置信度高，可作为设计参考基准。" };
+    if (confidence >= 50) return { level: "medium", action: "partial_reference", message: "搜索结果置信度中等，建议作为起点但需结合用户偏好调整。" };
+    return { level: "low", action: "deep_survey", message: "搜索结果置信度较低，必须先通过问卷收集详细需求后再设计。" };
+  }
+
+  /**
    * 解析 Decision_Rules JSON 字符串
    */
   _parseDecisionRules(raw) {
@@ -383,6 +505,8 @@ class UIUXSearchEngine {
    * @returns {Object} 完整设计系统对象
    */
   generateDesignSystem(query, projectName = null) {
+    console.log(`[UIUXSearch:generateDesignSystem] query="${query}", project="${projectName}"`);
+
     // Step 1: 搜索产品类型
     const productResult = this.search(query, "product", 1);
     const productResults = productResult.results || [];
@@ -390,12 +514,16 @@ class UIUXSearchEngine {
       ? (productResults[0]["Product Type"] || "General")
       : "General";
 
+    console.log(`[UIUXSearch:DS] Step1 category=${category}`);
+
     // Step 2: 获取推理规则
     const rule = this._findReasoningRule(category);
     const stylePriority = (rule["Style_Priority"] || "")
       .split("+")
       .map((s) => s.trim())
       .filter(Boolean);
+
+    console.log(`[UIUXSearch:DS] Step2 stylePriority=[${stylePriority.join(', ')}], severity=${rule["Severity"] || 'MEDIUM'}`);
 
     // Step 3: 多域并行搜索
     const styleQuery = stylePriority.length > 0
@@ -418,7 +546,12 @@ class UIUXSearchEngine {
     const bestTypography = typographyResults[0] || {};
     const bestLanding = landingResults[0] || {};
 
-    // Step 5: 组装最终设计系统
+    // Step 5: 计算匹配置信度
+    const confidence = this._calculateConfidence(query, productResult, styleResult, colorResult, typographyResult, landingResult);
+    const confidenceAction = this._getConfidenceAction(confidence);
+    console.log(`[UIUXSearch:DS] confidence=${confidence}, level=${confidenceAction.level}, action=${confidenceAction.action}`);
+
+    // Step 6: 组装最终设计系统
     const styleEffects = bestStyle["Effects & Animation"] || "";
     const reasoningEffects = rule["Key_Effects"] || "";
     const combinedEffects = styleEffects || reasoningEffects;
@@ -426,6 +559,22 @@ class UIUXSearchEngine {
     return {
       project_name: projectName || query.toUpperCase(),
       category,
+
+      // 置信度（核心新增字段）
+      confidence: {
+        score: confidence,
+        level: confidenceAction.level,
+        action: confidenceAction.action,
+        message: confidenceAction.message,
+        // 各域匹配详情，供 Agent 判断哪些域可信、哪些需自选
+        details: {
+          product: { matched: (productResults.length > 0 && productResults[0]["Product Type"] !== "General"), category: category },
+          style: { matched: (styleResults.length > 0), name: bestStyle["Style Category"] || "(default)" },
+          color: { matched: (colorResults.length > 0), primary: bestColor["Primary"] || "(default #2563EB)" },
+          typography: { matched: (typographyResults.length > 0), heading: bestTypography["Heading Font"] || "(default Inter)" },
+          landing: { matched: (landingResults.length > 0), pattern: bestLanding["Pattern Name"] || "(default)" }
+        }
+      },
 
       // 页面模式
       pattern: {
@@ -501,6 +650,21 @@ class UIUXSearchEngine {
 
     lines.push(`## Design System: ${ds.project_name}`);
     lines.push(`**Category:** ${ds.category}`);
+
+    // Confidence（核心新增）
+    if (ds.confidence) {
+      const conf = ds.confidence;
+      const levelIcon = conf.level === "high" ? "✅" : conf.level === "medium" ? "⚠️" : "🔶";
+      lines.push(`**Confidence:** ${levelIcon} ${conf.score}/100 (${conf.level}) — ${conf.message}`);
+      // 各域匹配详情
+      if (conf.details) {
+        const domainStatus = Object.entries(conf.details).map(function(kv) {
+          const [domain, info] = kv;
+          return info.matched ? `✓ ${domain}` : `✗ ${domain} (default)`;
+        }).join(" | ");
+        lines.push(`**Domain Match:** ${domainStatus}`);
+      }
+    }
     lines.push("");
 
     // Pattern
@@ -560,50 +724,69 @@ class UIUXSearchEngine {
 // ============ 全局暴露 ============
 const UIUXSearch = new UIUXSearchEngine();
 
-// 兼容性导出
-if (typeof window !== "undefined") {
-  window.UIUXSearch = UIUXSearch;
-  window.BM25 = BM25; // 暴露 BM25 类以便高级用法
-}
+// ============ 从 _skillFiles 自动加载数据 ============
+// _skillFiles 是 Record<string, string>（路径 → JSON 字符串），所有数据已在内存中
+(function initFromSkillFiles() {
+  if (typeof _skillFiles !== 'object' || !_skillFiles) return;
 
-// ============ 自动加载（eval_skill_js 环境下按需加载数据） ============
-// 当通过 eval_skill_js 执行时，上下文注入了 _loadJson(path) API
-// 脚本自行决定需要哪些数据文件
-(function autoLoad() {
-  // 核心搜索链路必需的数据（generateDesignSystem 依赖这些）
-  const coreFiles = [
-    { key: 'products', path: 'data/products.json' },
-    { key: 'styles', path: 'data/styles.json' },
-    { key: 'colors', path: 'data/colors.json' },
-    { key: 'typography', path: 'data/typography.json' },
-    { key: 'landing', path: 'data/landing.json' },
-    { key: 'uiReasoning', path: 'data/ui-reasoning.json' },
-  ];
-
-  // 域搜索扩展数据（search(domain) 按需可用）
-  const domainFiles = [
-    { key: 'charts', path: 'data/charts.json' },
-    { key: 'uxGuidelines', path: 'data/ux-guidelines.json' },
-    { key: 'icons', path: 'data/icons.json' },
-    { key: 'googleFonts', path: 'data/google-fonts.json' },
-  ];
+  /** 路径 → dataStore key 映射 */
+  const fileMap = {
+    'data/products.json': 'products',
+    'data/styles.json': 'styles',
+    'data/colors.json': 'colors',
+    'data/typography.json': 'typography',
+    'data/landing.json': 'landing',
+    'data/ui-reasoning.json': 'uiReasoning',
+    'data/charts.json': 'charts',
+    'data/ux-guidelines.json': 'uxGuidelines',
+    'data/icons.json': 'icons',
+    'data/google-fonts.json': 'googleFonts',
+  };
 
   const loaded = {};
-
-  // 尝试通过 _loadJson 加载核心数据
-  if (typeof _loadJson === 'function') {
-    for (const { key, path } of [...coreFiles, ...domainFiles]) {
-      try {
-        const data = _loadJson(path);
-        if (data) loaded[key] = data;
-      } catch (e) {
-        console.warn(`[UIUXSearch] Failed to load ${path}:`, e.message);
-      }
+  for (const [path, key] of Object.entries(fileMap)) {
+    const raw = _skillFiles[path];
+    if (raw) {
+      try { loaded[key] = JSON.parse(raw); }
+      catch (e) { console.warn(`[UIUXSearch] Failed to parse ${path}:`, e.message); }
     }
   }
 
   if (Object.keys(loaded).length > 0) {
     UIUXSearch.loadData(loaded);
-    console.log(`[UIUXSearch] Auto-loaded ${Object.keys(loaded).length} data sources`);
+    console.log(`[UIUXSearch] Loaded ${Object.keys(loaded).length} data sources from _skillFiles`);
   }
+})();
+
+// ============ _params 分发入口 ============
+// 对齐 Python CLI 参数: query, design_system, project_name, domain, max_results
+// 脚本执行后根据 _params 自动分发到对应方法，返回 JSON 字符串
+return (function dispatchFromParams() {
+  if (typeof _params !== 'object' || !_params) return;
+
+  const { query, design_system, project_name, domain, max_results } = _params;
+
+  console.log(`[UIUXSearch:dispatch] params=${JSON.stringify(_params)}`);
+
+  if (!query) {
+    throw new Error('[UIUXSearch] _params.query is required');
+  }
+
+  let result;
+  const mode = design_system ? 'design_system' : domain ? `domain:${domain}` : 'auto';
+
+  if (design_system) {
+    // 对应: python search.py "<query>" --design-system --project-name "<name>"
+    result = UIUXSearch.generateDesignSystem(query, project_name);
+  } else if (domain) {
+    // 对应: python search.py "<query>" --domain <domain> [--max-results N]
+    result = UIUXSearch.search(query, domain, max_results);
+  } else {
+    // 对应: python search.py "<query>" (自动检测域)
+    result = UIUXSearch.search(query, null, max_results);
+  }
+
+  const output = typeof result === 'string' ? result : JSON.stringify(result, null, 2);
+  console.log(`[UIUXSearch:dispatch] mode=${mode}, output_size=${output.length} chars`);
+  return output;
 })();
