@@ -25,7 +25,7 @@ export function createLoadSkillTool(skillManager: SkillManager): ToolDefinition 
       properties: {
         name: {
           type: 'string',
-          description: 'The exact skill name to load (e.g., "ui-ux-pro-max")',
+          description: 'The exact skill name to load',
         },
       },
       required: ['name'],
@@ -134,15 +134,15 @@ export function createEvalSkillJsTool(skillManager: SkillManager): ToolDefinitio
       '- _params: object — structured call parameters (query, design_system, project_name, domain, max_results)',
       '',
       'Usage examples:',
-      '- eval_skill_js(\'ui-ux-pro-max\', \'scripts/search.js\', { query: "fitness gym app workout tracker", design_system: true, project_name: "FitTrack" })',
-      '- eval_skill_js(\'ui-ux-pro-max\', \'scripts/search.js\', { query: "SaaS", domain: "color", max_results: 3 })',
+      '- eval_skill_js(\'my-skill\', \'scripts/search.js\', { query: \'fitness app\' })',
+      '- eval_skill_js(\'my-skill\', \'scripts/search.js\', { query: \'SaaS\', domain: \'color\' })',
     ].join('\n'),
     input_schema: {
       type: 'object',
       properties: {
         skill_name: {
           type: 'string',
-          description: 'The name of the skill that owns the script (e.g., "ui-ux-pro-max")',
+          description: 'The name of the skill that owns the script',
         },
         file_path: {
           type: 'string',

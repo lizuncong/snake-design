@@ -26,8 +26,8 @@ P3-LOW (完善): 锦上添花，建议优化
 
 ## Phase 0: 设计系统一致性校验（Design System Adherence）
 
-> **这是本环境特有的审查阶段。main-agent 调用搜索引擎生成了 design system JSON，代码必须与之对齐。**
-> 如果调用时未传入 design system JSON，跳过此阶段直接进入 Phase 1。
+> **这是本环境特有的审查阶段。如果 main-agent 传入了设计决策上下文，代码应与之对齐。**
+> 如果调用时未传入设计决策上下文，跳过此阶段直接进入 Phase 1。
 
 ### 校验项
 
@@ -102,8 +102,7 @@ index.html   → 仅含 HTML 骨架 + CDN script + <script src="./components/...
 
 ## Phase 2: 审美审查（Aesthetic Review）
 
-> **详细设计规则请参考 ui-ux-pro-max SKILL.md 的 Quick Reference（§1-§10）和 Pre-Delivery Checklist。**
-> 本阶段聚焦于 SKILL.md 无法自动检查的**主观品质维度**和**AI 特有缺陷**。
+> **本阶段聚焦于** **主观品质维度**和**AI 特有缺陷**。
 
 ### 2.1 反 AI 模式检查（Anti-AI Pattern Audit）
 
@@ -208,7 +207,7 @@ index.html   → 仅含 HTML 骨架 + CDN script + <script src="./components/...
 1. **质量评分 < 6 分**：设计缺乏品质，需要方向性调整
 2. **反 AI 模式触犯 ≥ 3 项**：AI 指纹过重
 3. **P0 问题数 > 2**：基础质量问题过多
-4. **设计系统遵循度 < 5/7**：严重偏离搜索引擎给出的方案
+4. **设计决策一致性差**：严重偏离设计方向
 5. **用户明确要求迭代**：用户对当前方案不满意
 
 ### 迭代流程
