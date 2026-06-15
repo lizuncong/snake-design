@@ -25,7 +25,7 @@ export function createLoadSkillTool(skillManager: SkillManager): ToolDefinition 
       properties: {
         name: {
           type: 'string',
-          description: 'The exact skill name to load (e.g., "ui-ux-pro-max")',
+          description: 'The exact skill name to load',
         },
       },
       required: ['name'],
@@ -109,6 +109,126 @@ export function createReadSkillFileTool(skillManager: SkillManager): ToolDefinit
       }
 
       return `[File: ${sName}/${fPath}]\n${content}`;
+    },
+  };
+}
+
+/**
+ * 创建 eval_skill_js 工具（Level 3 JS 执行器）
+ *
+ * 在沙箱环境中执行 Skill 的 JS 脚本文件，注入该 skill 的完整文件内容 Map
+ * 和调用参数，脚本自行决定需要哪些数据、如何处理。
+ *
+ * 注入的上下文变量：
+ *   _skillFiles: Record<string, string> — 该 skill 所有文件的完整内容 Map（路径 → 内容）
+ *   _params: object — 结构化调用参数（对齐 Python CLI 参数名）
+ */
+export function createEvalSkillJsTool(skillManager: SkillManager): ToolDefinition {
+  return {
+    name: 'eval_skill_js',
+    description: [
+      'Execute a JavaScript file from a loaded skill in a sandboxed environment.',
+      '',
+      'Injected context variables:',
+      '- _skillFiles: Record<string, string> — full file content map (path → content) for this skill',
+      '- _params: object — structured call parameters (query, design_system, project_name, domain, max_results)',
+      '',
+      'Usage examples:',
+      '- eval_skill_js(\'my-skill\', \'scripts/search.js\', { query: \'fitness app\' })',
+      '- eval_skill_js(\'my-skill\', \'scripts/search.js\', { query: \'SaaS\', domain: \'color\' })',
+    ].join('\n'),
+    input_schema: {
+      type: 'object',
+      properties: {
+        skill_name: {
+          type: 'string',
+          description: 'The name of the skill that owns the script',
+        },
+        file_path: {
+          type: 'string',
+          description: 'Path to the JS script within the skill (e.g., "scripts/search.js")',
+        },
+        params: {
+          type: 'object',
+          description:
+            'Optional: Structured parameters passed to the script as _params. '
+            + 'The actual fields depend on the target skill and script.',
+        },
+      },
+      required: ['skill_name', 'file_path'],
+    },
+    async execute({ skill_name, file_path, params }: Record<string, unknown>) {
+      const sName = String(skill_name ?? '');
+      const fPath = String(file_path ?? '');
+
+      if (!sName || !fPath) {
+        return 'Error: Both "skill_name" and "file_path" are required.';
+      }
+
+      const skill = skillManager.getSkill(sName);
+      if (!skill) {
+        return `Error: Skill "${sName}" not found.`;
+      }
+
+      // 读取脚本文件
+      const scriptContent = skillManager.getSkillFile(sName, fPath);
+      if (!scriptContent) {
+        const available = skillManager.listSkillFiles(sName);
+        return [
+          `Error: Script "${fPath}" not found in skill "${sName}".`,
+          available.length > 0 ? `Available: ${available.join(', ')}` : 'No files.',
+        ].join('\n');
+      }
+
+      // 构建沙箱：注入该 skill 的完整文件内容 Map（路径 → 内容字符串）和调用参数
+      const allFiles = skillManager.getSkillFiles(sName);
+      const sandbox: Record<string, unknown> = {
+        _skillFiles: allFiles, // Record<string, string>
+        _params: params, // 结构化参数（对齐 Python CLI）
+      };
+
+      // 捕获 console 输出
+      // const logs: string[] = [];
+      // const capturedConsole = {
+      //   log: (...args: unknown[]) => logs.push(args.map(a => formatValue(a)).join(' ')),
+      //   warn: (...args: unknown[]) => logs.push(`[WARN] ${args.map(a => formatValue(a)).join(' ')}`),
+      //   error: (...args: unknown[]) => logs.push(`[ERROR] ${args.map(a => formatValue(a)).join(' ')}`),
+      // };
+
+      try {
+        const injectedCode = [
+          '// === Skill context ===',
+          `const { _skillFiles, _params } = _sandbox;`,
+          '',
+          '// === Script source ===',
+          scriptContent,
+        ].join('\n');
+
+        // 后续可以拦截console，或者监听js error，将错误信息也返回给LLM s
+        // const fn = new Function('_sandbox', '_console', injectedCode);
+        // Function 构造器创建隔离作用域（eval_skill_js 的核心能力）
+        // eslint-disable-next-line no-new-func
+        const fn = new Function('_sandbox', injectedCode);
+        console.log('fn...', fn);
+        const result = fn(sandbox);
+        console.log('result...', result);
+        return result;
+        // 组装返回结果
+        // const parts: string[] = [];
+        // if (logs.length > 0) {
+        //   parts.push('[Console Output]', ...logs);
+        // }
+        // if (result !== undefined) {
+        //   parts.push(
+        //     '[Return Value]',
+        //     typeof result === 'object' ? JSON.stringify(result, null, 2) : String(result),
+        //   );
+        // }
+        // return parts.length > 0 ? parts.join('\n') : '[OK] Script executed successfully.';
+      } catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        return `[Execution Error] ${message}`;
+      }
     },
   };
 }

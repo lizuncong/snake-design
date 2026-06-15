@@ -1,4 +1,13 @@
-import { uiUxProMaxSkill } from './ui-ux-pro-max';
+import { frontendDesignSkill } from './frontend-design';
 
-/** 所有内置 Skill 的原始内容列表 */
-export const BUILTIN_SKILLS = [uiUxProMaxSkill];
+// ui-ux-pro-max 已禁用，保留目录
+// import { uiUxProMaxSkill } from './ui-ux-pro-max';
+
+export const BUILTIN_SKILLS: Array<{
+  source: 'builtin';
+  content: string;
+  files?: Record<string, string>;
+}> = [
+  frontendDesignSkill,
+  // uiUxProMaxSkill,
+];

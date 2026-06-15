@@ -1,6 +1,9 @@
 import type { DesignFile, FileStore } from './file-store';
 import type { SnipRecord, ToolDefinition } from './types';
 
+/** 暂停型工具的返回标记，agent 循环检测到此值后中断执行，等待用户响应 */
+export const PAUSE_SIGNAL = '__PAUSE__';
+
 let msgIdCounter = 0;
 
 export function createTools(fileStore: FileStore): ToolDefinition[] {
@@ -83,7 +86,57 @@ Snips is a REGISTRATION system, not immediate deletion. Registering is cheap and
     },
   };
 
-  return [...fsTools, snipTool];
+  const askUserQuestionTool: ToolDefinition = {
+    name: 'ask_user_question',
+    description: [
+      'Ask the user a set of design-related questions before starting any design work.',
+      '',
+      'Use this tool when you need to gather design requirements, preferences, or decisions from the user.',
+      'All questions must be included in a SINGLE call — do NOT call this tool multiple times.',
+      '',
+      'The frontend will display an interactive question panel with options for each question.',
+      'After the user selects their answers, they will be submitted back to you as a summary.',
+      'You should then use those answers to inform your design decisions.',
+    ].join('\n'),
+    input_schema: {
+      type: 'object',
+      properties: {
+        questions: {
+          type: 'array',
+          description: 'Array of questions to ask the user. Each question has id, question text, category header, options, and optional multiSelect flag.',
+          items: {
+            type: 'object',
+            properties: {
+              id: { type: 'string', description: 'Unique identifier for this question (e.g., "product_type", "visual_style")' },
+              question: { type: 'string', description: 'The full question text to display to the user' },
+              header: { type: 'string', description: 'Short category label shown above the question (e.g., "产品类型", "视觉风格")' },
+              options: {
+                type: 'array',
+                description: 'Available options for the user to choose from (2-6 options recommended)',
+                items: {
+                  type: 'object',
+                  properties: {
+                    label: { type: 'string', description: 'Display text for the option' },
+                    value: { type: 'string', description: 'Internal value for this option' },
+                    description: { type: 'string', description: 'Optional supplementary explanation for the option' },
+                  },
+                  required: ['label', 'value'],
+                },
+              },
+              multiSelect: { type: 'boolean', description: 'Whether the user can select multiple options for this question. Defaults to false (single select).' },
+            },
+            required: ['id', 'question', 'header', 'options'],
+          },
+        },
+      },
+      required: ['questions'],
+    },
+    async execute() {
+      return PAUSE_SIGNAL;
+    },
+  };
+
+  return [...fsTools, snipTool, askUserQuestionTool];
 }
 
 const registeredSnips: SnipRecord[] = [];

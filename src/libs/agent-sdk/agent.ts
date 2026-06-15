@@ -2,7 +2,7 @@ import type { LlmClient } from './llm';
 import type { SkillManager } from './skill-manager';
 import type { AgentCallbacks, LlmMessage, ToolDefinition } from './types';
 import { getMaxOutputTokens } from '@/app/[locale]/design/lib/model-config';
-import { executeSnips, registerSnip, tagUserMessage, trimMessages } from './tools';
+import { executeSnips, PAUSE_SIGNAL, registerSnip, tagUserMessage, trimMessages } from './tools';
 
 const TOKEN_PER_CHAR = 0.3;
 const DEFAULT_MAX_TURNS = 100;
@@ -171,6 +171,12 @@ export async function runAgent(
         tool_call_id: tc.id,
         content: result,
       });
+
+      // 暂停型工具（如 ask_user_question）：中断循环，等待用户响应后由前端重新调用 run()
+      if (result === PAUSE_SIGNAL) {
+        callbacks.onDone(usage);
+        return messages;
+      }
     }
 
     pendingInput = '';

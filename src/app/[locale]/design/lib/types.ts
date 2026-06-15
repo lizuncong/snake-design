@@ -5,6 +5,25 @@ export type ToolCallInfo = {
   result?: string;
 };
 
+export type QuestionOption = {
+  label: string;
+  description?: string;
+  value: string;
+};
+
+export type QuestionItem = {
+  id: string;
+  question: string;
+  header: string;
+  options: QuestionOption[];
+  multiSelect?: boolean;
+};
+
+export type QuestionPanelData = {
+  questions: QuestionItem[];
+  onAnswer: (answers: Record<string, string | string[]>) => void;
+};
+
 export type ChatMessage = {
   id: string;
   type: 'user' | 'assistant' | 'thinking' | 'tool-call' | 'tool-result' | 'system' | 'error' | 'done';

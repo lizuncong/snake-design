@@ -4,7 +4,7 @@ import { runAgent } from './agent';
 import { FileStore } from './file-store';
 import { createLlmClient } from './llm';
 import { SkillManager } from './skill-manager';
-import { createLoadSkillTool, createReadSkillFileTool } from './skill-tools';
+import { createEvalSkillJsTool, createLoadSkillTool, createReadSkillFileTool } from './skill-tools';
 import { createSubAgentTool } from './subagent-tool';
 import { createTools } from './tools';
 
@@ -56,8 +56,9 @@ export function createAgent(config: AgentConfig): AgentInstance {
       // 动态创建 Skill 工具（确保 description 包含最新列表）
       const loadSkillTool = createLoadSkillTool(skillManager);
       const readSkillFileTool = createReadSkillFileTool(skillManager);
-
-      const toolsWithSkills = [...allTools, loadSkillTool, readSkillFileTool];
+      const evalSkillJsTool = createEvalSkillJsTool(skillManager);
+      // window.evalSkillJsTool = evalSkillJsTool;
+      const toolsWithSkills = [...allTools, loadSkillTool, readSkillFileTool, evalSkillJsTool];
 
       return runAgent(
         userInput,

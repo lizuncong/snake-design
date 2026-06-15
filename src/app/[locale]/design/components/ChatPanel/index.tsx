@@ -1,10 +1,11 @@
 'use client';
 
 import type { Dispatch, SetStateAction } from 'react';
-import type { ChatMessage } from '../../lib/types';
+import type { ChatMessage, QuestionItem, QuestionPanelData } from '../../lib/types';
 import type { AgentCallbacks, AgentInstance, LlmMessage } from '@/libs/agent-sdk';
 import { useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { ChatBubble } from './ChatBubble';
+import { QuestionPanel } from './QuestionPanel';
 import { ThinkingCard } from './ThinkingCard';
 import { ToolCard } from './ToolCard';
 
@@ -34,6 +35,8 @@ export const ChatPanel = function ChatPanel(
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [isRunning, setIsRunning] = useState(false);
   const conversationRef = useRef<LlmMessage[]>(initialConversation ?? []);
+  const onSendRef = useRef<(input: string) => Promise<void>>(undefined);
+  const [questionPanel, setQuestionPanel] = useState<QuestionPanelData | null>(null);
 
   const scrollToBottom = useCallback(() => {
     if (scrollRef.current) {
@@ -115,6 +118,7 @@ export const ChatPanel = function ChatPanel(
 
       let currentStreamId = '';
       let currentThinkingId = '';
+      let pausedToolName: string | null = null;
       const fileWriteSet = new Set<string>();
 
       try {
@@ -158,6 +162,38 @@ export const ChatPanel = function ChatPanel(
             finalizeStream();
             currentStreamId = '';
             currentThinkingId = '';
+
+            if (name === 'ask_user_question' && Array.isArray(inputArgs.questions)) {
+              const questions: QuestionItem[] = (inputArgs.questions as Array<Record<string, unknown>>).map((q: Record<string, unknown>) => ({
+                id: q.id as string,
+                question: q.question as string,
+                header: q.header as string,
+                options: (q.options as Array<Record<string, unknown>>).map((o: Record<string, unknown>) => ({
+                  label: o.label as string,
+                  description: o.description as string | undefined,
+                  value: o.value as string,
+                })),
+                multiSelect: q.multiSelect as boolean | undefined,
+              }));
+
+              pausedToolName = name;
+
+              setQuestionPanel({
+                questions,
+                onAnswer: (answers: Record<string, string | string[]>) => {
+                  setQuestionPanel(null);
+                  const answerSummary = Object.entries(answers).map(([qid, val]) => {
+                    const q = questions.find(item => item.id === qid);
+                    const label = q?.question ?? qid;
+                    const displayVal = Array.isArray(val) ? val.join(', ') : val;
+                    return `- ${label}: ${displayVal}`;
+                  }).join('\n');
+                  void onSendRef.current?.(`[需求调研结果]\n${answerSummary}`);
+                },
+              });
+              return;
+            }
+
             addMessage({
               id: generateId(),
               type: 'tool-call',
@@ -171,6 +207,9 @@ export const ChatPanel = function ChatPanel(
             }
           },
           onToolResult(name: string, result: string) {
+            if (name === pausedToolName) {
+              return;
+            }
             addMessage({
               id: generateId(),
               type: 'tool-result',
@@ -222,6 +261,10 @@ export const ChatPanel = function ChatPanel(
     onSend,
     getConversation: () => conversationRef.current,
   }), [onSend]);
+
+  useEffect(() => {
+    onSendRef.current = onSend;
+  }, [onSend]);
 
   useEffect(() => {
     if (initialConversation && initialConversation.length > 0) {
@@ -373,6 +416,12 @@ export const ChatPanel = function ChatPanel(
           按 Enter 发送 · Shift + Enter 换行
         </p>
       </div>
+
+      {questionPanel && (
+        <div className="absolute inset-0 z-50 flex items-center justify-center bg-[#0f172a]/80 backdrop-blur-sm">
+          <QuestionPanel data={questionPanel} />
+        </div>
+      )}
     </section>
   );
 };
