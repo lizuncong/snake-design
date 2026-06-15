@@ -55,6 +55,7 @@ type QuestionPanelProps = {
 
 export function QuestionPanel({ data }: QuestionPanelProps) {
   const [answers, setAnswers] = useState<Record<string, string | string[]>>({});
+  const [customInputs, setCustomInputs] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -70,7 +71,15 @@ export function QuestionPanel({ data }: QuestionPanelProps) {
     if (currentQ.multiSelect) {
       return Array.isArray(ans) && ans.length > 0;
     }
-    return !!ans;
+    if (!ans) {
+      return false;
+    }
+    // 如果选中的是"其他"选项，需要检查是否填写了自定义内容
+    const selectedOpt = currentQ.options.find(o => o.value === ans);
+    if (selectedOpt?.isOther && !customInputs[currentQ.id]) {
+      return false;
+    }
+    return true;
   })();
 
   const handleSelect = (qId: string, value: string) => {
@@ -92,9 +101,21 @@ export function QuestionPanel({ data }: QuestionPanelProps) {
   };
 
   const handleNext = () => {
+    // 将自定义输入内容合并到答案中
+    const finalAnswers = { ...answers };
+    Object.entries(customInputs).forEach(([qId, customValue]) => {
+      if (customValue) {
+        const q = questions.find(x => x.id === qId);
+        const selectedOpt = q?.options.find(o => o.value === finalAnswers[qId]);
+        if (selectedOpt?.isOther) {
+          finalAnswers[qId] = customValue;
+        }
+      }
+    });
+
     if (isLastQuestion) {
       setSubmitted(true);
-      data.onAnswer(answers);
+      data.onAnswer(finalAnswers);
     } else {
       setCurrentStep(s => s + 1);
     }
@@ -182,13 +203,23 @@ export function QuestionPanel({ data }: QuestionPanelProps) {
               ? Array.isArray(currentAns) && currentAns.includes(opt.value)
               : currentAns === opt.value;
             return (
-              <OptionCard
-                key={opt.value}
-                option={opt}
-                selected={selected}
-                multiSelect={!!currentQ.multiSelect}
-                onClick={() => handleSelect(currentQ.id, opt.value)}
-              />
+              <div key={opt.value}>
+                <OptionCard
+                  option={opt}
+                  selected={selected}
+                  multiSelect={!!currentQ.multiSelect}
+                  onClick={() => handleSelect(currentQ.id, opt.value)}
+                />
+                {opt.isOther && selected && (
+                  <input
+                    type="text"
+                    value={customInputs[currentQ.id] ?? ''}
+                    onChange={e => setCustomInputs(prev => ({ ...prev, [currentQ.id]: e.target.value }))}
+                    placeholder="请输入你的想法..."
+                    className="mt-2 w-full rounded-lg border border-[#3b82f6]/40 bg-[#0f172a]/60 px-3.5 py-2.5 text-[13px] text-[#e2e8f0] placeholder-[#475569] transition-all outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/30"
+                  />
+                )}
+              </div>
             );
           })}
         </div>

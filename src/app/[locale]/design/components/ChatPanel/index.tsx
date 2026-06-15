@@ -172,6 +172,7 @@ export const ChatPanel = function ChatPanel(
                   label: o.label as string,
                   description: o.description as string | undefined,
                   value: o.value as string,
+                  isOther: o.isOther as boolean | undefined,
                 })),
                 multiSelect: q.multiSelect as boolean | undefined,
               }));
