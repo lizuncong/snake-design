@@ -418,7 +418,7 @@ export const ChatPanel = function ChatPanel(
       </div>
 
       {questionPanel && (
-        <div className="absolute inset-0 z-50 flex items-center justify-center bg-[#0f172a]/80 backdrop-blur-sm">
+        <div className="border-t border-[#334155]/40 bg-gradient-to-t from-[#0f172a] to-[#0f172a]/95 p-3">
           <QuestionPanel data={questionPanel} />
         </div>
       )}

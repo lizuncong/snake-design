@@ -129,9 +129,9 @@ export function QuestionPanel({ data }: QuestionPanelProps) {
   }
 
   return (
-    <div className="w-full overflow-hidden rounded-xl border border-[#334155]/60 bg-gradient-to-b from-[#1a2332] to-[#151d2b] shadow-lg shadow-black/20">
+    <div className="flex max-h-[50vh] flex-col overflow-hidden rounded-xl border border-[#334155]/60 bg-gradient-to-b from-[#1a2332] to-[#151d2b] shadow-lg shadow-black/20">
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-[#334155]/40 bg-[#1e293b]/30 px-5 py-3.5">
+      <div className="flex shrink-0 items-center justify-between border-b border-[#334155]/40 bg-[#1e293b]/30 px-5 py-3.5">
         <div className="flex items-center gap-2.5">
           <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#3b82f6]/15">
             <svg className="h-4 w-4 text-[#60a5fa]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -160,8 +160,8 @@ export function QuestionPanel({ data }: QuestionPanelProps) {
         />
       </div>
 
-      {/* Question content */}
-      <div className="space-y-4 p-5">
+      {/* Question content - scrollable */}
+      <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-5">
         {/* Category header */}
         <div className="flex items-center gap-2">
           <span className="inline-flex items-center rounded-md bg-[#3b82f6]/10 px-2 py-0.5 text-[11px] font-medium text-[#60a5fa]">
@@ -195,7 +195,7 @@ export function QuestionPanel({ data }: QuestionPanelProps) {
       </div>
 
       {/* Footer actions */}
-      <div className="flex items-center justify-between border-t border-[#334155]/40 bg-[#1e293b]/20 px-5 py-3.5">
+      <div className="flex shrink-0 items-center justify-between border-t border-[#334155]/40 bg-[#1e293b]/20 px-5 py-3.5">
         <button
           type="button"
           onClick={handlePrev}
