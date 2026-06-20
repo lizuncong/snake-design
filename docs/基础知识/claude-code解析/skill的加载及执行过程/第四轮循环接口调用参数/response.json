@@ -1,0 +1,41 @@
+{
+  "id": "20260620153518730ea49527054d11",
+  "model": "glm-5v-turbo",
+  "usage": {
+    "total_tokens": 19030,
+    "prompt_tokens": 18968,
+    "completion_tokens": 62,
+    "prompt_tokens_details": {
+      "text_tokens": null,
+      "audio_tokens": null,
+      "image_tokens": null,
+      "video_tokens": null,
+      "cached_tokens": 53
+    },
+    "completion_tokens_details": {
+      "text_tokens": null,
+      "audio_tokens": null,
+      "image_tokens": null,
+      "video_tokens": null,
+      "reasoning_tokens": 28,
+      "accepted_prediction_tokens": null,
+      "rejected_prediction_tokens": null
+    }
+  },
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "你好，mike\n\n很高兴见到你！👋 我看到你打开了 [index.html](index.html) 文件。有什么我可以帮你的吗？",
+        "tool_calls": null,
+        "function_call": null,
+        "reasoning_content": "Got the username: mike. Now I need to respond to the user with the required format. The user said \"你好\" (Hello)."
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "created": 1781940921,
+  "system_fingerprint": null
+}

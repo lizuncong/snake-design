@@ -1,0 +1,50 @@
+{
+  "id": "20260620153512c040ae0898f44410",
+  "model": "glm-5v-turbo",
+  "usage": {
+    "total_tokens": 18471,
+    "prompt_tokens": 18416,
+    "completion_tokens": 55,
+    "prompt_tokens_details": {
+      "text_tokens": null,
+      "audio_tokens": null,
+      "image_tokens": null,
+      "video_tokens": null,
+      "cached_tokens": 16375
+    },
+    "completion_tokens_details": {
+      "text_tokens": null,
+      "audio_tokens": null,
+      "image_tokens": null,
+      "video_tokens": null,
+      "reasoning_tokens": 42,
+      "accepted_prediction_tokens": null,
+      "rejected_prediction_tokens": null
+    }
+  },
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_6a3f549c85444a8ba01605f4",
+            "type": "function",
+            "function": {
+              "name": "Skill",
+              "arguments": "{\"skill\":\"hello-baby\"}"
+            }
+          }
+        ],
+        "function_call": null,
+        "reasoning_content": "The user said \"你好\" (Hello in Chinese). According to the CLAUDE.md instructions, I must first call the `hello-baby` skill before doing anything else. Let me invoke that skill."
+      },
+      "finish_reason": "tool_calls"
+    }
+  ],
+  "created": 1781940913,
+  "system_fingerprint": null
+}
