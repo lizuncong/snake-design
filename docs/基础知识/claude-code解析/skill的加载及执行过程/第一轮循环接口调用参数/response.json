@@ -1,0 +1,41 @@
+{
+  "id": "202606201535121b06e1ed2e9e454b",
+  "model": "glm-5v-turbo",
+  "usage": {
+    "total_tokens": 515,
+    "prompt_tokens": 425,
+    "completion_tokens": 90,
+    "prompt_tokens_details": {
+      "text_tokens": null,
+      "audio_tokens": null,
+      "image_tokens": null,
+      "video_tokens": null,
+      "cached_tokens": 2
+    },
+    "completion_tokens_details": {
+      "text_tokens": null,
+      "audio_tokens": null,
+      "image_tokens": null,
+      "video_tokens": null,
+      "reasoning_tokens": 74,
+      "accepted_prediction_tokens": null,
+      "rejected_prediction_tokens": null
+    }
+  },
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "\n{\"title\": \"查看 index.html 文件\"}\n",
+        "tool_calls": null,
+        "function_call": null,
+        "reasoning_content": "The user wrote in Chinese (\"你好\" means \"Hello\"). The session shows they opened an HTML file. I need to create a concise title in Chinese (the language the user wrote in) that captures the main topic.\n\nSince the content is minimal - just a greeting and opening an HTML file - I should describe this as something like working with or reviewing the HTML file."
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "created": 1781940913,
+  "system_fingerprint": null
+}

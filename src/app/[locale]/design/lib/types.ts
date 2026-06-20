@@ -9,6 +9,7 @@ export type QuestionOption = {
   label: string;
   description?: string;
   value: string;
+  isOther?: boolean;
 };
 
 export type QuestionItem = {
