@@ -306,7 +306,7 @@ export const ChatPanel = function ChatPanel(
   };
 
   return (
-    <section className="flex h-full min-w-[200px] flex-col border-r border-[#1e293b] bg-[#0f172a]">
+    <section className="relative flex h-full min-w-[200px] flex-col border-r border-[#1e293b] bg-[#0f172a]">
       <div className="flex items-center gap-2.5 border-b border-[#1e293b] bg-[#1e293b]/50 px-4 py-3.5 backdrop-blur-sm">
         <div className="relative">
           <span className="relative flex h-2.5 w-2.5">
@@ -419,7 +419,7 @@ export const ChatPanel = function ChatPanel(
       </div>
 
       {questionPanel && (
-        <div className="border-t border-[#334155]/40 bg-gradient-to-t from-[#0f172a] to-[#0f172a]/95 p-3">
+        <div className="absolute inset-x-0 bottom-0 z-10 border-t border-[#334155]/40 bg-gradient-to-t from-[#0f172a] to-[#0f172a]/95 p-4">
           <QuestionPanel data={questionPanel} />
         </div>
       )}
