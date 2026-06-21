@@ -1,6 +1,6 @@
 ## skill的加载及执行过程
 
-本次demo以打招呼为例，共经过四轮循环
+以自开发的`hello-baby` skill为例，共经过四轮循环
 
 ![image](./01.png)
 
@@ -46,3 +46,40 @@
 6. 正确路径：使用相对路径
 
 ![image](./10.png)
+
+---
+
+## Skill Bash 脚本执行总结
+
+### 一、执行流程概览
+
+Skill 中的 Bash 脚本执行共经历 **4 轮循环**：
+
+```
+用户消息 → 模型返回加载 Skill 指令 → Skill 工具读取内容 → 模型返回 Bash 执行指令 → Bash 工具执行脚本 → 返回结果给模型
+```
+
+### 二、路径解析规则
+
+> **规则：脚本路径中必须包含 `{skill名称}/scripts/` 这一层级，否则报 `MODULE_NOT_FOUND` 错误。**
+
+| 写法 | 示例 | 结果 |
+|------|------|------|
+| 相对路径（含 skill 名） | `.claude/skills/hello-baby/scripts/get_user_name.js` | ✅ |
+| 相对路径（缺 skill 名） | `/scripts/get_user_name.js` | ❌ |
+| 绝对路径（完整） | `/Users/lzc/.../.claude/skills/hello-baby/scripts/get_user_name.js` | ✅ |
+| 绝对路径（简写，含 skill 名） | `/hello-baby/scripts/get_user_name.js` | ✅ |
+| 绝对路径（缺 skill 名） | `/scripts/get_user_name.js` | ❌ |
+
+**结论**：无论相对路径还是绝对路径，**路径中必须出现 skill 名称目录**，这是 Claude Code 解析 Bash 脚本位置的必要条件。
+
+### 三、结果输出规则
+
+脚本必须将结果**输出到标准输出（stdout）**，Bash 工具才能捕获并传回模型：
+
+| 语言 | 正确写法 | 错误写法 | 说明 |
+|------|----------|----------|------|
+| JavaScript | `console.log(getUserName())` | `getUserName()` | 不输出则终端无日志，模型拿不到结果 |
+| Python | `print(get_user_name())` | `get_user_name()` | 同上，必须用 print 输出 |
+
+
